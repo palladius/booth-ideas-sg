@@ -1,6 +1,6 @@
-# Idea to Code: AI Asia 2025 Demo
+# Idea to Code: Euro Cloud Summit Demo
 
-Welcome! This repository contains the source code for the "Idea to Code" demo application, showcased at the Google Cloud booth during [AI Asia 2025: Building Beyond Borders](https://cloudonair.withgoogle.com/events/sg-ai-asia-building-beyond-borders?utm_campaign=FY25-Q3-APAC-APA35466-physicalevent-er-AI-Asia-75958&utm_source=linkedIn&utm_medium=social_leadgenform&utm_content=frontier-reg&utm_term=-) in Singapore.
+Welcome! This repository contains the source code for the "Idea to Code" demo application, showcased at the Google Cloud booth during the Euro Cloud Summit in Switzerland.
 
 This interactive demo showcases how generative AI can dramatically accelerate the software development lifecycle, taking a simple idea from concept to a functional, deployable prototype in minutes.
 
@@ -8,7 +8,8 @@ This interactive demo showcases how generative AI can dramatically accelerate th
 
 All the ideas generated during the event are available for you to explore in our interactive gallery.
 
-**[Browse the Idea Gallery](https://pauldatta.github.io/booth-ideas-sg/)**
+* **Browse the [Idea Gallery Cloud Summit Zurich](https://pauldatta.github.io/booth-ideas-sg/)**
+* **[Browse the Idea Gallery Singapore](https://pauldatta.github.io/booth-ideas-sg/)**
 
 ## Demo Video
 
@@ -24,7 +25,7 @@ The following diagram illustrates the end-to-end process from idea submission to
 
 ## Accessing Your Generated Code
 
-For visitors at the AI Asia 2025: Building Beyond Borders booth:
+For visitors at the Euro Cloud Summit:
 
 1.  When you submit your idea through our application, a new **GitHub Issue** is automatically created in this repository.
 2.  Our [Gemini CLI](https://github.com/google-github-actions/run-gemini-cli) will process your idea, generate the code, and push it to a **new branch**.
@@ -34,3 +35,7 @@ For visitors at the AI Asia 2025: Building Beyond Borders booth:
 ## Application
 
 The web application itself is a Next.js project located in the `ideas-app/` directory. See the [application's README](ideas-app/README.md) for instructions on how to run it locally.
+
+## Riccardo changes
+
+* changed `gh_pages` from branch to
