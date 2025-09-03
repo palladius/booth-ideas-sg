@@ -2,6 +2,13 @@
     "eventName": "🇨🇭 Euro Cloud Summit",
     "ideas": [
         {
+            "createdAt": "2025-09-03T10:15:00Z",
+            "number": 2,
+            "title": "Smart Fondue Pot Temperature Monitor",
+            "url": "https://github.com/palladius/booth-ideas-sg/issues/2",
+            "category": "Lifestyle"
+        },
+        {
             "createdAt": "2025-09-03T09:00:00Z",
             "number": 1,
             "title": "🇮🇹 A Cuckoo Clock That Tweets Jokes",
