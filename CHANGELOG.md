@@ -1,5 +1,10 @@
 # Changelog
 
+## [1.0.4] - 2025-09-03
+
+### Changed
+- Disabled legacy Gemini workflows by moving them to a `.disabled` directory.
+
 ## [1.0.3] - 2025-09-03
 
 ### Fixed
