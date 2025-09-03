@@ -126,6 +126,10 @@ document.addEventListener('DOMContentLoaded', () => {
 
         // Dynamically set the day based on the first idea
         const firstIdeaDate = new Date(ideasData[0].createdAt);
+        const timelineTitle = document.querySelector('.timeline-container h3');
+        const eventDate = firstIdeaDate.toLocaleDateString('en-US', { month: 'long', day: 'numeric' });
+        timelineTitle.textContent = `Timeline of Ideas (${eventDate})`;
+
         const dayStart = new Date(firstIdeaDate);
         dayStart.setHours(9, 0, 0, 0);
 
