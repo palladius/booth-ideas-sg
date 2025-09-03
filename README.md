@@ -8,7 +8,7 @@ This interactive demo showcases how generative AI can dramatically accelerate th
 
 All the ideas generated during the event are available for you to explore in our interactive gallery.
 
-* **Browse the [Idea Gallery Cloud Summit Zurich](https://pauldatta.github.io/booth-ideas-sg/)**
+* **Browse the [Idea Gallery Cloud Summit Zurich](https://palladius.github.io/booth-ideas-sg/)**
 * **[Browse the Idea Gallery Singapore](https://pauldatta.github.io/booth-ideas-sg/)**
 
 ## Demo Video
@@ -38,4 +38,5 @@ The web application itself is a Next.js project located in the `ideas-app/` dire
 
 ## Riccardo changes
 
-* changed `gh_pages` from branch to
+* changed `gh_pages` from branch to GH action. Now it beautifull deploys to https://palladius.github.io/booth-ideas-sg/
+* Abandoned fork + added
