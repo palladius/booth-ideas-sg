@@ -1,0 +1,28 @@
+name: Playwright Screenshot
+
+on:
+  workflow_dispatch:
+
+jobs:
+  screenshot:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+      - run: npm install
+      - run: npx playwright install --with-deps
+      - run: npm run build --workspace=ideas-app
+      - name: Start app and take screenshot
+        run: |
+          npm start --workspace=ideas-app &
+          sleep 10
+          node screenshot.js
+      - name: Commit and push if changed
+        run: |
+          git config --global user.name "github-actions[bot]"
+          git config --global user.email "github-actions[bot]@users.noreply.github.com"
+          git add ideas-app/screenshot.png
+          git commit -m "feat: add playwright screenshot" || echo "No changes to commit"
+          git push
