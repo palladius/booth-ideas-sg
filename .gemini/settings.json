@@ -1,7 +1,7 @@
 {
-  "mcpServers": {
-    "context7": {
-      "httpUrl": "https://mcp.context7.com/mcp"
-    }
+  "maxSessionTurns": 50,
+  "telemetry": {
+    "enabled": false,
+    "target": "gcp"
   }
 }
