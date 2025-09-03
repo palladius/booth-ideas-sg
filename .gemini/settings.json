@@ -1,7 +1,10 @@
 {
+
   "maxSessionTurns": 50,
   "telemetry": {
     "enabled": false,
-    "target": "gcp"
+  "mcpServers": {
+    "playwright": {      "command": "npx",      "args": ["@playwright/mcp@latest"]    },
+    "context7": {      "httpUrl": "https://mcp.context7.com/mcp"    }
   }
 }
