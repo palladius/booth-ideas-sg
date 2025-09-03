@@ -7,7 +7,6 @@ document.addEventListener('DOMContentLoaded', () => {
 
     let currentCategoryFilter = 'All';
 
-    let eventName = '';
     let ideasData = [];
 
     async function loadIdeasData() {
@@ -18,9 +17,7 @@ document.addEventListener('DOMContentLoaded', () => {
             if (!response.ok) {
                 throw new Error(`HTTP error! status: ${response.status}`);
             }
-            const data = await response.json();
-            eventName = data.eventName;
-            ideasData = data.ideas;
+            ideasData = await response.json();
             ideasData.sort((a, b) => new Date(a.createdAt) - new Date(b.createdAt));
         } catch (error) {
             console.error("Could not load ideas data:", error);
@@ -63,7 +60,7 @@ document.addEventListener('DOMContentLoaded', () => {
             const info = document.createElement('p');
             info.className = 'info';
             const time = new Date(idea.createdAt).toLocaleTimeString('en-US', { hour: 'numeric', minute: '2-digit', hour12: true });
-            info.textContent = `${eventName} • Issue #${idea.number} • Created at ${time}`;
+            info.textContent = `Issue #${idea.number} • Created at ${time}`;
 
             const links = document.createElement('div');
             links.className = 'links';
