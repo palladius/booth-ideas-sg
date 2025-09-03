@@ -32,9 +32,6 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    let eventName = '';
-    let ideasData = [];
-
     async function loadIdeasData() {
         const urlParams = new URLSearchParams(window.location.search);
         const dataSource = urlParams.get('data') || 'pauldatta'; // Default to pauldatta
@@ -52,8 +49,6 @@ document.addEventListener('DOMContentLoaded', () => {
             galleryContainer.innerHTML = '<p>Error loading ideas. Please try a different data source or check the console.</p>';
         }
     }
-
-    ideasData.sort((a, b) => new Date(a.createdAt) - new Date(b.createdAt));
 
     function renderCards() {
         galleryContainer.innerHTML = '';
