@@ -1,5 +1,5 @@
 {
-  "maxSessionTurns": 50,
+  "maxSessionTurns": 99,
   "telemetry": {
     "enabled": false,
     "target": "gcp"
