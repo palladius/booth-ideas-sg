@@ -39,6 +39,8 @@ Note: This is only PAST-looking, from the future (riccardo commits), we dont car
 ## Github interaction
 
 * When interacting with GitHub, always SIGN yourself (since your name could be mine, or github actions, ..) with a common signature, like "\n\n-- by ♊️ Gemini CLI ⚙️, on behalf of [Riccardo/GitHubActions]" (depending if its called by Riccardo in CLI or by GitHubAction automation).
+* Since for security reasons you seem unable to propose file changes under `.github/workflows/blah.yml` , try this instead: Propose a  `.github/workflows/blah.yml.gemini_cli_proposal` so we should be good.
+* Do NOT change the `"maxSessionTurns": 50` in `.gemini/settings.json` please! Leave it as it is.
 
 ## Customization
 
