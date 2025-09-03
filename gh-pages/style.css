@@ -279,3 +279,41 @@ footer {
     color: #5f6368;
     font-size: 0.875rem;
 }
+
+#event-selector-container {
+    margin-top: 1.5rem;
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    align-items: center;
+}
+
+#event-selector-container h3 {
+    margin: 0;
+    font-size: 1rem;
+    font-weight: 500;
+}
+
+.event-btn {
+    text-decoration: none;
+    background-color: #f1f3f4;
+    border: 1px solid #dadce0;
+    border-radius: 16px;
+    padding: 0.5rem 1rem;
+    font-family: 'Google Sans', sans-serif;
+    font-size: 0.875rem;
+    cursor: pointer;
+    transition: background-color 0.2s ease, color 0.2s ease;
+    color: #3c4043;
+}
+
+.event-btn:hover {
+    background-color: #e8eaed;
+}
+
+.event-btn.active {
+    background-color: #1a73e8;
+    color: #ffffff;
+    border-color: #1a73e8;
+    font-weight: 700;
+}

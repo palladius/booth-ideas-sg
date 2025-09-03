@@ -1,6 +1,13 @@
 {
     "eventName": "🇨🇭 Euro Cloud Summit",
     "ideas": [
+        {
+            "createdAt": "2025-09-03T10:00:00Z",
+            "number": 1,
+            "title": "A Cuckoo Clock That Tweets Jokes",
+            "url": "https://github.com/palladius/booth-ideas-sg/issues/1",
+            "category": "Lifestyle"
+        },
         {"createdAt":"2025-08-28T08:23:54Z","number":166,"title":"Interactive Planetary Alignment System","url":"https://github.com/pauldatta/booth-ideas-sg/issues/166", "category": "Education"},
         {"createdAt":"2025-08-28T08:10:49Z","number":164,"title":"Event Crowd Flow Tracker","url":"https://github.com/pauldatta/booth-ideas-sg/issues/164", "category": "Productivity"},
         {"createdAt":"2025-08-28T07:56:45Z","number":162,"title":"Warehouse Material Picking Route Optimizer","url":"https://github.com/pauldatta/booth-ideas-sg/issues/162", "category": "Logistics"},
@@ -21,6 +28,6 @@
         {"createdAt":"2025-08-28T01:33:20Z","number":132,"title":"Singapore Single Origin Coffee Roaster Recommendations","url":"https://github.com/pauldatta/booth-ideas-sg/issues/132", "category": "Lifestyle"},
         {"createdAt":"2025-08-28T01:15:49Z","number":130,"title":"Retail Food Waste Redistribution System","url":"https://github.com/pauldatta/booth-ideas-sg/issues/130", "category": "Logistics"},
         {"createdAt":"2025-08-28T00:44:15Z","number":128,"title":"Automated Parking Location Tracker","url":"https://github.com/pauldatta/booth-ideas-sg/issues/128", "category": "Utilities"},
-        {"createdAt":"2025-08-28T00:09:53Z","number":126,"title":"Food Logistics Management Platform","url":"https://github.com/pauldatta/booth-ideas-sg/issues/126", "category": "Logistics"}
+        {"createdAt":"2025-08-28T00:09:53Z","number":126,"title":"Food Logistics Management Platform","url":"https.com/pauldatta/booth-ideas-sg/issues/126", "category": "Logistics"}
     ]
 }

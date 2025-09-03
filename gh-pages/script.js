@@ -4,8 +4,33 @@ document.addEventListener('DOMContentLoaded', () => {
     const ideaCountElement = document.getElementById('idea-count');
     const timelineEventsContainer = document.getElementById('timeline-events');
     const filterContainer = document.getElementById('filter-container');
+    const eventSelectorContainer = document.getElementById('event-selector-container');
 
     let currentCategoryFilter = 'All';
+    let eventName = '';
+    let ideasData = [];
+
+    function renderEventSelector() {
+        const urlParams = new URLSearchParams(window.location.search);
+        const dataSource = urlParams.get('data') || 'pauldatta';
+
+        const events = [
+            { id: 'palladius', name: '🇨🇭 Zurich' },
+            { id: 'pauldatta', name: '🇸🇬 Singapore' }
+        ];
+
+        eventSelectorContainer.innerHTML = '<h3>Select Event:</h3>';
+        events.forEach(event => {
+            const btn = document.createElement('a');
+            btn.href = `?data=${event.id}`;
+            btn.className = 'event-btn';
+            if (dataSource === event.id) {
+                btn.classList.add('active');
+            }
+            btn.textContent = event.name;
+            eventSelectorContainer.appendChild(btn);
+        });
+    }
 
     let eventName = '';
     let ideasData = [];
@@ -139,6 +164,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Initial render
     async function init() {
+        renderEventSelector();
         await loadIdeasData();
         if (ideasData.length > 0) {
             galleryContainer.innerHTML = '';
