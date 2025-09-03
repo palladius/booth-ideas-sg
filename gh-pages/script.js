@@ -12,7 +12,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     function renderEventSelector() {
         const urlParams = new URLSearchParams(window.location.search);
-        const dataSource = urlParams.get('data') || 'pauldatta';
+        const dataSource = urlParams.get('data') || 'palladius';
 
         const events = [
             { id: 'palladius', name: '🇨🇭 Zurich' },
@@ -34,7 +34,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     async function loadIdeasData() {
         const urlParams = new URLSearchParams(window.location.search);
-        const dataSource = urlParams.get('data') || 'pauldatta'; // Default to pauldatta
+        const dataSource = urlParams.get('data') || 'palladius'; // Default to palladius
         try {
             const response = await fetch(`${dataSource}.json`);
             if (!response.ok) {
