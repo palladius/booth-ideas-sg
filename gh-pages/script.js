@@ -83,7 +83,7 @@ document.addEventListener('DOMContentLoaded', () => {
             const info = document.createElement('p');
             info.className = 'info';
             const time = new Date(idea.createdAt).toLocaleTimeString('en-US', { hour: 'numeric', minute: '2-digit', hour12: true });
-            info.textContent = `${eventName} • Issue #${idea.number} • Created at ${time}`;
+            info.textContent = `Issue #${idea.number} • Created at ${time}`;
 
             const links = document.createElement('div');
             links.className = 'links';
