@@ -42,7 +42,7 @@ jobs:
       ) ||
       (
         (
-          github.github.event_name == 'issue_comment' ||
+          github.event_name == 'issue_comment' ||
           github.event_name == 'pull_request_review_comment'
         ) &&
         contains(github.event.comment.body, '@gemini-cli') &&
@@ -155,7 +155,7 @@ jobs:
           repository: '${{ github.repository }}'
           fetch-depth: 0
 
-      
+
 
       - name: 'Acknowledge request'
         env:
@@ -266,6 +266,7 @@ jobs:
 
             1. **Creating a Fix for an Issue**
                - Carefully read the user request and the related issue or PR description.
+               - When creating a new application, it must be placed in a common subfolder: `/random-app-ideas/<intended-app-name>/`.
                - Use available tools to gather all relevant context (e.g., `gh issue view`, `gh pr view`, `gh pr diff`, `cat`, `head`, `tail`).
                - Identify the root cause of the problem before proceeding.
                - **Show and maintain a plan as a checklist**:
