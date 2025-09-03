@@ -329,3 +329,8 @@ footer {
     border-color: #1a73e8;
     font-weight: 700;
 }
+
+#multi-day-timeline-labels {
+    position: relative;
+    height: 20px;
+}

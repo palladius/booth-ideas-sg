@@ -25,6 +25,17 @@ Note: This is only PAST-looking, from the future (riccardo commits), we dont car
 2. I want to be able to publish github pages, similarly to Paul's https://pauldatta.github.io/booth-ideas-sg/
 
 
+## Feedback loop
+
+* Do not execute long running servers.
+* For `gh` pages, for instance, ask the USER to run `just run-ghpages-server-p8000` and check logs in `log/` folder.
+
+## Git flow
+
+* For `git`, keep VERSION and CHANGELOG updated using `gitmoji` standard.
+* Ok to commit by yourself, but ASK before pushing.
+* Let's just work on `main` for simplicity.
+
 ## Customization
 
 1. I want to ask user for a nickname (needed) and an emoji (optional, default to swiss flag or event which is set by me on the day).

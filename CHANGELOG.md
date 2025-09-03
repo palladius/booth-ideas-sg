@@ -1,5 +1,11 @@
 # Changelog
 
+## [1.0.3] - 2025-09-03
+
+### Fixed
+- Corrected multi-day timeline rendering.
+- Restored `palladius.json` to the correct version.
+
 ## [1.0.2] - 2025-09-03
 
 ### Fixed

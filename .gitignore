@@ -17,3 +17,6 @@ crash.log
 .echodo_history
 log/development.log
 log/
+
+.gemini/
+gha-creds-*.json
