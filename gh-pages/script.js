@@ -122,9 +122,18 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     function renderTimeline() {
-        const dayStart = new Date('2025-08-28T09:00:00+08:00').getTime();
-        const dayEnd = new Date('2025-08-28T18:00:00+08:00').getTime();
-        const totalDuration = dayEnd - dayStart;
+        if (ideasData.length === 0) return;
+
+        // Dynamically set the day based on the first idea
+        const firstIdeaDate = new Date(ideasData[0].createdAt);
+        const dayStart = new Date(firstIdeaDate);
+        dayStart.setHours(9, 0, 0, 0);
+
+        const dayEnd = new Date(firstIdeaDate);
+        dayEnd.setHours(18, 0, 0, 0);
+
+        const totalDuration = dayEnd.getTime() - dayStart.getTime();
+        timelineEventsContainer.innerHTML = ''; // Clear previous timeline events
 
         ideasData.forEach(idea => {
             const ideaTime = new Date(idea.createdAt).getTime();
