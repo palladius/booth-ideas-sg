@@ -226,12 +226,24 @@ footer {
     position: absolute;
     width: 16px;
     height: 16px;
-    background-color: #1a73e8;
+    background-color: #1a73e8; /* Default color */
     border-radius: 50%;
     transform: translateX(-50%);
     top: -4px;
     cursor: pointer;
     transition: transform 0.2s ease;
+}
+
+.timeline-dot.today {
+    background-color: #1a73e8; /* Blue */
+}
+
+.timeline-dot.past {
+    background-color: #FF6D01; /* Orange */
+}
+
+.timeline-dot.future {
+    background-color: #FBBC04; /* Yellow */
 }
 
 .timeline-dot:hover {

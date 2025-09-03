@@ -147,6 +147,21 @@ document.addEventListener('DOMContentLoaded', () => {
             if (positionPercent >= 0 && positionPercent <= 100) {
                 const dot = document.createElement('div');
                 dot.className = 'timeline-dot';
+
+                // Add class based on date
+                const today = new Date();
+                today.setHours(0, 0, 0, 0);
+                const ideaDate = new Date(idea.createdAt);
+                ideaDate.setHours(0, 0, 0, 0);
+
+                if (ideaDate.getTime() < today.getTime()) {
+                    dot.classList.add('past');
+                } else if (ideaDate.getTime() > today.getTime()) {
+                    dot.classList.add('future');
+                } else {
+                    dot.classList.add('today');
+                }
+
                 dot.style.left = `${positionPercent}%`;
                 const tooltip = document.createElement('div');
                 tooltip.className = 'tooltip';
