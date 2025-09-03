@@ -2,24 +2,24 @@
     "eventName": "🇨🇭 Euro Cloud Summit",
     "ideas": [
         {
-            "createdAt": "2025-09-03T10:15:00Z",
+            "createdAt": "2025-09-24T10:15:00Z",
             "number": 2,
             "title": "🇮🇹🇨🇭 Smart Fondue Pot Temperature Monitor",
             "url": "https://github.com/palladius/booth-ideas-sg/issues/2",
             "category": "Technology"
         },
         {
-            "createdAt": "2025-09-03T09:00:00Z",
+            "createdAt": "2025-09-24T09:00:00Z",
             "number": 1,
             "title": "🇮🇹🇨🇭 A Cuckoo Clock That Tweets Jokes",
             "url": "https://github.com/palladius/booth-ideas-sg/issues/1",
             "category": "Crafts"
         },
-        {"createdAt":"2025-09-24T08:23:54Z","number":166,"title":"[on-the-day] Interactive Planetary Alignment System","url":"https://github.com/pauldatta/booth-ideas-sg/issues/166", "category": "Education"},
-        {"createdAt":"2025-09-24T08:10:49Z","number":164,"title":"[on-the-day] Event Crowd Flow Tracker","url":"https://github.com/pauldatta/booth-ideas-sg/issues/164", "category": "Productivity"},
-        {"createdAt":"2025-09-24T07:01:44Z","number":160,"title":"[on-the-day] Matchstick Counter App","url":"https://github.com/pauldatta/booth-ideas-sg/issues/160", "category": "Utilities"},
-        {"createdAt":"2025-09-24T06:34:00Z","number":158,"title":"[on-the-day] Primary Math Learning App","url":"https://github.com/pauldatta/booth-ideas-sg/issues/158", "category": "Education"},
-        {"createdAt":"2025-09-24T06:02:36Z","number":156,"title":"[on-the-day] E-commerce Delivery Driver App","url":"https://github.com/pauldatta/booth-ideas-sg/issues/156", "category": "Logistics"},
-        {"createdAt":"2025-09-25T05:47:55Z","number":154,"title":"[future] Meal Image Nutrition Analyzer","url":"https://github.com/pauldatta/booth-ideas-sg/issues/154", "category": "Health"}
+        {"createdAt":"2025-09-24T08:23:54Z","number":166,"title":"[removeme] Interactive Planetary Alignment System","url":"https://github.com/pauldatta/booth-ideas-sg/issues/166", "category": "Education"},
+        {"createdAt":"2025-09-24T08:10:49Z","number":164,"title":"[removeme] Event Crowd Flow Tracker","url":"https://github.com/pauldatta/booth-ideas-sg/issues/164", "category": "Productivity"},
+        {"createdAt":"2025-09-24T07:01:44Z","number":160,"title":"[removeme] Matchstick Counter App","url":"https://github.com/pauldatta/booth-ideas-sg/issues/160", "category": "Utilities"},
+        {"createdAt":"2025-09-24T06:34:00Z","number":158,"title":"[removeme] Primary Math Learning App","url":"https://github.com/pauldatta/booth-ideas-sg/issues/158", "category": "Education"},
+        {"createdAt":"2025-09-24T06:02:36Z","number":156,"title":"[removeme] E-commerce Delivery Driver App","url":"https://github.com/pauldatta/booth-ideas-sg/issues/156", "category": "Logistics"},
+        {"createdAt":"2025-09-24T05:47:55Z","number":154,"title":"[removeme] Meal Image Nutrition Analyzer","url":"https://github.com/pauldatta/booth-ideas-sg/issues/154", "category": "Health"}
     ]
 }

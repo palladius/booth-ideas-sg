@@ -24,10 +24,6 @@ Note: This is only PAST-looking, from the future (riccardo commits), we dont car
    1. This app needs to have some sort of GITHUB token hidden somewhere.
 2. I want to be able to publish github pages, similarly to Paul's https://pauldatta.github.io/booth-ideas-sg/
 
-## Feedback loop
-
-* Do not execute long running servers.
-* For `gh` pages, for instance, ask the USER to run `just run-ghpages-server-p8000` and check logs in `log/` folder.
 
 ## Customization
 

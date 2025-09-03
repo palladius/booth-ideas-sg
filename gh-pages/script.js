@@ -67,9 +67,6 @@ document.addEventListener('DOMContentLoaded', () => {
             return;
         }
 
-        const eventDate = new Date(ideasData[0].createdAt);
-        eventDate.setHours(0, 0, 0, 0); // Normalize to the start of the day
-
         filteredIdeas.forEach(idea => {
             const card = document.createElement('div');
             const categoryClass = `category-${idea.category.toLowerCase().replace(/\s+/g, '-')}`;
@@ -85,18 +82,8 @@ document.addEventListener('DOMContentLoaded', () => {
 
             const info = document.createElement('p');
             info.className = 'info';
-
-            const ideaDate = new Date(idea.createdAt);
-            const ideaDateNormalized = new Date(idea.createdAt);
-            ideaDateNormalized.setHours(0, 0, 0, 0);
-
-            let dateString;
-            if (ideaDateNormalized.getTime() === eventDate.getTime()) {
-                dateString = `at ${ideaDate.toLocaleTimeString('en-US', { hour: 'numeric', minute: '2-digit', hour12: true })}`;
-            } else {
-                dateString = `on ${ideaDate.toLocaleDateString('en-US', { month: 'short', day: '2-digit' })}`;
-            }
-            info.textContent = `Issue #${idea.number} • Created ${dateString}`;
+            const time = new Date(idea.createdAt).toLocaleTimeString('en-US', { hour: 'numeric', minute: '2-digit', hour12: true });
+            info.textContent = `Issue #${idea.number} • Created at ${time}`;
 
             const links = document.createElement('div');
             links.className = 'links';
@@ -200,94 +187,15 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Initial render
     async function init() {
-        // Clear all dynamic content
-        galleryContainer.innerHTML = '';
-        timelineEventsContainer.innerHTML = '';
-        filterContainer.innerHTML = '';
-        
         renderEventSelector();
         await loadIdeasData();
-
         if (ideasData.length > 0) {
+            galleryContainer.innerHTML = '';
             renderFilters();
             renderCards();
             renderTimeline();
-            renderMultiDayTimeline();
         }
     }
 
     init();
 });
-
-function renderMultiDayTimeline() {
-    if (ideasData.length === 0) return;
-
-    const timelineContainer = document.getElementById('multi-day-timeline-container');
-    const eventsContainer = document.getElementById('multi-day-timeline-events');
-    const labelsContainer = document.getElementById('multi-day-timeline-labels');
-    eventsContainer.innerHTML = '';
-    labelsContainer.innerHTML = '';
-
-    const dates = ideasData.map(idea => new Date(idea.createdAt));
-    const minDate = new Date(Math.min.apply(null, dates));
-    const maxDate = new Date(Math.max.apply(null, dates));
-
-    minDate.setHours(0, 0, 0, 0);
-    maxDate.setHours(23, 59, 59, 999);
-
-    const totalDuration = maxDate.getTime() - minDate.getTime();
-
-    // Add day labels
-    let currentDate = new Date(minDate);
-    while (currentDate <= maxDate) {
-        const dayPosition = (currentDate.getTime() - minDate.getTime()) / totalDuration * 100;
-        const label = document.createElement('span');
-        label.textContent = currentDate.toLocaleDateString('en-US', { month: 'short', day: 'numeric' });
-        label.style.left = `${dayPosition}%`;
-        label.style.position = 'absolute';
-        labelsContainer.appendChild(label);
-        currentDate.setDate(currentDate.getDate() + 1);
-    }
-
-    ideasData.forEach(idea => {
-        const ideaTime = new Date(idea.createdAt).getTime();
-        const positionPercent = (ideaTime - minDate.getTime()) / totalDuration * 100;
-
-        if (positionPercent >= 0 && positionPercent <= 100) {
-            const dot = document.createElement('div');
-            dot.className = 'timeline-dot';
-            dot.style.left = `${positionPercent}%`;
-
-            // Add class based on date
-            const today = new Date();
-            today.setHours(0, 0, 0, 0);
-            const ideaDate = new Date(idea.createdAt);
-            ideaDate.setHours(0, 0, 0, 0);
-
-            if (ideaDate.getTime() < today.getTime()) {
-                dot.classList.add('past');
-            } else if (ideaDate.getTime() > today.getTime()) {
-                dot.classList.add('future');
-            } else {
-                dot.classList.add('today');
-            }
-
-            const tooltip = document.createElement('div');
-            tooltip.className = 'tooltip';
-            const time = new Date(idea.createdAt).toLocaleString('en-US', { month: 'short', day: 'numeric', hour: 'numeric', minute: '2-digit', hour12: true });
-            tooltip.textContent = `${idea.title} (${time})`;
-            dot.appendChild(tooltip);
-            dot.addEventListener('click', () => {
-                searchInput.value = idea.title;
-                currentCategoryFilter = 'All';
-                renderFilters();
-                renderCards();
-                const cardElement = document.getElementById(`idea-card-${idea.number}`);
-                if (cardElement) {
-                    cardElement.scrollIntoView({ behavior: 'smooth', block: 'center' });
-                }
-            });
-            eventsContainer.appendChild(dot);
-        }
-    });
-}
