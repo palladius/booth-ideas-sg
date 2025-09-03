@@ -8,27 +8,27 @@ document.addEventListener('DOMContentLoaded', () => {
     let currentCategoryFilter = 'All';
 
     const ideasData = [
-        {"createdAt":"2025-08-28T08:23:54Z","number":166,"title":"Interactive Planetary Alignment System","url":"https://github.com/pauldatta/booth-ideas-sg/issues/166", "category": "Education"},
-        {"createdAt":"2025-08-28T08:10:49Z","number":164,"title":"Event Crowd Flow Tracker","url":"https://github.com/pauldatta/booth-ideas-sg/issues/164", "category": "Productivity"},
-        {"createdAt":"2025-08-28T07:56:45Z","number":162,"title":"Warehouse Material Picking Route Optimizer","url":"https://github.com/pauldatta/booth-ideas-sg/issues/162", "category": "Logistics"},
-        {"createdAt":"2025-08-28T07:01:44Z","number":160,"title":"Matchstick Counter App","url":"https://github.com/pauldatta/booth-ideas-sg/issues/160", "category": "Utilities"},
-        {"createdAt":"2025-08-28T06:34:00Z","number":158,"title":"Primary Math Learning App","url":"https://github.com/pauldatta/booth-ideas-sg/issues/158", "category": "Education"},
-        {"createdAt":"2025-08-28T06:02:36Z","number":156,"title":"E-commerce Delivery Driver App","url":"https://github.com/pauldatta/booth-ideas-sg/issues/156", "category": "Logistics"},
-        {"createdAt":"2025-08-28T05:47:55Z","number":154,"title":"Meal Image Nutrition Analyzer","url":"https://github.com/pauldatta/booth-ideas-sg/issues/154", "category": "Health"},
-        {"createdAt":"2025-08-28T04:43:31Z","number":152,"title":"Hotel Gym Guest Check-in System","url":"https://github.com/pauldatta/booth-ideas-sg/issues/152", "category": "Productivity"},
-        {"createdAt":"2025-08-28T03:51:06Z","number":150,"title":"Language Translation Application","url":"https://github.com/pauldatta/booth-ideas-sg/issues/150", "category": "Utilities"},
-        {"createdAt":"2025-08-28T02:48:23Z","number":148,"title":"Weekly Spending Budget Planner","url":"https://github.com/pauldatta/booth-ideas-sg/issues/148", "category": "Finance"},
-        {"createdAt":"2025-08-28T02:47:21Z","number":146,"title":"Digital Counter Application","url":"https://github.com/pauldatta/booth-ideas-sg/issues/146", "category": "Utilities"},
-        {"createdAt":"2025-08-28T02:23:21Z","number":144,"title":"Scalable Image Chunking Web Platform","url":"https://github.com/pauldatta/booth-ideas-sg/issues/144", "category": "Developer Tools"},
-        {"createdAt":"2025-08-28T02:07:01Z","number":142,"title":"Investment Portfolio Management System with Market Trend Dashboard","url":"https://github.com/pauldatta/booth-ideas-sg/issues/142", "category": "Finance"},
-        {"createdAt":"2025-08-28T01:59:10Z","number":140,"title":"Car Listing Platform","url":"https://github.com/pauldatta/booth-ideas-sg/issues/140", "category": "E-commerce"},
-        {"createdAt":"2025-08-28T01:50:07Z","number":138,"title":"Automated Software Delivery Controls Assurance","url":"https://github.com/pauldatta/booth-ideas-sg/issues/138", "category": "Developer Tools"},
-        {"createdAt":"2025-08-28T01:47:31Z","number":136,"title":"Street Interview Question Randomizer","url":"https://github.com/pauldatta/booth-ideas-sg/issues/136", "category": "Lifestyle"},
-        {"createdAt":"2025-08-28T01:43:31Z","number":134,"title":"Personalized Financial Playlist Creator","url":"https://github.com/pauldatta/booth-ideas-sg/issues/134", "category": "Finance"},
-        {"createdAt":"2025-08-28T01:33:20Z","number":132,"title":"Singapore Single Origin Coffee Roaster Recommendations","url":"https://github.com/pauldatta/booth-ideas-sg/issues/132", "category": "Lifestyle"},
-        {"createdAt":"2025-08-28T01:15:49Z","number":130,"title":"Retail Food Waste Redistribution System","url":"https://github.com/pauldatta/booth-ideas-sg/issues/130", "category": "Logistics"},
-        {"createdAt":"2025-08-28T00:44:15Z","number":128,"title":"Automated Parking Location Tracker","url":"https://github.com/pauldatta/booth-ideas-sg/issues/128", "category": "Utilities"},
-        {"createdAt":"2025-08-28T00:09:53Z","number":126,"title":"Food Logistics Management Platform","url":"https://github.com/pauldatta/booth-ideas-sg/issues/126", "category": "Logistics"}
+        {"createdAt":"2025-08-28T08:23:54Z","number":166,"title":"[SG] Interactive Planetary Alignment System","url":"https://github.com/pauldatta/booth-ideas-sg/issues/166", "category": "Education"},
+        {"createdAt":"2025-08-28T08:10:49Z","number":164,"title":"[SG] Event Crowd Flow Tracker","url":"https://github.com/pauldatta/booth-ideas-sg/issues/164", "category": "Productivity"},
+        {"createdAt":"2025-08-28T07:56:45Z","number":162,"title":"[SG] Warehouse Material Picking Route Optimizer","url":"https://github.com/pauldatta/booth-ideas-sg/issues/162", "category": "Logistics"},
+        {"createdAt":"2025-08-28T07:01:44Z","number":160,"title":"[SG] Matchstick Counter App","url":"https://github.com/pauldatta/booth-ideas-sg/issues/160", "category": "Utilities"},
+        {"createdAt":"2025-08-28T06:34:00Z","number":158,"title":"[SG] Primary Math Learning App","url":"https://github.com/pauldatta/booth-ideas-sg/issues/158", "category": "Education"},
+        {"createdAt":"2025-08-28T06:02:36Z","number":156,"title":"[SG] E-commerce Delivery Driver App","url":"https://github.com/pauldatta/booth-ideas-sg/issues/156", "category": "Logistics"},
+        {"createdAt":"2025-08-28T05:47:55Z","number":154,"title":"[SG] Meal Image Nutrition Analyzer","url":"https://github.com/pauldatta/booth-ideas-sg/issues/154", "category": "Health"},
+        {"createdAt":"2025-08-28T04:43:31Z","number":152,"title":"[SG] Hotel Gym Guest Check-in System","url":"https://github.com/pauldatta/booth-ideas-sg/issues/152", "category": "Productivity"},
+        {"createdAt":"2025-08-28T03:51:06Z","number":150,"title":"[SG] Language Translation Application","url":"https://github.com/pauldatta/booth-ideas-sg/issues/150", "category": "Utilities"},
+        {"createdAt":"2025-08-28T02:48:23Z","number":148,"title":"[SG] Weekly Spending Budget Planner","url":"https://github.com/pauldatta/booth-ideas-sg/issues/148", "category": "Finance"},
+        {"createdAt":"2025-08-28T02:47:21Z","number":146,"title":"[SG] Digital Counter Application","url":"https://github.com/pauldatta/booth-ideas-sg/issues/146", "category": "Utilities"},
+        {"createdAt":"2025-08-28T02:23:21Z","number":144,"title":"[SG] Scalable Image Chunking Web Platform","url":"https://github.com/pauldatta/booth-ideas-sg/issues/144", "category": "Developer Tools"},
+        {"createdAt":"2025-08-28T02:07:01Z","number":142,"title":"[SG] Investment Portfolio Management System with Market Trend Dashboard","url":"https://github.com/pauldatta/booth-ideas-sg/issues/142", "category": "Finance"},
+        {"createdAt":"2025-08-28T01:59:10Z","number":140,"title":"[SG] Car Listing Platform","url":"https://github.com/pauldatta/booth-ideas-sg/issues/140", "category": "E-commerce"},
+        {"createdAt":"2025-08-28T01:50:07Z","number":138,"title":"[SG] Automated Software Delivery Controls Assurance","url":"https://github.com/pauldatta/booth-ideas-sg/issues/138", "category": "Developer Tools"},
+        {"createdAt":"2025-08-28T01:47:31Z","number":136,"title":"[SG] Street Interview Question Randomizer","url":"https://github.com/pauldatta/booth-ideas-sg/issues/136", "category": "Lifestyle"},
+        {"createdAt":"2025-08-28T01:43:31Z","number":134,"title":"[SG] Personalized Financial Playlist Creator","url":"https://github.com/pauldatta/booth-ideas-sg/issues/134", "category": "Finance"},
+        {"createdAt":"2025-08-28T01:33:20Z","number":132,"title":"[SG] Singapore Single Origin Coffee Roaster Recommendations","url":"https://github.com/pauldatta/booth-ideas-sg/issues/132", "category": "Lifestyle"},
+        {"createdAt":"2025-08-28T01:15:49Z","number":130,"title":"[SG] Retail Food Waste Redistribution System","url":"https://github.com/pauldatta/booth-ideas-sg/issues/130", "category": "Logistics"},
+        {"createdAt":"2025-08-28T00:44:15Z","number":128,"title":"[SG] Automated Parking Location Tracker","url":"https://github.com/pauldatta/booth-ideas-sg/issues/128", "category": "Utilities"},
+        {"createdAt":"2025-08-28T00:09:53Z","number":126,"title":"[SG] Food Logistics Management Platform","url":"https://github.com/pauldatta/booth-ideas-sg/issues/126", "category": "Logistics"}
     ];
 
     ideasData.sort((a, b) => new Date(a.createdAt) - new Date(b.createdAt));
@@ -36,7 +36,7 @@ document.addEventListener('DOMContentLoaded', () => {
     function renderCards() {
         galleryContainer.innerHTML = '';
         const filterText = searchInput.value.toLowerCase();
-        
+
         const filteredIdeas = ideasData.filter(idea => {
             const matchesCategory = currentCategoryFilter === 'All' || idea.category === currentCategoryFilter;
             const matchesSearch = idea.title.toLowerCase().includes(filterText);
@@ -67,7 +67,7 @@ document.addEventListener('DOMContentLoaded', () => {
             info.className = 'info';
             const time = new Date(idea.createdAt).toLocaleTimeString('en-US', { hour: 'numeric', minute: '2-digit', hour12: true });
             info.textContent = `Issue #${idea.number} • Created at ${time}`;
-            
+
             const links = document.createElement('div');
             links.className = 'links';
             const issueLink = document.createElement('a');
@@ -75,7 +75,7 @@ document.addEventListener('DOMContentLoaded', () => {
             issueLink.textContent = 'View Details';
             issueLink.target = '_blank';
             issueLink.rel = 'noopener noreferrer';
-            
+
             links.appendChild(issueLink);
             card.appendChild(title);
             card.appendChild(categoryTag);
