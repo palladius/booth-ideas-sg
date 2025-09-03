@@ -36,6 +36,10 @@ Note: This is only PAST-looking, from the future (riccardo commits), we dont car
 * Ok to commit by yourself, but ASK before pushing.
 * Let's just work on `main` for simplicity.
 
+## Github interaction
+
+* When interacting with GitHub, always SIGN yourself (since your name could be mine, or github actions, ..) with a common signature, like "\n\n-- by ♊️ Gemini CLI ⚙️, on behalf of [Riccardo/GitHubActions]" (depending if its called by Riccardo in CLI or by GitHubAction automation).
+
 ## Customization
 
 1. I want to ask user for a nickname (needed) and an emoji (optional, default to swiss flag or event which is set by me on the day).
