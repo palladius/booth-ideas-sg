@@ -14,4 +14,5 @@ For more details, please see the [README.md](README.md).
 
 ## Git Branches
 
-*   `main`: The main development and production branch. All new features are merged into this branch after review.
+*   `main`: The primary development branch. It reflects the latest stable version of the application and is the base for new features and releases.
+*   `gh-pages`: This branch is used to host the static website for the project, accessible via GitHub Pages. It typically contains the compiled or built output of the `gh-pages` directory.

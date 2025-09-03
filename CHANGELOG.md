@@ -1,5 +1,10 @@
 # Changelog
 
+## [1.0.5] - 2025-09-03
+
+### Changed
+- Updated `WHAT_THIS_REPO_DOES.md` with detailed explanations of code, folder structure, and Git branches (main and gh-pages).
+
 ## [1.0.4] - 2025-09-03
 
 ### Changed
