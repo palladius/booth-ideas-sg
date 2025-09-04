@@ -6,7 +6,7 @@ variable "project_id" {
 variable "region" {
   description = "The Google Cloud region to deploy resources in."
   type        = string
-  default     = "asia-southeast1"
+  default     = "europe-west1"
 }
 
 variable "service_name" {

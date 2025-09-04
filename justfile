@@ -12,5 +12,11 @@ run-ghpages-server-p8000:
     echo 'Starting localhost server on port 8000..'
     cd gh-pages/ && ./start-gh-pages-server.sh
 
+# Creates screenshots for Cuckoo app.
 test-screenshot:
-    ./bin/create-screenshot.sh random-app-ideas/cuckoo-clock-app
+    time ./bin/create-screenshot.sh random-app-ideas/cuckoo-clock-app
+
+# Creates screenshots for Fondue app.
+test-screenshot-fondue:
+    time ./bin/create-screenshot.sh random-app-ideas/fondue-app/
+

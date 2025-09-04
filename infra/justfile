@@ -1,0 +1,20 @@
+
+list:
+    just -l
+
+bucket-list:
+    gsutil ls -R "gs://rick-and-nardy-demo-tf2"
+
+auth:
+    gcloud auth application-default login
+
+plan:
+    terraform plan
+
+# Checks the GitHub PAT from Secret Manager
+# WARNING: This will output the secret to your console.
+get-secret-pat-token:
+    gcloud secrets versions access latest --secret=ideas-app-github-pat
+get-secret-gemini-api-key:
+    gcloud secrets versions access latest --secret=ideas-app-gemini-api-key
+get-secrets:  get-secret-pat-token get-secret-gemini-api-key
