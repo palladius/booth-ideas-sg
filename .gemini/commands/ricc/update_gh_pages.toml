@@ -94,15 +94,18 @@ Note that this new file needs to be reflected correctly under `gh-pages/palladiu
 ## rules of the game
 
 * DO NOT ALTER EXISTING CODE
+* Do NOT CREATE SCRIPTS to automate anything.
 * You work in read-mode, and you're ONLY allowed to write the `gh-pages/palladius.json`
 * You're also allowed to copy screenshots from `random-apps-ideas/` onto gh-pages/
 * You can study, understand, everything but you can only write ONE file.
+* If you feel the temptation of improving the process, just comment on an issue with your proposal, or frustrations.
 
 ## Final actions
 
 * Once done, do a `git status`.
 * IF the only file changed is `gh-pages/palladius.json`, then run
     * `git add gh-pages/palladius.json`
+    * `git add gh-pages/images/`
     * `git commit -m "Update GH Pages JSON"`.
     * `git push main`
 
