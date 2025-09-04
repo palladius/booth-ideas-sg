@@ -38,6 +38,9 @@ ideas-app-run:
 gemini-reconcile-gh-pages:
     gemini -c -y -p '/ricc:update_gh_pages Do NOT ask questions - work on this task autonomously'
 
+gemini-execute-cuj CUJ_ID:
+    # --allowed-tools="ShellTool(git status)"
+    gemini -c -y -p '/cuj:execute-single CUJ_ID={{CUJ_ID}}'
 
 # Deploys the gh-pages folder to GitHub Pages using the GitHub Action
 deploy-gh-pages:

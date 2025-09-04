@@ -10,7 +10,7 @@ Note I don't want to use PRs against the original, my copy will extend and grew 
 
 ## Repo explaination
 
-Look at `WHAT_THIS_REPO_DOES.md` to see what code and branches signify here.
+Look at `docs/WHAT_THIS_REPO_DOES.md` to see what code and branches signify here.
 
 Note: This is only PAST-looking, from the future (riccardo commits), we dont care. Last Paul commit is `993ba1beafa63e98ee50d606da6e9edcae438da0`: this will be our "Rubicon".
 

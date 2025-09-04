@@ -24,3 +24,4 @@ gha-creds-*.json
 node_modules/
 .env
 .git-privatize
+node_modules/
