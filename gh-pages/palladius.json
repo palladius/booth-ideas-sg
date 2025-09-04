@@ -3,6 +3,26 @@
     "eventEmojis": "🇨🇭☁️",
     "ideas": [
         {
+            "createdAt": "2025-09-04T17:23:30Z",
+            "number": 46,
+            "title": "[AppIdea] AI Product Concept to Development Workflow Creator - by deleteme",
+            "url": "https://github.com/palladius/booth-ideas-sg/issues/46",
+            "abstract": "# Product Requirements Document: AI-Powered Concept-to-Code Accelerator\n\n## 1. Introduction\n\nThis do...",
+            "category": "General",
+            "appName": null,
+            "screenshot": null
+        },
+        {
+            "createdAt": "2025-09-04T16:59:17Z",
+            "number": 35,
+            "title": "[CRun] Doesnt work",
+            "url": "https://github.com/palladius/booth-ideas-sg/issues/35",
+            "abstract": "Cloud run app doesnt work. I fixed these:\n\n* `.env` has GITHUB_TOKEN, but had to be GITHUB_PAT => fi...",
+            "category": "General",
+            "appName": null,
+            "screenshot": null
+        },
+        {
             "createdAt": "2025-09-04T14:15:18Z",
             "number": 30,
             "title": "check CUJ01",
@@ -21,16 +41,6 @@
             "category": "pauldatta-app",
             "appName": "shoe-mileage-tracker",
             "screenshot": "gh-pages/images/random-app-ideas/screenshots/shoe-mileage-tracker.png"
-        },
-        {
-            "createdAt": "2025-09-04T08:39:56Z",
-            "number": 20,
-            "title": "AI Product Development Generator",
-            "url": "https://github.com/palladius/booth-ideas-sg/issues/20",
-            "abstract": "# Product Requirements Document: AI-Powered Idea-to-Development Accelerator\n\n## 1. Introduction\n\nThi...",
-            "category": "General",
-            "appName": null,
-            "screenshot": null
         },
         {
             "createdAt": "2025-09-04T07:34:32Z",
