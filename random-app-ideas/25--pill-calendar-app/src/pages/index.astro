@@ -157,6 +157,49 @@
         });
       }
 
+      function promptToTakePills(pillsToTake) {
+        const pillNames = pillsToTake.map((pill) => pill.name).join(', ');
+        const confirmed = confirm(`It's time to take your pills: ${pillNames}\n\nPress "OK" if you have taken them, or "Cancel" to be reminded again in 5 minutes.`);
+
+        if (confirmed) {
+          const today = new Date().toDateString();
+          localStorage.setItem(today, JSON.stringify(pillsToTake));
+        } else {
+          setTimeout(() => {
+            promptToTakePills(pillsToTake);
+          }, 5 * 60 * 1000);
+        }
+      }
+
+      function checkPills() {
+        const pills = JSON.parse(localStorage.getItem('pills')) || [];
+        const today = new Date();
+        const dayOfWeek = today.getDay();
+        const dayOfMonth = today.getDate();
+        const todayString = today.toDateString();
+
+        const takenPills = JSON.parse(localStorage.getItem(todayString)) || [];
+
+        const pillsToTake = pills.filter((pill) => {
+          if (takenPills.find((takenPill) => takenPill.name === pill.name)) {
+            return false;
+          }
+
+          if (pill.frequency === 'daily') {
+            return true;
+          } else if (pill.frequency === 'weekly') {
+            return parseInt(pill.weeklyDay) === dayOfWeek;
+          } else if (pill.frequency === 'monthly') {
+            return parseInt(pill.monthlyDay) === dayOfMonth;
+          }
+          return false;
+        });
+
+        if (pillsToTake.length > 0) {
+          promptToTakePills(pillsToTake);
+        }
+      }
+
       frequencySelect.addEventListener('change', () => {
         if (frequencySelect.value === 'weekly') {
           weeklyOptions.style.display = 'block';
@@ -196,6 +239,7 @@
 
       generateCalendar();
       displayPills();
+      checkPills();
     </script>
   </body>
 </html>
