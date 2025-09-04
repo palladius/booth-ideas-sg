@@ -70,7 +70,8 @@ Notes on the field:
 3. Category: Choose the best-fitting Category. Use the existing categories (Crafts, Technology, Art, Music, Food, etc.) but
    don't hesitate to create a new one if you think so. It's also ok to change/harmonize existing categories if you find a better one.
    Note we shouldn't have more than 12-15 categories. We don't want ONE different category as they're there to GROUP things.
-4. Title: Find a fitting title for the application. If emoji and nicknames are available, add the first to the left
+4. Title: Find a fitting title for the application. If emoji and nicknames are available, add the first to the left.
+    Cleanup the title, remove "[AppIdea]" and "-- by XXX", just use a small meaningful app title. Max 5 words.
 5. Nickname: nickname from the issue. this should be mandatory, but if you dont find it its ok to omit.
 6. Emoji: Evince it from the issue, or title, or anything
 7. Abstract: "A small abstract of what the app does."
