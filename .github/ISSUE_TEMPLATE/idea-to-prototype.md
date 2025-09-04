@@ -15,4 +15,4 @@ assignees: ''
 
 ## Automation for Gemini CLI - edit with care!
 
-@gemini-cli please (1) create "PRD.md" using the <project_root>/prompts/prd.md file (2) ask the user via an issue comment on the issue if they want to proceed with a plan to implement this. Also ask user for their nickname, and an emoji. If nothing is returned, you pick your fav emoji but be adamant you need a nickname. Once you have it, update the title to "'[AppIdea] <original_title> -- by Nickname".
+@gemini-cli please (1) create "PRD.md" using the <project_root>/prompts/prd.md file (2) ask the user via an issue comment on the issue if they want to proceed with a plan to implement this. 3(3) Also ask user for their nickname (if it isnt populated yet). (4) Then proceed with PRD and coding of app, branch and PR. (5) Finally, when all the code is ready, update the title to "'[AppIdea] <original_title> -- by Nickname".
