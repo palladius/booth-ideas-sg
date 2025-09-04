@@ -11,3 +11,6 @@ gemini:
 run-ghpages-server-p8000:
     echo 'Starting localhost server on port 8000..'
     cd gh-pages/ && ./start-gh-pages-server.sh
+
+test-screenshot:
+    ./bin/create-screenshot.sh random-app-ideas/cuckoo-clock-app

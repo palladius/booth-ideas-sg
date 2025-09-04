@@ -1,8 +1,11 @@
-# This will NOT work.
 name: Playwright Screenshot
 
 on:
   workflow_dispatch:
+    inputs:
+      app_path:
+        description: 'Path to the app to screenshot (e.g., random-app-ideas/cuckoo-clock-app)'
+        required: true
 
 jobs:
   screenshot:
@@ -14,16 +17,16 @@ jobs:
           node-version: 20
       - run: npm install
       - run: npx playwright install --with-deps
-      - run: npm run build --workspace=ideas-app
+      - run: npm run build --workspace=${{ github.event.inputs.app_path }}
       - name: Start app and take screenshot
         run: |
-          npm start --workspace=ideas-app &
+          npm start --workspace=${{ github.event.inputs.app_path }} &
           sleep 10
-          node screenshot.js
+          node screenshot.js ${{ github.event.inputs.app_path }}
       - name: Commit and push if changed
         run: |
           git config --global user.name "github-actions[bot]"
           git config --global user.email "github-actions[bot]@users.noreply.github.com"
-          git add ideas-app/screenshot.png
-          git commit -m "feat: add playwright screenshot" || echo "No changes to commit"
+          git add ${{ github.event.inputs.app_path }}/screenshot.png
+          git commit -m "feat: add playwright screenshot for ${{ github.event.inputs.app_path }}" || echo "No changes to commit"
           git push
