@@ -89,12 +89,12 @@ document.addEventListener('DOMContentLoaded', () => {
             if (idea.url && idea.url.includes('github.com')) {
                 const issueLink = document.createElement('a');
                 issueLink.href = idea.url;
-                issueLink.textContent = `Issue #${idea.number}`;
+                issueLink.innerHTML = `🐛 #${idea.number}`;
                 issueLink.target = '_blank';
                 issueLink.rel = 'noopener noreferrer';
                 info.appendChild(issueLink);
             } else {
-                info.append(`Issue #${idea.number}`);
+                info.append(`🐛 #${idea.number}`);
             }
 
             const ideaDate = new Date(idea.createdAt);
