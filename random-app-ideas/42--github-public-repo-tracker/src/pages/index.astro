@@ -1,0 +1,46 @@
+---
+---
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GitHub Public Repo Tracker</title>
+    <style>
+        body { font-family: sans-serif; margin: 2em; }
+        h1 { text-align: center; }
+        .container { max-width: 800px; margin: 0 auto; }
+        .repo-list { margin-bottom: 1em; }
+        .issue-list { list-style: none; padding: 0; }
+        .issue { border: 1px solid #ccc; padding: 1em; margin-bottom: 1em; }
+        .issue-title { font-weight: bold; }
+        .issue-meta { color: #555; font-size: 0.9em;}
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>GitHub Public Repo Tracker</h1>
+        <div class="repo-management">
+            <h2>Track a new repository</h2>
+            <form>
+                <input type="text" placeholder="owner/repo" required>
+                <button type="submit">Add</button>
+            </form>
+        </div>
+        <div class="repo-list">
+            <h2>Tracked Repositories</h2>
+            <ul>
+                <!-- Tracked repos will be listed here -->
+            </ul>
+        </div>
+        <div class="dashboard">
+            <h2>Open Issues and PRs</h2>
+            <div class="filters">
+                <!-- Filters will go here -->
+            </div>
+            <ul class="issue-list">
+                <!-- Issues and PRs will be listed here -->
+            </ul>
+        </div>
+    </div>
+</body>
+</html>
