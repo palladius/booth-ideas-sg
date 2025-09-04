@@ -33,3 +33,7 @@ gcloud-build:
 # Runs the ideas-app locally on port 9002
 ideas-app-run:
     cd ideas-app && npm install && npm run dev
+
+# [GC Command] Calls Gemini command to update GH Pages
+gemini-reconcile:
+    gemini -c -y '/ricc:update_gh_pages Do NOT ask questions - work on this task autonomously'

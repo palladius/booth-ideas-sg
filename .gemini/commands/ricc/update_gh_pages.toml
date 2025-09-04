@@ -1,0 +1,79 @@
+# .gemini/commands/ricc/update_gh_pages.toml
+
+description = "Reconcile apps in random-apps-ideas/ with JSON in GitHub Pages."
+prompt = """
+You are an expert Software Engineer. You understand this BoothIdeas Repo as it has 3 moving parts:
+
+## ENV vars
+
+* CURRENT_TIMESTAMP: `date +%Y%m%d-%H%M%S`
+
+## Current repo
+
+1. `ideas-app/`: the FrontEnd app which users interact with => generates a new Issue in this label: https://github.com/palladius/booth-ideas-sg/issues?q=label%3A%22pauldatta-app%22
+2. `random-apps-ideas/`: a collection of app ideas: one per folder.
+3. `gh-pages/`: the GitHub Pages branch that serves the static site https://palladius.github.io/booth-ideas-sg/
+
+## Your job
+
+Your job is to ensure that the files in (2) are accurately represented in (3).
+
+INput:
+* Do a `ls -al random-app-ideas/` and check for the latest additions.
+* For example, let's say it contains app1/ app2/ app3/.
+
+Output:
+* Check the file `gh-pages/palladius.json`.
+* say it contains app_previous1, app_previous2, app_previous42, app_previous84,  app1/,  app3/ .
+    * Then your action is to ADD the app3 (do NOT remove stuff, I use other stuff to test the UI!
+
+## How to add an application.
+
+You need to populate a JSON which contains a few fields for the following.
+
+Let me start with an Example, and lets refine it then.
+
+```json
+        {
+            "createdAt": "2025-09-03T09:00:00Z",
+            "number": 1,
+            "title": "🇮🇹🇨🇭 A Cuckoo Clock That Tweets Jokes",
+            "url": "https://github.com/palladius/booth-ideas-sg/issues/1",
+            "author": "palladius",
+            "emoji": "🇮🇹🇨🇭",
+            "abstract": "A small abstract of what the app does.",
+            "screenshot": "random-app-ideas/cuckoo-clock-app/screenshot-800x600.png",
+            "category": "Food"
+        }
+```
+
+Notes on the field:
+
+1. Use CURRENT_TIMESTAMP for `createdAt`.
+2. Number and url are redundant: they both point to the same issue. You need an issue number for it. If no issue is available,
+   abort with "Missing ISsue Number!" and some emoji of desperation. If IssieNumber is 42, you'll have "number": 42, and
+   "url": "https://github.com/palladius/booth-ideas-sg/issues/42"
+3. Category: Choose the best-fitting Category. Use the existing categories (Crafts, Technology, Art, Music, Food, etc.) but
+   don't hesitate to create a new one if you think so. It's also ok to change/harmonize existing categories if you find a better one.
+   Note we shouldn't have more than 12-15 categories. We don't want ONE different category as they're there to GROUP things.
+4. Title: Find a fitting title for the application. If emoji and nicknames are available, add the first to the left
+5. Nickname: nickname from the issue. this should be mandatory, but if you dont find it its ok to omit.
+6. Emoji: Evince it from the issue, or title, or anything
+7. Abstract: "A small abstract of what the app does."
+8. Screenshot: if you find a `screenshot*.png` in the root folder of the app, then please include the relative path to the screenshot file.
+   If not, leave it empty.
+
+## Parameters
+
+The user's request is:
+
+{{args}}
+"""
+
+
+## TODO
+# - [ ] P1 Implement screenshot on the frontend (requires copying images from outside gh_pages/ to inside. Trivial but stil..
+# - [ ] P2 Find a smart way to autodetect the issue. Could be based on folder names, like "01-cuckoo" / "02-hedgehog", or
+#          could be adding a blueprint.yaml with that info. but this complicates the GHA which i did not write.
+# - [ ] P4 Find a smart way to have screenshots automatically included in the JSON.
+
