@@ -5,7 +5,8 @@ about: Enter your idea below. Gemini CLI will pick it up, create a Product Requi
 title: '[AppIdea] XXXX - by YYY'
 labels: pauldatta-app
 assignees: ''
-
+# Prototype versions
+# v1.4 20240904 Moved the actions to 5 steps.
 ---
 
 * **Nickname**:
