@@ -96,6 +96,66 @@
       const frequencySelect = document.getElementById('frequency');
       const weeklyOptions = document.getElementById('weekly-options');
       const monthlyOptions = document.getElementById('monthly-options');
+      const pillsForm = document.querySelector('.pills-form form');
+      const calendarGrid = document.querySelector('.calendar-grid');
+
+      function generateCalendar() {
+        calendarGrid.innerHTML = '';
+        const today = new Date();
+        const month = today.getMonth();
+        const year = today.getFullYear();
+
+        const daysInMonth = new Date(year, month + 1, 0).getDate();
+        const firstDayOfMonth = new Date(year, month, 1).getDay();
+
+        for (let i = 0; i < firstDayOfMonth; i++) {
+          const emptyDay = document.createElement('div');
+          calendarGrid.appendChild(emptyDay);
+        }
+
+        for (let i = 1; i <= daysInMonth; i++) {
+          const day = document.createElement('div');
+          day.innerText = i;
+          calendarGrid.appendChild(day);
+        }
+      }
+
+      function displayPills() {
+        const pills = JSON.parse(localStorage.getItem('pills')) || [];
+        const today = new Date();
+        const month = today.getMonth();
+        const year = today.getFullYear();
+
+        const days = calendarGrid.querySelectorAll('div');
+        days.forEach((day) => {
+          const dayNumber = parseInt(day.innerText);
+          if (dayNumber) {
+            const dayPills = day.querySelectorAll('p');
+            dayPills.forEach((p) => p.remove());
+
+            pills.forEach((pill) => {
+              if (pill.frequency === 'daily') {
+                const pillElement = document.createElement('p');
+                pillElement.innerText = pill.name;
+                day.appendChild(pillElement);
+              } else if (pill.frequency === 'weekly') {
+                const dayOfWeek = new Date(year, month, dayNumber).getDay();
+                if (dayOfWeek === parseInt(pill.weeklyDay)) {
+                  const pillElement = document.createElement('p');
+                  pillElement.innerText = pill.name;
+                  day.appendChild(pillElement);
+                }
+              } else if (pill.frequency === 'monthly') {
+                if (dayNumber === parseInt(pill.monthlyDay)) {
+                  const pillElement = document.createElement('p');
+                  pillElement.innerText = pill.name;
+                  day.appendChild(pillElement);
+                }
+              }
+            });
+          }
+        });
+      }
 
       frequencySelect.addEventListener('change', () => {
         if (frequencySelect.value === 'weekly') {
@@ -110,24 +170,32 @@
         }
       });
 
-      const calendarGrid = document.querySelector('.calendar-grid');
-      const today = new Date();
-      const month = today.getMonth();
-      const year = today.getFullYear();
+      pillsForm.addEventListener('submit', (event) => {
+        event.preventDefault();
 
-      const daysInMonth = new Date(year, month + 1, 0).getDate();
-      const firstDayOfMonth = new Date(year, month, 1).getDay();
+        const pillName = document.getElementById('pill-name').value;
+        const frequency = document.getElementById('frequency').value;
+        const weeklyDay = document.getElementById('weekly-day').value;
+        const monthlyDay = document.getElementById('monthly-day').value;
 
-      for (let i = 0; i < firstDayOfMonth; i++) {
-        const emptyDay = document.createElement('div');
-        calendarGrid.appendChild(emptyDay);
-      }
+        const pill = {
+          name: pillName,
+          frequency,
+          weeklyDay,
+          monthlyDay,
+        };
 
-      for (let i = 1; i <= daysInMonth; i++) {
-        const day = document.createElement('div');
-        day.innerText = i;
-        calendarGrid.appendChild(day);
-      }
+        let pills = JSON.parse(localStorage.getItem('pills')) || [];
+        pills.push(pill);
+        localStorage.setItem('pills', JSON.stringify(pills));
+
+        pillsForm.reset();
+        frequencySelect.dispatchEvent(new Event('change'));
+        displayPills();
+      });
+
+      generateCalendar();
+      displayPills();
     </script>
   </body>
 </html>
