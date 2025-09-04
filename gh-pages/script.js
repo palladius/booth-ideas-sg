@@ -5,15 +5,6 @@ document.addEventListener('DOMContentLoaded', () => {
     const timelineEventsContainer = document.getElementById('timeline-events');
     const filterContainer = document.getElementById('filter-container');
     const eventSelectorContainer = document.getElementById('event-selector-container');
-    const userProfileForm = document.getElementById('user-profile-form');
-    const nicknameInput = document.getElementById('nickname-input');
-    const emojiInput = document.getElementById('emoji-input');
-    const userDisplay = document.getElementById('user-display');
-
-    let currentUser = {
-        nickname: '',
-        emoji: ''
-    };
 
     let currentCategoryFilter = 'All';
     let eventName = '';
@@ -280,63 +271,6 @@ document.addEventListener('DOMContentLoaded', () => {
 
     searchInput.addEventListener('input', renderCards);
 
-    function handleProfileSubmit(event) {
-        event.preventDefault();
-        currentUser.nickname = nicknameInput.value;
-        currentUser.emoji = emojiInput.value || '🇨🇭';
-        localStorage.setItem('userProfile', JSON.stringify(currentUser));
-        displayUserProfile();
-        trackEvent('profileSet', { nickname: currentUser.nickname, emoji: currentUser.emoji });
-    }
-
-    function loadUserProfile() {
-        const savedProfile = localStorage.getItem('userProfile');
-        if (savedProfile) {
-            currentUser = JSON.parse(savedProfile);
-            nicknameInput.value = currentUser.nickname;
-            emojiInput.value = currentUser.emoji;
-        }
-        displayUserProfile();
-    }
-
-    function displayUserProfile() {
-        if (currentUser.nickname) {
-            userDisplay.innerHTML = `<p>Welcome, <strong>${currentUser.nickname}</strong> ${currentUser.emoji}</p>`;
-            userProfileForm.style.display = 'none';
-        } else {
-            userDisplay.innerHTML = '';
-            userProfileForm.style.display = 'block';
-        }
-    }
-
-    async function trackEvent(eventName, eventData) {
-        const event = {
-            id: `evt_${new Date().getTime()}`,
-            name: eventName,
-            data: eventData,
-            timestamp: new Date().toISOString()
-        };
-
-        try {
-            // This is a placeholder for where you might send data to a server.
-            // For now, we'll just log it to the console and a local array.
-            console.log('Event tracked:', event);
-            
-            // In a real application, you would send this to a backend.
-            // For this demo, we can simulate creating a JSON file.
-            // Note: This will not actually save a file on the server from the client-side.
-            // This is just for demonstration.
-            const events = JSON.parse(localStorage.getItem('events') || '[]');
-            events.push(event);
-            localStorage.setItem('events', JSON.stringify(events));
-
-        } catch (error) {
-            console.error('Error tracking event:', error);
-        }
-    }
-    
-    userProfileForm.addEventListener('submit', handleProfileSubmit);
-
     // Initial render
     async function init() {
         // Clear all dynamic content
@@ -344,7 +278,6 @@ document.addEventListener('DOMContentLoaded', () => {
         timelineEventsContainer.innerHTML = '';
         filterContainer.innerHTML = '';
         
-        loadUserProfile();
         renderEventSelector();
         await loadIdeasData();
 
