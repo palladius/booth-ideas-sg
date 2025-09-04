@@ -47,7 +47,7 @@ Let me start with an Example, and lets refine it then.
             "url": "https://github.com/palladius/booth-ideas-sg/issues/1",
             "author": "palladius",
             "emoji": "🇮🇹🇨🇭",
-            "abstract": "A small abstract of what the app does.",
+            "abstract": "This app rings a cuckoo sound when you press the button",
             "screenshot": "random-app-ideas/cuckoo-clock-app/screenshot-800x600.png",
             "category": "Food"
         }
