@@ -15,9 +15,11 @@ import { marked } from 'marked';
 
 const ideaSchema = z.object({
   idea: z.string().min(20, { message: "Your idea is too short. Please elaborate a bit more to get better results!" }),
+  emoji: z.string().optional(),
+  nickname: z.string().optional(),
 });
 
-async function pushPrdToGitHub(prd: string, projectTitle: string): Promise<GitHubPushResult> {
+async function pushPrdToGitHub(prd: string, projectTitle: string, emoji: string | undefined, nickname: string | undefined): Promise<GitHubPushResult> {
     const pat = process.env.GITHUB_PAT;
     const repoUrl = process.env.NEXT_PUBLIC_GITHUB_REPO_URL;
     let owner: string, repo: string;
@@ -36,11 +38,15 @@ async function pushPrdToGitHub(prd: string, projectTitle: string): Promise<GitHu
         const octokit = new Octokit({ auth: pat });
         
         // 1. Create an issue
+        const issueBody = `${prd}
+
+${emoji ? `Emoji: ${emoji}
+` : ''}${nickname ? `Nickname: ${nickname}` : ''}`;
         const issue = await octokit.issues.create({
             owner,
             repo,
             title: projectTitle,
-            body: prd,
+            body: issueBody,
             labels: ['PRD'],
         });
         const issueNumber = issue.data.number;
@@ -136,13 +142,17 @@ async function pushPrdToGitHub(prd: string, projectTitle: string): Promise<GitHu
 
 
 export async function generateAll(prevState: ServerActionState, formData: FormData): Promise<ServerActionState> {
-  const ideaData = { idea: formData.get('idea') as string };
+  const ideaData = {
+    idea: formData.get('idea') as string,
+    emoji: formData.get('emoji') as string,
+    nickname: formData.get('nickname') as string,
+  };
   
   const validation = ideaSchema.safeParse(ideaData);
   if (!validation.success) {
     return { ...initialState, success: false, error: validation.error.errors.map(e => e.message).join(', ') };
   }
-  const idea = validation.data.idea;
+  const { idea, emoji, nickname } = validation.data;
 
   try {
     const prdPromise = generatePrdOverview({ idea });
@@ -181,7 +191,7 @@ export async function generateAll(prevState: ServerActionState, formData: FormDa
     console.log(fullPrdHtml);
 
     // Automatically push to GitHub
-    const githubResult = await pushPrdToGitHub(prd.prd, projectTitleResult.projectTitle);
+    const githubResult = await pushPrdToGitHub(prd.prd, projectTitleResult.projectTitle, emoji, nickname);
 
     const result: GenerationResult = { prd: prdOverview, criteria, code, fullPrd: prd, fullPrdHtml, githubResult };
     

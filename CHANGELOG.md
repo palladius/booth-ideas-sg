@@ -1,5 +1,10 @@
 # Changelog
 
+## [1.0.10] - 2025-09-04
+
+### Added
+- ✨ Added emoji and nickname to GitHub issue creation for PRDs.
+
 ## [1.0.9] - 2025-09-04
 
 ### Added
