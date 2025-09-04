@@ -28,6 +28,9 @@ tf-plan:
 
 # gcloud build into Nardy. And it works!
 gcloud-build:
+    #!/bin/bash
+    set -euo pipefail
+    gcloud config set project rick-and-nardy-demo
     gcloud --project=rick-and-nardy-demo builds submit --config=cloudbuild.yaml . --substitutions=COMMIT_SHA=manual-build
 
 # Runs the ideas-app locally on port 9002
