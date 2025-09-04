@@ -120,6 +120,14 @@ document.addEventListener('DOMContentLoaded', () => {
             links.appendChild(issueLink);
             card.appendChild(title);
             card.appendChild(categoryTag);
+
+            if (idea.abstract) {
+                const abstract = document.createElement('p');
+                abstract.className = 'abstract';
+                abstract.textContent = idea.abstract;
+                card.appendChild(abstract);
+            }
+
             card.appendChild(info);
             card.appendChild(links);
             galleryContainer.appendChild(card);
