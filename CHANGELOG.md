@@ -1,5 +1,10 @@
 # Changelog
 
+## [1.0.11] - 2025-09-04
+
+### Changed
+- 📝 Updated GitHub issue title format to "[AppIdea] TITLE OF ISSUE -- by NICKNAME".
+
 ## [1.0.10] - 2025-09-04
 
 ### Added

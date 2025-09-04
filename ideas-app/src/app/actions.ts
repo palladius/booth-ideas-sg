@@ -45,7 +45,7 @@ ${emoji ? `Emoji: ${emoji}
         const issue = await octokit.issues.create({
             owner,
             repo,
-            title: projectTitle,
+            title: `[AppIdea] ${projectTitle}${nickname ? ` -- by ${nickname}` : ''}`,
             body: issueBody,
             labels: ['PRD'],
         });
