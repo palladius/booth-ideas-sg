@@ -53,7 +53,8 @@ ${emoji ? `Emoji: ${emoji}
             labels: ['PRD'],
         });
         const issueNumber = issue.data.number;
-        messages.push({ type: 'info', text: `🐙 GitHub issue created: #${issueNumber}` });
+        const issueUrl = `https://github.com/${owner}/${repo}/issues/${issueNumber}`;
+        messages.push({ type: 'info', text: `🐙 GitHub issue created: <a href="${issueUrl}" target="_blank" class="underline">#${issueNumber}</a>` });
         
         messages.push({ type: 'info', text: '🌿 Determining unique branch name...' });
         // 2. Determine a unique branch name
@@ -213,6 +214,10 @@ export async function generateAll(prevState: ServerActionState, formData: FormDa
     // Automatically push to GitHub
     messages.push({ type: 'info', text: '🐙 Attempting to push to GitHub...' });
     const githubResult = await pushPrdToGitHub(prd.prd, projectTitleResult.projectTitle, emoji, nickname, messages);
+
+    if (githubResult.success) {
+        messages.push({ type: 'info', text: '✅ Success! The full process is complete.' });
+    }
 
     const result: GenerationResult = { prd: prdOverview, criteria, code, fullPrd: prd, fullPrdHtml, githubResult };
     
