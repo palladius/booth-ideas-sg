@@ -52,9 +52,7 @@ function FormResult({ state }: { state: ServerActionState }) {
     return (
       <div className="space-y-2 text-sm font-mono">
         {state.messages.map((msg, index) => (
-          <p key={index} className={msg.type === 'error' ? 'text-red-500' : 'text-gray-500'}>
-            {msg.text}
-          </p>
+          <p key={index} className={msg.type === 'error' ? 'text-red-500' : 'text-gray-500'} dangerouslySetInnerHTML={{ __html: msg.text }} />
         ))}
       </div>
     );
