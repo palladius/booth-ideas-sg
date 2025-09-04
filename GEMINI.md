@@ -46,3 +46,9 @@ Note: This is only PAST-looking, from the future (riccardo commits), we dont car
 
 1. I want to ask user for a nickname (needed) and an emoji (optional, default to swiss flag or event which is set by me on the day).
 2. This will eb a multi-event demo, so i want to be able to track the event_id (emoji, date, name) somewhat. Since this whole process works on github
+
+## Terraform
+
+* My organization restricts public IPs, so my Cloud run instance needs to use IAP.
+* Ensure its Enabled for at least ricc@google.com (and maybe more people).
+* More docs on using TF with IAP are here: https://cloud.google.com/run/docs/securing/identity-aware-proxy-cloud-run

@@ -1,5 +1,16 @@
 # Changelog
 
+## [1.0.8] - 2025-09-04
+
+### Security
+- 🔒 Enabled IAP for the Cloud Run service.
+- 🔒 Added `ricc@google.com` and `strebel@google.com` to the IAP.
+
+## [1.0.7] - 2025-09-04
+
+### Added
+- 🚀 Deployed the `ideas-app` to Cloud Run using Terraform.
+
 ## [1.0.6] - 2025-09-04
 
 ### Added

@@ -1,7 +1,15 @@
 {
-  "maxSessionTurns": 50,
+  "maxSessionTurns": 150,
   "telemetry": {
     "enabled": false,
     "target": "gcp"
-  }
+  },
+  "allowedTools": [
+    "ShellTool(git status)",
+    "ShellTool(git commit)",
+    "ShellTool(git diff)",
+    "ShellTool(terraform plan)",
+    "ShellTool(terraform init)",
+    "ShellTool(echo)"
+  ]
 }

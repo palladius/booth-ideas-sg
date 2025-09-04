@@ -3,6 +3,11 @@ provider "google" {
   region  = var.region
 }
 
+provider "google-beta" {
+  project = var.project_id
+  region  = var.region
+}
+
 resource "google_artifact_registry_repository" "repo" {
   location      = var.region
   repository_id = "${var.service_name}-repo"
@@ -29,6 +34,12 @@ data "google_secret_manager_secret_version" "gemini_api_key" {
 resource "google_project_service" "cloudbuild_api" {
   project            = var.project_id
   service            = "cloudbuild.googleapis.com"
+  disable_on_destroy = false
+}
+
+resource "google_project_service" "iap_api" {
+  project            = var.project_id
+  service            = "iap.googleapis.com"
   disable_on_destroy = false
 }
 
@@ -64,8 +75,12 @@ resource "google_secret_manager_secret_iam_member" "gemini_api_key_accessor" {
 
 
 resource "google_cloud_run_v2_service" "default" {
+  provider = google-beta
   name     = var.service_name
   location = var.region
+  ingress  = "INGRESS_TRAFFIC_ALL"
+  launch_stage = "BETA"
+  iap_enabled = true
 
   template {
     containers {
@@ -105,9 +120,28 @@ resource "google_cloud_run_v2_service" "default" {
   deletion_protection = false
 }
 
-# resource "google_cloud_run_service_iam_member" "noauth" {
-#   location = google_cloud_run_v2_service.default.location
-#   service  = google_cloud_run_v2_service.default.name
-#   role     = "roles/run.invoker"
-#   member   = "allUsers"
-# }
+data "google_iam_policy" "policy" {
+  binding {
+    role = "roles/run.invoker"
+    members = [
+      "serviceAccount:service-${data.google_project.project.number}@gcp-sa-iap.iam.gserviceaccount.com",
+    ]
+  }
+}
+
+resource "google_cloud_run_v2_service_iam_policy" "policy" {
+  project = google_cloud_run_v2_service.default.project
+  location = google_cloud_run_v2_service.default.location
+  name = google_cloud_run_v2_service.default.name
+  policy_data = data.google_iam_policy.policy.policy_data
+}
+
+resource "google_iap_web_cloud_run_service_iam_member" "googlers" {
+  for_each = toset(var.iap_googlers)
+  provider = google-beta
+  project = google_cloud_run_v2_service.default.project
+  location = google_cloud_run_v2_service.default.location
+  cloud_run_service_name = google_cloud_run_v2_service.default.name
+  role    = "roles/iap.httpsResourceAccessor"
+  member  = "user:${each.key}@google.com"
+}

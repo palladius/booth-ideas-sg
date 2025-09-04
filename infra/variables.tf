@@ -37,5 +37,12 @@ variable "gemini_api_key_secret_name" {
 variable "github_repo_url" {
   description = "The URL of the GitHub repository."
   type        = string
-  default     = "https://github.com/pauldatta/booth-ideas-sg/"
+#  default     = "https://github.com/pauldatta/booth-ideas-sg/"
+  default     = "https://github.com/palladius/booth-ideas-sg/"
+}
+
+variable "iap_googlers" {
+  description = "A list of Google employees (by username) to grant IAP access."
+  type        = list(string)
+  default     = []
 }

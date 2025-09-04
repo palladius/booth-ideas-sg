@@ -10,6 +10,8 @@ auth:
 
 plan:
     terraform plan
+apply:
+    terraform apply -auto-approve
 
 # Checks the GitHub PAT from Secret Manager
 # WARNING: This will output the secret to your console.
@@ -18,3 +20,11 @@ get-secret-pat-token:
 get-secret-gemini-api-key:
     gcloud secrets versions access latest --secret=ideas-app-gemini-api-key
 get-secrets:  get-secret-pat-token get-secret-gemini-api-key
+
+# Gets users allowed to see IAP for Cloud Run
+iap-policy:
+    gcloud beta iap web get-iam-policy --resource-type=cloud-run --service=ideas-app --region=europe-west1
+
+# Adds a Googler to the IAP policy
+iap-add-googler USERNAME:
+    gcloud beta iap web add-iam-policy-binding --member=user:{{USERNAME}}@google.com --role=roles/iap.httpsResourceAccessor --resource-type=cloud-run --service=ideas-app --region=europe-west1
