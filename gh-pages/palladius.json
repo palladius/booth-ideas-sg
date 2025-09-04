@@ -14,6 +14,7 @@
             "number": 2,
             "title": "🇮🇹🇨🇭 Smart Fondue Pot Temperature Monitor",
             "url": "https://github.com/palladius/booth-ideas-sg/issues/2",
+            "abstract": "A smart fondue pot that monitors temperature.",
             "category": "Technology"
         },
         {
@@ -21,6 +22,7 @@
             "number": 1,
             "title": "🇮🇹🇨🇭 A Cuckoo Clock That Tweets Jokes",
             "url": "https://github.com/palladius/booth-ideas-sg/issues/1",
+            "abstract": "A cuckoo clock that tweets jokes.",
             "category": "Crafts"
         },
         {"createdAt":"2025-09-24T08:23:54Z","number":166,"title":"[on-the-day] Interactive Planetary Alignment System","url":"https://github.com/pauldatta/booth-ideas-sg/issues/166", "category": "Education"},
