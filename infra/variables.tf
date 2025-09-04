@@ -16,10 +16,9 @@ variable "service_name" {
 }
 
 variable "image_name" {
-  description = "The full name of the container image in Artifact Registry (e.g., REGION-docker.pkg.dev/PROJECT_ID/REPO_NAME/IMAGE_NAME:tag)."
+  description = "The full name of the container image in Artifact Registry (e.g., REGION-docker.pkg.dev/PROJECT_ID/REPO_NAME/IMAGE_NAME:tag). If not provided, Cloud Build will deploy the actual image."
   type        = string
-  # This will be a placeholder, as Cloud Build will deploy the actual image.
-  default     = "gcr.io/cloudrun/placeholder"
+  default     = null
 }
 
 variable "github_pat_secret_name" {
@@ -37,8 +36,7 @@ variable "gemini_api_key_secret_name" {
 variable "github_repo_url" {
   description = "The URL of the GitHub repository."
   type        = string
-#  default     = "https://github.com/pauldatta/booth-ideas-sg/"
-  default     = "https://github.com/palladius/booth-ideas-sg/"
+  default     = "https://github.com/pauldatta/booth-ideas-sg/"
 }
 
 variable "iap_googlers" {

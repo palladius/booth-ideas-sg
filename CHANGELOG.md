@@ -1,5 +1,10 @@
 # Changelog
 
+## [1.0.9] - 2025-09-04
+
+### Added
+- 🚀 Triggered a manual Cloud Build to deploy the `ideas-app`.
+
 ## [1.0.8] - 2025-09-04
 
 ### Security

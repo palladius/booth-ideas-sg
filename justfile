@@ -20,3 +20,13 @@ test-screenshot:
 test-screenshot-fondue:
     time ./bin/create-screenshot.sh random-app-ideas/fondue-app/
 
+# TERRAFORM: Apply
+tf-apply:
+    cd infra/ && just apply
+# TERRAFORM: Plan
+tf-plan:
+    cd infra/ && just plan
+
+# gcloud build into Nardy. And it works!
+gcloud-build:
+    gcloud --project=rick-and-nardy-demo builds submit --config=cloudbuild.yaml . --substitutions=COMMIT_SHA=manual-build
