@@ -126,6 +126,11 @@ main {
     color: #202124;
 }
 
+.card .abstract {
+    font-style: italic;
+    margin-bottom: 1rem;
+}
+
 .card .category-tag {
     font-size: 0.75rem;
     font-weight: 500;
