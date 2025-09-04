@@ -7,9 +7,10 @@
             "number": 25,
             "title": "[AppIdea] A calendar app to show if you took your daily/weekly/monthly pill. -- by ricky",
             "url": "https://github.com/palladius/booth-ideas-sg/issues/25",
-            "abstract": "A calendar app to show if you took your daily/weekly/monthly pill. It has a FE which allows you to configure your pills (eg \"pressure pill - daily\" and \"mounjaro - weekly on wed\") after which it prompts you on the day: did you take your pill? And if you say no, it keeps bugging you until you do.",
+            "abstract": "A calendar app to show if you took your daily/weekly/monthly pill. It has a FE which allows you to configure your pills after which it prompts you on the day: did you take your pill? And if you say no, it keeps bugging you until you do.",
             "category": "Health",
-            "appName": "pill-calendar-app"
+            "author": "ricky",
+            "appName": "25--pill-calendar-app"
         },
         {
             "createdAt": "2025-09-04T10:00:00Z",

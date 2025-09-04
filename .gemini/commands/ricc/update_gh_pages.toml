@@ -49,10 +49,11 @@ Let me start with an Example, and lets refine it then.
 ```json
         {
             "createdAt": "2025-09-03T09:00:00Z",
+            "appName": "pill-calendar-app",
             "number": 1,
             "title": "🇮🇹🇨🇭 A Cuckoo Clock That Tweets Jokes",
             "url": "https://github.com/palladius/booth-ideas-sg/issues/1",
-            "author": "palladius",
+            "author": "palladius", // User nickname
             "emoji": "🇮🇹🇨🇭",
             "abstract": "This app rings a cuckoo sound when you press the button",
             "screenshot": "random-app-ideas/cuckoo-clock-app/screenshot-800x600.png",
@@ -74,7 +75,8 @@ Notes on the field:
 6. Emoji: Evince it from the issue, or title, or anything
 7. Abstract: "A small abstract of what the app does."
 8. Screenshot: if you find a `screenshot*.png` in the root folder of the app, then please include the relative path to the screenshot file.
-   If not, leave it empty. See how to copy a screenshot below
+   If not, leave it empty. See how to copy a screenshot belowappName
+9. appName: Take it from the folder app name and remove the initial ID and dashes ("25--pill-calendar-app" => "pill-calendar-app").
 
 ## Copy screenshots
 
