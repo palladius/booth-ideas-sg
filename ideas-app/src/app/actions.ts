@@ -52,10 +52,9 @@ ${emoji ? `Emoji: ${emoji}
         const issue = await octokit.issues.create({
             owner,
             repo,
-                        title: `[AppIdea] ${projectTitle}${nickname ? ` -- by ${nickname}` : ''}`,
-
+            title: `[AppIdea] ${projectTitle} - by ${nickname}`,
             body: issueBody,
-            labels: ['PRD'],
+            labels: ['PRD', 'pauldatta-app'],
         });
         const issueNumber = issue.data.number;
         const issueUrl = `https://github.com/${owner}/${repo}/issues/${issueNumber}`;
