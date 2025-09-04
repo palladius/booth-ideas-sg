@@ -49,4 +49,5 @@ There are pieces of code in this repo:
 
 * `random-app-ideas/`: collection of apps vibecoded by Gemini after users create ideas.
 * `ideas-app/`: This is an app vibecoded by the original authors Paul Datta & c on Firebase Studio. can be deployed to Cloud run.
-  * Ricc deployed to
+  * Ricc deployed to CR here:
+* `gh_pages`. This is deployed to GitHub pages: https://palladius.github.io/booth-ideas-sg/
