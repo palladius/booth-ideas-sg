@@ -5,12 +5,13 @@
         {
             "createdAt": "2025-09-04T13:45:00Z",
             "number": 25,
-            "title": "[AppIdea] A calendar app to show if you took your daily/weekly/monthly pill. -- by ricky",
+            "title": "Pill Calendar App",
             "url": "https://github.com/palladius/booth-ideas-sg/issues/25",
             "abstract": "A calendar app to show if you took your daily/weekly/monthly pill. It has a FE which allows you to configure your pills after which it prompts you on the day: did you take your pill? And if you say no, it keeps bugging you until you do.",
             "category": "Health",
             "author": "ricky",
-            "appName": "25--pill-calendar-app"
+            "appName": "pill-calendar-app",
+            "screenshot": "images/random-app-ideas/screenshots/pill-calendar-app.png"
         },
         {
             "createdAt": "2025-09-04T10:00:00Z",
@@ -19,7 +20,8 @@
             "url": "https://github.com/palladius/booth-ideas-sg/issues/21",
             "abstract": "This app has a number of country flags with continent selector!",
             "category": "Utilities",
-            "appName": "multiflag-app"
+            "appName": "multiflag-app",
+            "screenshot": "images/random-app-ideas/screenshots/multiflag-app.png"
         },
         {
             "createdAt": "2025-09-03T10:15:00Z",
@@ -28,7 +30,8 @@
             "url": "https://github.com/palladius/booth-ideas-sg/issues/2",
             "abstract": "A smart fondue pot that monitors temperature.",
             "category": "Technology",
-            "appName": "fondue-app"
+            "appName": "fondue-app",
+            "screenshot": "images/random-app-ideas/screenshots/fondue-app.png"
         },
         {
             "createdAt": "2025-09-03T09:00:00Z",
@@ -37,7 +40,8 @@
             "url": "https://github.com/palladius/booth-ideas-sg/issues/1",
             "abstract": "A cuckoo clock that tweets jokes.",
             "category": "Crafts",
-            "appName": "cuckoo-clock-app"
+            "appName": "cuckoo-clock-app",
+            "screenshot": "images/random-app-ideas/screenshots/cuckoo-clock-app.png"
         }
     ]
 }
