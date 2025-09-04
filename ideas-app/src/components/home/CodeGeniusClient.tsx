@@ -87,27 +87,6 @@ export default function CodeGeniusClient() {
               </CardDescription>
             </CardHeader>
             <CardContent>
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-4">
-                <div>
-                  <Label htmlFor="emoji">Your Event Emoji (optional, eg 🇨🇭☁️⛰️)</Label>
-                  <Input
-                    name="emoji"
-                    id="emoji"
-                    placeholder="Example: 🇨🇭, ☁️, ⛰️"
-                    className="text-base"
-                  />
-                </div>
-                <div>
-                  <Label htmlFor="nickname">Your Nickname</Label>
-                  <Input
-                    name="nickname"
-                    id="nickname"
-                    placeholder="Example: Ricky, Nardy, Donny..."
-                    className="text-base text-gray-600"
-                    required
-                  />
-                </div>
-              </div>
               <Textarea
                 name="idea"
                 id="idea"
@@ -115,6 +94,29 @@ export default function CodeGeniusClient() {
                 className="min-h-[150px] text-base resize-y"
                 required
               />
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 pt-4">
+                <div>
+                  <label htmlFor="emoji" className="block text-sm font-medium text-gray-700">Emoji (optional)</label>
+                  <Input
+                    type="text"
+                    name="emoji"
+                    id="emoji"
+                    placeholder="e.g., 🇨🇭"
+                    className="mt-1 block w-full"
+                  />
+                </div>
+                <div>
+                  <label htmlFor="nickname" className="block text-sm font-medium text-gray-700">Nickname (required)</label>
+                  <Input
+                    type="text"
+                    name="nickname"
+                    id="nickname"
+                    placeholder="e.g., Riccardo"
+                    className="mt-1 block w-full"
+                    required
+                  />
+                </div>
+              </div>
             </CardContent>
             <CardFooter>
               <SubmitButton />
