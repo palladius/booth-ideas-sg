@@ -1,8 +1,9 @@
 {
     "eventName": "🇸🇬 AI Asia 28aug",
+    "eventEmojis": "🇸🇬🇸🇬",
     "ideas": [
-        {"createdAt":"2025-08-28T08:23:54Z","number":166,"title":"[SG] Interactive Planetary Alignment System","url":"https://github.com/pauldatta/booth-ideas-sg/issues/166", "category": "Education"},
-        {"createdAt":"2025-08-28T08:10:49Z","number":164,"title":"[SG] Event Crowd Flow Tracker","url":"https://github.com/pauldatta/booth-ideas-sg/issues/164", "category": "Productivity"},
+        {"createdAt":"2025-08-28T08:23:54Z","number":166,"title":"[SG] 🇸🇬🇸🇬Interactive Planetary Alignment System","url":"https://github.com/pauldatta/booth-ideas-sg/issues/166", "category": "Education"},
+        {"createdAt":"2025-08-28T08:10:49Z","number":164,"title":"[SG] 🇸🇬Event Crowd Flow Tracker","url":"https://github.com/pauldatta/booth-ideas-sg/issues/164", "category": "Productivity"},
         {"createdAt":"2025-08-28T07:56:45Z","number":162,"title":"[SG] Warehouse Material Picking Route Optimizer","url":"https://github.com/pauldatta/booth-ideas-sg/issues/162", "category": "Logistics"},
         {"createdAt":"2025-08-28T07:01:44Z","number":160,"title":"[SG] Matchstick Counter App","url":"https://github.com/pauldatta/booth-ideas-sg/issues/160", "category": "Utilities"},
         {"createdAt":"2025-08-28T06:34:00Z","number":158,"title":"[SG] Primary Math Learning App","url":"https://github.com/pauldatta/booth-ideas-sg/issues/158", "category": "Education"},

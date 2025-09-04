@@ -339,3 +339,14 @@ footer {
     position: relative;
     height: 20px;
 }
+
+.card-img {
+    width: calc(100% - 8px); /* Adjust width for padding */
+    height: auto;
+    margin-top: 1rem;
+    border-radius: 8px;
+    padding: 4px;
+    background-color: #fff;
+    border: 1px solid rgba(0, 0, 0, 0.05);
+    box-shadow: 0 2px 4px rgba(0,0,0,0.05), 0 8px 24px rgba(161, 66, 244, 0.15), 0 2px 8px rgba(26, 115, 232, 0.15);
+}

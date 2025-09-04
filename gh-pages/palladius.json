@@ -1,31 +1,32 @@
 {
     "eventName": "Euro Cloud Summit",
-    "eventEmojis": "🇨🇭⋆.˚☁️⋆",
+    "eventEmojis": "🇨🇭☁️",
     "ideas": [
         {
             "createdAt": "2025-09-04T10:00:00Z",
             "number": 21,
-            "title": "🇮🇹🇨🇭 Multiflag Emoji App",
+            "title": "Multiflag Emoji App",
             "abstract": "This app has a number of country flags with continent selector!",
-            "category": "Utilities"
+            "category": "Utilities",
+            "appName": "multiflag-app"
         },
         {
             "createdAt": "2025-09-03T10:15:00Z",
             "number": 2,
-            "title": "🇮🇹🇨🇭 Smart Fondue Pot Temperature Monitor",
+            "title": "Smart Fondue Pot Temperature Monitor",
             "url": "https://github.com/palladius/booth-ideas-sg/issues/2",
             "abstract": "A smart fondue pot that monitors temperature.",
-            "category": "Technology"
+            "category": "Technology",
+            "appName": "fondue-app"
         },
         {
             "createdAt": "2025-09-03T09:00:00Z",
             "number": 1,
-            "title": "🇮🇹🇨🇭 A Cuckoo Clock That Tweets Jokes",
+            "title": "Cuckoo Clock That Tweets Jokes",
             "url": "https://github.com/palladius/booth-ideas-sg/issues/1",
             "abstract": "A cuckoo clock that tweets jokes.",
-            "category": "Crafts"
-        },
-        {"createdAt":"2025-09-24T08:23:54Z","number":166,"title":"[on-the-day] Interactive Planetary Alignment System","url":"https://github.com/pauldatta/booth-ideas-sg/issues/166", "category": "Education"},
-        {"createdAt":"2025-09-25T05:47:55Z","number":154,"title":"[future] Meal Image Nutrition Analyzer","url":"https://github.com/pauldatta/booth-ideas-sg/issues/154", "category": "Health"}
+            "category": "Crafts",
+            "appName": "cuckoo-clock-app"
+        }
     ]
 }

@@ -8,6 +8,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     let currentCategoryFilter = 'All';
     let eventName = '';
+    let eventEmojis = '';
     let ideasData = [];
 
     function renderEventSelector() {
@@ -43,6 +44,7 @@ document.addEventListener('DOMContentLoaded', () => {
             const data = await response.json();
             if (data.eventEmojis) {
                 document.title = `${data.eventEmojis} | ${data.eventName} Idea Gallery`;
+                eventEmojis = data.eventEmojis;
             } else {
                 document.title = `${data.eventName} | Idea Gallery`;
             }
@@ -82,7 +84,11 @@ document.addEventListener('DOMContentLoaded', () => {
             card.id = `idea-card-${idea.number}`;
 
             const title = document.createElement('h2');
-            title.textContent = idea.title;
+            if (eventEmojis) {
+                title.textContent = `${eventEmojis} ${idea.title}`;
+            } else {
+                title.textContent = idea.title;
+            }
 
             const categoryTag = document.createElement('p');
             categoryTag.className = 'category-tag';
@@ -125,6 +131,14 @@ document.addEventListener('DOMContentLoaded', () => {
             links.appendChild(issueLink);
             card.appendChild(title);
             card.appendChild(categoryTag);
+
+            if (idea.appName) {
+                const img = document.createElement('img');
+                img.src = `images/random-app-ideas/screenshots/${idea.appName}.png`;
+                img.alt = idea.title;
+                img.className = 'card-img';
+                card.appendChild(img);
+            }
 
             if (idea.abstract) {
                 const abstract = document.createElement('p');
