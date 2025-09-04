@@ -86,6 +86,17 @@ document.addEventListener('DOMContentLoaded', () => {
             const info = document.createElement('p');
             info.className = 'info';
 
+            if (idea.url && idea.url.includes('github.com')) {
+                const issueLink = document.createElement('a');
+                issueLink.href = idea.url;
+                issueLink.textContent = `Issue #${idea.number}`;
+                issueLink.target = '_blank';
+                issueLink.rel = 'noopener noreferrer';
+                info.appendChild(issueLink);
+            } else {
+                info.append(`Issue #${idea.number}`);
+            }
+
             const ideaDate = new Date(idea.createdAt);
             const ideaDateNormalized = new Date(idea.createdAt);
             ideaDateNormalized.setHours(0, 0, 0, 0);
@@ -96,7 +107,7 @@ document.addEventListener('DOMContentLoaded', () => {
             } else {
                 dateString = `on ${ideaDate.toLocaleDateString('en-US', { month: 'short', day: '2-digit' })}`;
             }
-            info.textContent = `Issue #${idea.number} • Created ${dateString}`;
+            info.append(` • Created ${dateString}`);
 
             const links = document.createElement('div');
             links.className = 'links';
