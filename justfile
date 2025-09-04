@@ -32,7 +32,13 @@ gcloud-build:
 
 # Runs the ideas-app locally on port 9002
 ideas-app-run:
-    cd ideas-app && npm install && npm run dev
+    #!/bin/bash
+    set -euo pipefail
+    mkdir -p log
+    set -a; source .env; set +a
+    (cd ideas-app && npm install && npm run dev) >> log/ideas-app.log 2>&1 &
+    echo "IdeasApp started in the background. Tailing log/ideas-app.log..."
+    tail -f log/ideas-app.log
 
 # [GC Command] Calls Gemini command to update GH Pages
 gemini-reconcile-gh-pages:

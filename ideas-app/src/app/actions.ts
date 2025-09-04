@@ -25,7 +25,7 @@ async function pushPrdToGitHub(prd: string, projectTitle: string, emoji: string 
     let owner: string, repo: string;
 
     if (!pat || !repoUrl) {
-        messages.push({ type: 'error', text: "GitHub PAT or Repository URL is not configured." });
+        messages.push({ type: 'error', text: "🐙 GitHub PAT or Repository URL is not configured." });
         return { success: false, error: "GitHub PAT or Repository URL is not configured in your .env file.", pullRequestUrl: null, branchName: null };
     }
 
@@ -38,10 +38,10 @@ async function pushPrdToGitHub(prd: string, projectTitle: string, emoji: string 
 
         const octokit = new Octokit({ auth: pat });
         
-        messages.push({ type: 'info', text: 'Creating GitHub issue...' });
+        messages.push({ type: 'info', text: '🐙 Creating GitHub issue...' });
         // 1. Create an issue
-        const issueBody = `${prd}
-
+        const issueBody = `${prd}` +
+`
 ${emoji ? `Emoji: ${emoji}
 ` : ''}${nickname ? `Nickname: ${nickname}` : ''}`;
         const issue = await octokit.issues.create({
@@ -53,9 +53,9 @@ ${emoji ? `Emoji: ${emoji}
             labels: ['PRD'],
         });
         const issueNumber = issue.data.number;
-        messages.push({ type: 'info', text: `GitHub issue created: #${issueNumber}` });
+        messages.push({ type: 'info', text: `🐙 GitHub issue created: #${issueNumber}` });
         
-        messages.push({ type: 'info', text: 'Determining unique branch name...' });
+        messages.push({ type: 'info', text: '🌿 Determining unique branch name...' });
         // 2. Determine a unique branch name
         const baseBranchName = projectTitle.toLowerCase().replace(/\s+/g, '-').replace(/[^a-z0-9-]/g, '');
         let branchName = baseBranchName;
@@ -82,9 +82,9 @@ ${emoji ? `Emoji: ${emoji}
                 }
             }
         }
-        messages.push({ type: 'info', text: `Unique branch name determined: ${branchName}` });
+        messages.push({ type: 'info', text: `🌿 Unique branch name determined: ${branchName}` });
 
-        messages.push({ type: 'info', text: 'Creating new branch...' });
+        messages.push({ type: 'info', text: '🌿 Creating new branch...' });
         // 3. Create the new branch with the unique name
         const { data: repoData } = await octokit.repos.get({ owner, repo });
         const defaultBranch = repoData.default_branch;
@@ -101,9 +101,9 @@ ${emoji ? `Emoji: ${emoji}
             ref: `refs/heads/${branchName}`,
             sha: latestCommitSha,
         });
-        messages.push({ type: 'info', text: `Branch created: ${branchName}` });
+        messages.push({ type: 'info', text: `🌿 Branch created: ${branchName}` });
 
-        messages.push({ type: 'info', text: 'Pushing PRD to GitHub...' });
+        messages.push({ type: 'info', text: '🐙 Pushing PRD to GitHub...' });
         // 4. Push PRD, linking to the issue in the commit message
         const prdFileName = `prd-${issueNumber}.md`;
         await octokit.repos.createOrUpdateFileContents({
@@ -114,9 +114,9 @@ ${emoji ? `Emoji: ${emoji}
             content: Buffer.from(prd).toString('base64'),
             branch: branchName,
         });
-        messages.push({ type: 'info', text: `PRD pushed to GitHub: ${prdFileName}` });
+        messages.push({ type: 'info', text: `🐙 PRD pushed to GitHub: ${prdFileName}` });
         
-        messages.push({ type: 'info', text: 'Creating pull request...' });
+        messages.push({ type: 'info', text: '🐙 Creating pull request...' });
         // 5. Create a pull request
         const pullRequest = await octokit.pulls.create({
             owner,
@@ -126,9 +126,9 @@ ${emoji ? `Emoji: ${emoji}
             base: defaultBranch,
             body: `This PR adds a new Product Requirements Document as discussed in issue #${issueNumber}.`,
         });
-        messages.push({ type: 'info', text: `Pull request created: ${pullRequest.data.html_url}` });
+        messages.push({ type: 'info', text: `🐙 Pull request created: ${pullRequest.data.html_url}` });
 
-        messages.push({ type: 'info', text: 'Adding comment to pull request...' });
+        messages.push({ type: 'info', text: '🐙 Adding comment to pull request...' });
         // 6. Add a comment to the pull request
         await octokit.issues.createComment({
             owner,
@@ -136,12 +136,12 @@ ${emoji ? `Emoji: ${emoji}
             issue_number: pullRequest.data.number,
             body: "@gemini-cli Generate an Astro frontend application referencing the PRD",
         });
-        messages.push({ type: 'info', text: 'Comment added to pull request.' });
+        messages.push({ type: 'info', text: '🐙 Comment added to pull request.' });
 
         return { success: true, error: null, pullRequestUrl: pullRequest.data.html_url, branchName, messages };
 
     } catch (error: any) {
-        console.error("GitHub push failed:", error);
+        console.error("🐙 GitHub push failed:", error);
         let errorMessage = "An unexpected error occurred while pushing to GitHub.";
         if (error.status === 401) {
             errorMessage = "Authentication failed. Please check your Personal Access Token.";
@@ -150,7 +150,7 @@ ${emoji ? `Emoji: ${emoji}
         } else if (error.message) {
             errorMessage = error.message;
         }
-        messages.push({ type: 'error', text: `GitHub push failed: ${errorMessage}` });
+        messages.push({ type: 'error', text: `🐙 GitHub push failed: ${errorMessage}` });
         return { success: false, error: errorMessage, pullRequestUrl: null, branchName: null, messages };
     }
 }
@@ -158,7 +158,7 @@ ${emoji ? `Emoji: ${emoji}
 
 export async function generateAll(prevState: ServerActionState, formData: FormData): Promise<ServerActionState> {
   const messages = prevState.messages || []; // Preserve previous messages
-  messages.push({ type: 'info', text: 'Starting idea processing...' });
+  messages.push({ type: 'info', text: '💡 Starting idea processing...' });
 
   const ideaData = {
     idea: formData.get('idea') as string,
@@ -174,7 +174,7 @@ export async function generateAll(prevState: ServerActionState, formData: FormDa
   const { idea, emoji, nickname } = validation.data;
 
   try {
-    messages.push({ type: 'info', text: 'Generating PRD overview, evaluation criteria, and project title...' });
+    messages.push({ type: 'info', text: '📝 Generating PRD overview, evaluation criteria, and project title...' });
     const prdPromise = generatePrdOverview({ idea });
     const criteriaPromise = suggestEvaluationCriteria({ idea });
     const projectTitlePromise = generateProjectTitle({ idea });
@@ -211,7 +211,7 @@ export async function generateAll(prevState: ServerActionState, formData: FormDa
     console.log(fullPrdHtml);
 
     // Automatically push to GitHub
-    messages.push({ type: 'info', text: 'Attempting to push to GitHub...' });
+    messages.push({ type: 'info', text: '🐙 Attempting to push to GitHub...' });
     const githubResult = await pushPrdToGitHub(prd.prd, projectTitleResult.projectTitle, emoji, nickname, messages);
 
     const result: GenerationResult = { prd: prdOverview, criteria, code, fullPrd: prd, fullPrdHtml, githubResult };
