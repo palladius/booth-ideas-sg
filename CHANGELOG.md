@@ -1,5 +1,10 @@
 # Changelog
 
+## [1.0.12] - 2025-09-04
+
+### Fixed
+- 🐛 Restored `justfile` and re-applied GitHub issue title format.
+
 ## [1.0.11] - 2025-09-04
 
 ### Changed
