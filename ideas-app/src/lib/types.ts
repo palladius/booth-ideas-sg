@@ -23,4 +23,5 @@ export interface ServerActionState {
   success: boolean;
   data?: GenerationResult;
   error?: string | null;
+  messages?: { type: 'info' | 'error', text: string }[];
 }

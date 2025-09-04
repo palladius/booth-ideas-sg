@@ -47,6 +47,19 @@ function FormResult({ state }: { state: ServerActionState }) {
     return <LoadingState />;
   }
 
+  // Display messages if available
+  if (state.messages && state.messages.length > 0) {
+    return (
+      <div className="space-y-2 text-sm font-mono">
+        {state.messages.map((msg, index) => (
+          <p key={index} className={msg.type === 'error' ? 'text-red-500' : 'text-gray-500'}>
+            {msg.text}
+          </p>
+        ))}
+      </div>
+    );
+  }
+
   if (state.success && state.data) {
     return (
       <div className="space-y-8">
