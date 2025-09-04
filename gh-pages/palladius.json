@@ -6,9 +6,9 @@
             "createdAt": "2025-09-04T10:00:00Z",
             "number": 21,
             "title": "Multiflag Emoji App",
+            "url": "https://github.com/palladius/booth-ideas-sg/issues/21",
             "abstract": "This app has a number of country flags with continent selector!",
-            "category": "Utilities",
-            "appName": "multiflag-app"
+            "category": "Utilities"
         },
         {
             "createdAt": "2025-09-03T10:15:00Z",

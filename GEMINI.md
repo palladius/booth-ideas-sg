@@ -10,11 +10,7 @@ Note I don't want to use PRs against the original, my copy will extend and grew 
 
 ## Repo explaination
 
-Let's make sure a `WHAT_THIS_REPO_DOES.md` exist (if not, lets create it) with:
-
-* what code does
-* Specifically what every folder does, if its a multirepo lets break it down into its function
-* What each git branch signifies. Whats the role of `main`, `gh-pages`, and so on.
+Look at `WHAT_THIS_REPO_DOES.md` to see what code and branches signify here.
 
 Note: This is only PAST-looking, from the future (riccardo commits), we dont care. Last Paul commit is `993ba1beafa63e98ee50d606da6e9edcae438da0`: this will be our "Rubicon".
 
@@ -52,3 +48,18 @@ Note: This is only PAST-looking, from the future (riccardo commits), we dont car
 * My organization restricts public IPs, so my Cloud run instance needs to use IAP.
 * Ensure its Enabled for at least ricc@google.com (and maybe more people).
 * More docs on using TF with IAP are here: https://cloud.google.com/run/docs/securing/identity-aware-proxy-cloud-run
+
+## Users apps vs Issues
+
+I'm adopting a naming convention that links easily ISSUES to CODE. See with this example:
+
+```bash
+ls -al random-apps-ideas/
+01--cuckoo-clock-app/ # Issue 1 -> https://github.com/palladius/booth-ideas-sg/issues/1 has the cuckoo-clock-app idea
+02--fondue-app/ # Issue 2 -> https://github.com/palladius/booth-ideas-sg/issues/2 has the fondue idea
+21--multiflag-app/ # Issue 21 -> https://github.com/palladius/booth-ideas-sg/issues/21 has the multiflag app idea
+```
+
+So:
+* the code is under `random-apps-ideas/{ISSUE_ID}_{APP_NAME}/`
+  * and probably you can find a screenshot there under `random-apps-ideas/{ISSUE_ID}_{APP_NAME}/screenshot.png`

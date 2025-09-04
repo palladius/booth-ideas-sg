@@ -29,9 +29,16 @@ Output:
 
 ## Issue finding
 
-1. Check the latest issues in the GitHub repository for any new app ideas.
-2. This permalink gives you ALL the issues: https://github.com/palladius/booth-ideas-sg/issues?q=is%3Aissue%20%20label%3Apauldatta-app
-3. Alternatively, the issue you're looking for might be in the argument from the command, see below.
+1. Check the latest issues in the GitHub repository for any new app ideas online. This permalink gives you ALL the issues: https://github.com/palladius/booth-ideas-sg/issues?q=is%3Aissue%20%20label%3Apauldatta-app
+3. Alternatively, you can find them locally with a `ls random-app-ideas/`. Example:
+
+```
+ls -al random-apps-ideas/
+drwxr-xr-x  4 ricc primarygroup 4096 Sep  4 11:47 01--cuckoo-clock-app # Issue 1 -> https://github.com/palladius/booth-ideas-sg/issues/1
+drwxr-xr-x  4 ricc primarygroup 4096 Sep  4 11:47 02--fondue-app # Issue 2 -> https://github.com/palladius/booth-ideas-sg/issues/2
+drwxr-xr-x  2 ricc primarygroup 4096 Sep  4 12:44 21--multiflag-app # Issue 21 -> https://github.com/palladius/booth-ideas-sg/issues/21
+
+4. Issues are linked to the idea with this
 
 ## How to add an application.
 
