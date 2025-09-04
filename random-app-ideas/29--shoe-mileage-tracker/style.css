@@ -1,0 +1,109 @@
+body {
+    font-family: sans-serif;
+    background-color: #f4f4f4;
+    color: #333;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    margin: 0;
+}
+
+.container {
+    background-color: #fff;
+    padding: 2rem;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    max-width: 600px;
+}
+
+h1 {
+    text-align: center;
+    margin-bottom: 1.5rem;
+}
+
+.add-shoe {
+    display: flex;
+    gap: 0.5rem;
+    margin-bottom: 1.5rem;
+}
+
+#shoe-name {
+    flex-grow: 1;
+    padding: 0.5rem;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+#add-shoe-btn {
+    padding: 0.5rem 1rem;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+#add-shoe-btn:hover {
+    background-color: #0056b3;
+}
+
+.shoe-list {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.shoe-item {
+    background-color: #f9f9f9;
+    padding: 1rem;
+    border-radius: 4px;
+    border: 1px solid #eee;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.shoe-item.alert {
+    background-color: #f8d7da;
+    border-color: #f5c6cb;
+}
+
+.shoe-info {
+    display: flex;
+    flex-direction: column;
+}
+
+.shoe-item-name {
+    font-weight: bold;
+}
+
+.shoe-item-mileage {
+    color: #666;
+}
+
+.shoe-actions {
+    display: flex;
+    gap: 0.5rem;
+}
+
+.shoe-actions input {
+    width: 60px;
+    padding: 0.25rem;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+.shoe-actions button {
+    padding: 0.25rem 0.5rem;
+    background-color: #28a745;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.shoe-actions button:hover {
+    background-color: #218838;
+}
