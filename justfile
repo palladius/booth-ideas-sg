@@ -36,4 +36,11 @@ ideas-app-run:
 
 # [GC Command] Calls Gemini command to update GH Pages
 gemini-reconcile:
-    gemini -c -y '/ricc:update_gh_pages Do NOT ask questions - work on this task autonomously'
+    gemini -c -y -p '/ricc:update_gh_pages Do NOT ask questions - work on this task autonomously'
+
+update-gh-pages:
+    @just gemini-reconcile
+
+# Deploys the gh-pages folder to GitHub Pages using the GitHub Action
+deploy-gh-pages:
+    gh workflow run ricc-deploy-gh-pages.yml

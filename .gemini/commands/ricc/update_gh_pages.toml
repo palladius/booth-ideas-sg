@@ -27,6 +27,12 @@ Output:
 * say it contains app_previous1, app_previous2, app_previous42, app_previous84,  app1/,  app3/ .
     * Then your action is to ADD the app3 (do NOT remove stuff, I use other stuff to test the UI!
 
+## Issue finding
+
+1. Check the latest issues in the GitHub repository for any new app ideas.
+2. This permalink gives you ALL the issues: https://github.com/palladius/booth-ideas-sg/issues?q=is%3Aissue%20%20label%3Apauldatta-app
+3. Alternatively, the issue you're looking for might be in the argument from the command, see below.
+
 ## How to add an application.
 
 You need to populate a JSON which contains a few fields for the following.
@@ -62,6 +68,12 @@ Notes on the field:
 7. Abstract: "A small abstract of what the app does."
 8. Screenshot: if you find a `screenshot*.png` in the root folder of the app, then please include the relative path to the screenshot file.
    If not, leave it empty.
+
+## rules of the game
+
+* DO NOT ALTER EXISTING CODE
+* You work in read-mode, and you're ONLY allowed to write the `gh-pages/palladius.json`
+* You can study, understand, everything but you can only write ONE file.
 
 ## Parameters
 
