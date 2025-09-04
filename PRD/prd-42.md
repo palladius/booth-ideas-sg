@@ -79,7 +79,7 @@ All these users share a common goal: to gain a quick, centralized, and efficient
     *   **Description:** The application will periodically fetch updates from GitHub to reflect any new issues, PRs, or changes in status for existing ones.
     *   **Importance:** Users rely on current information for effective monitoring and decision-making.
 *   **Requirements:**
-    *   Polling mechanism for GitHub API with a reasonable refresh interval (e.g., every 5-15 minutes).
+    *   Polling mechanism for GitHub API with a refresh interval of 5 minutes or less to meet the user goal for timely updates.
     *   Indicator for when the data was last updated.
     *   Ability for users to manually trigger a refresh.
 
