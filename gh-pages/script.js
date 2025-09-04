@@ -41,6 +41,11 @@ document.addEventListener('DOMContentLoaded', () => {
                 throw new Error(`HTTP error! status: ${response.status}`);
             }
             const data = await response.json();
+            if (data.eventEmojis) {
+                document.title = `${data.eventEmojis} | ${data.eventName} Idea Gallery`;
+            } else {
+                document.title = `${data.eventName} | Idea Gallery`;
+            }
             eventName = data.eventName;
             ideasData = data.ideas;
             ideasData.sort((a, b) => new Date(a.createdAt) - new Date(b.createdAt));
