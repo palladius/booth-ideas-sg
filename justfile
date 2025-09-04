@@ -1,4 +1,3 @@
-
 # lists targets
 list:
     just -l
@@ -30,3 +29,7 @@ tf-plan:
 # gcloud build into Nardy. And it works!
 gcloud-build:
     gcloud --project=rick-and-nardy-demo builds submit --config=cloudbuild.yaml . --substitutions=COMMIT_SHA=manual-build
+
+# Runs the ideas-app locally on port 9002
+ideas-app-run:
+    cd ideas-app && npm install && npm run dev

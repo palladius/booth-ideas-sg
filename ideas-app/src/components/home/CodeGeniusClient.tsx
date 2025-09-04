@@ -7,6 +7,8 @@ import { useToast } from "@/hooks/use-toast";
 import type { ServerActionState } from '@/lib/types';
 
 import { Button } from '@/components/ui/button';
+import { Input } from '@/components/ui/input';
+import { Label } from '@/components/ui/label';
 import { Textarea } from '@/components/ui/textarea';
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from '@/components/ui/card';
 import { Lightbulb, Rocket, Sparkles } from 'lucide-react';
@@ -52,7 +54,7 @@ function FormResult({ state }: { state: ServerActionState }) {
       </div>
     );
   }
-  
+
   return null;
 }
 
@@ -85,6 +87,27 @@ export default function CodeGeniusClient() {
               </CardDescription>
             </CardHeader>
             <CardContent>
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-4">
+                <div>
+                  <Label htmlFor="emoji">Your Event Emoji (optional, eg 🇨🇭☁️⛰️)</Label>
+                  <Input
+                    name="emoji"
+                    id="emoji"
+                    placeholder="Example: 🇨🇭, ☁️, ⛰️"
+                    className="text-base"
+                  />
+                </div>
+                <div>
+                  <Label htmlFor="nickname">Your Nickname</Label>
+                  <Input
+                    name="nickname"
+                    id="nickname"
+                    placeholder="Example: Ricky, Nardy, Donny..."
+                    className="text-base text-gray-600"
+                    required
+                  />
+                </div>
+              </div>
               <Textarea
                 name="idea"
                 id="idea"
@@ -98,7 +121,7 @@ export default function CodeGeniusClient() {
             </CardFooter>
           </form>
         </Card>
-      
+
       <FormResult state={state} />
     </div>
   );

@@ -20,3 +20,4 @@ log/
 
 .gemini/
 gha-creds-*.json
+node_modules/

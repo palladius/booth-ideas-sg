@@ -1,5 +1,6 @@
 {
   "dependencies": {
+    "@octokit/rest": "^22.0.0",
     "playwright": "^1.55.0"
   }
 }

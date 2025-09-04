@@ -10,6 +10,8 @@
     "ShellTool(git diff)",
     "ShellTool(terraform plan)",
     "ShellTool(terraform init)",
+    "ShellTool(ls)",
+    "ShellTool(mkdir)",
     "ShellTool(echo)"
   ]
 }
