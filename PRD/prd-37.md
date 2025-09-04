@@ -114,7 +114,7 @@ To measure the success of the Pokemon-themed Game of 15, we will track the follo
 *   **Average Session Duration:** Measures how long users engage with the game per session, reflecting enjoyment and engagement.
 *   **Game Completion Rate:** The percentage of initiated games that result in a solved puzzle, indicating effective puzzle design and user persistence.
 *   **Moves Per Game / Time Per Game:** Provides insights into difficulty and player efficiency, useful for future balancing.
-*   **Bounce Rate:** The percentage of users who leave the site after viewing only one page (the game), indicating initial impression and stickiness.
+*   **Return Visitor Rate:** The percentage of users who return to the site, indicating long-term engagement and stickiness.
 *   **User Feedback/Survey Scores:** Direct qualitative feedback on enjoyment, ease of use, and overall satisfaction (e.g., using a simple in-game feedback form).
 *   **Social Shares (if implemented):** Measures the organic reach and enthusiasm of players sharing their scores or the game itself.
 *   **Portfolio Impact:** Successful completion and showcasing of the project as a high-quality example of Astro and Tailwind CSS development for potential business opportunities or brand building.
