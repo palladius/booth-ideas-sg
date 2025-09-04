@@ -77,7 +77,7 @@ Our key objectives for this project are:
 *   **Rationale:** Tailwind CSS provides a utility-first approach for rapid UI development and easy implementation of responsive designs and complex gradients. Its flexibility will allow us to precisely craft the red/orange gradients and Pokemon-themed aesthetics.
 
 ### 7.3 Game Logic: JavaScript/TypeScript
-*   **Rationale:** Core game logic, including tile shuffling, movement validation, and win condition checking, will be implemented using vanilla JavaScript or TypeScript for robustness and maintainability within the Astro framework.
+*   **Rationale:** Core game logic—including tile shuffling (which must guarantee a solvable state), movement validation, and win condition checking—will be implemented using vanilla JavaScript or TypeScript for robustness and maintainability within the Astro framework.
 
 ### 7.4 Asset Management
 *   **Rationale:** Image assets for Pokemon (potentially fan art to avoid licensing issues or generic monster art) will be optimized for web performance. Astro's built-in image optimization capabilities will be leveraged.
