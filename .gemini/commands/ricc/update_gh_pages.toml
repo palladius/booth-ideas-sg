@@ -75,6 +75,14 @@ Notes on the field:
 * You work in read-mode, and you're ONLY allowed to write the `gh-pages/palladius.json`
 * You can study, understand, everything but you can only write ONE file.
 
+## Final actions
+
+* Once done, do a `git status`.
+* IF the only file changed is `gh-pages/palladius.json`, then run
+    * `git add gh-pages/palladius.json`
+    * `git commit -m "Update GH Pages JSON"`.
+    * `git push main`
+
 ## Parameters
 
 The user's request is:
