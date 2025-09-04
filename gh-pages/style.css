@@ -96,10 +96,51 @@ main {
     background-color: #ffffff;
     border-radius: 8px;
     box-shadow: 0 1px 3px rgba(60,64,67,0.3), 0 4px 8px rgba(60,64,67,0.15);
-    padding: 1.5rem;
-    text-align: left;
-    transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
-    border-left: 4px solid #dadce0; /* Default border */
+    padding: 20px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.user-profile-container {
+    background-color: #f9f9f9;
+    padding: 20px;
+    margin-bottom: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.user-profile-container h2 {
+    margin-top: 0;
+}
+
+#user-profile-form {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+#user-profile-form input {
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+#user-profile-form button {
+    padding: 8px 12px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+#user-profile-form button:hover {
+    background-color: #0056b3;
+}
+
+#user-display {
+    margin-top: 10px;
+    font-size: 1.1em;
+}
 }
 
 /* Category-specific border colors */

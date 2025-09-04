@@ -18,6 +18,17 @@
         <input type="text" id="search-input" placeholder="Search for ideas...">
         <div id="filter-container"></div>
     </header>
+    <div id="user-profile" class="user-profile-container">
+        <h2>Your Profile</h2>
+        <form id="user-profile-form">
+            <label for="nickname-input">Nickname:</label>
+            <input type="text" id="nickname-input" placeholder="Enter your nickname" required>
+            <label for="emoji-input">Emoji:</label>
+            <input type="text" id="emoji-input" placeholder="🇨🇭" value="🇨🇭">
+            <button type="submit">Set Profile</button>
+        </form>
+        <div id="user-display"></div>
+    </div>
     <div class="timeline-container">
         <h3>Timeline of Ideas</h3>
         <div class="timeline-bar">
