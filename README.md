@@ -15,13 +15,13 @@ All the ideas generated during the event are available for you to explore in our
 
 Watch the complete demonstration of the "Idea to Code" workflow in action.
 
-![Demo Video](media/demo.gif)
+![Demo Video](docs/media/demo.gif)
 
 ## Workflow
 
 The following diagram illustrates the end-to-end process from idea submission to generating a full-fledged application.
 
-![Idea to Code Workflow](media/idea-to-code-workflow.png)
+![Idea to Code Workflow](docs/media/idea-to-code-workflow.png)
 
 ## Accessing Your Generated Code
 
