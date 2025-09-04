@@ -100,6 +100,27 @@ export default function CodeGeniusClient() {
               </CardDescription>
             </CardHeader>
             <CardContent>
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-4">
+                <div>
+                  <label htmlFor="emoji" className="block text-sm font-medium text-gray-700">Your Event Emoji (optional, eg 🇨🇭☁️⛰️)</label>
+                  <Input
+                    name="emoji"
+                    id="emoji"
+                    placeholder="Example: 🇨🇭, ☁️, ⛰️"
+                    className="text-base"
+                  />
+                </div>
+                <div>
+                  <label htmlFor="nickname" className="block text-sm font-medium text-gray-700">Your Nickname</label>
+                  <Input
+                    name="nickname"
+                    id="nickname"
+                    placeholder="Example: Ricky, Nardy, Donny..."
+                    className="text-base text-gray-600"
+                    required
+                  />
+                </div>
+              </div>
               <Textarea
                 name="idea"
                 id="idea"
