@@ -35,14 +35,9 @@ ideas-app-run:
     cd ideas-app && npm install && npm run dev
 
 # [GC Command] Calls Gemini command to update GH Pages
-#gemini-reconcile:
-#    gemini -c -y -p '/ricc:update_gh_pages Do NOT ask questions - work on this task autonomously'
-# [GC Command] Calls Gemini command to update GH Pages
-gemini-reconcile-issue ISSUE_NUMBER:
-    gemini -c -y -p '/ricc:update_gh_pages Check Issue {{ISSUE_NUMBER}}. Do NOT ask questions - work on this task autonomously'
+gemini-reconcile-gh-pages:
+    gemini -c -y -p '/ricc:update_gh_pages Do NOT ask questions - work on this task autonomously'
 
-update-gh-pages:
-    @just gemini-reconcile
 
 # Deploys the gh-pages folder to GitHub Pages using the GitHub Action
 deploy-gh-pages:

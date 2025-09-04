@@ -74,12 +74,28 @@ Notes on the field:
 6. Emoji: Evince it from the issue, or title, or anything
 7. Abstract: "A small abstract of what the app does."
 8. Screenshot: if you find a `screenshot*.png` in the root folder of the app, then please include the relative path to the screenshot file.
-   If not, leave it empty.
+   If not, leave it empty. See how to copy a screenshot below
+
+## Copy screenshots
+
+* GH Pages only sees code under `gh_pages`, so you can't point to a picture under `../random-apps-ideas/APP/screen.png`..
+* Images are under `gh-pages/images`.
+* You're allowed to copy pictures to solve this, for instance
+
+```bash
+# Sample commands
+cp random-apps-ideas/02--fondue-app/screenshot-800x600.png       gh-pages/images/random-app-ideas/screenshots/fondue-app.png
+cp random-apps-ideas/01--cuckoo-clock-app/screenshot-800x600.png gh-pages/images/random-app-ideas/screenshots/cuckoo-clock-app.png
+```
+
+So copy the original screenshot into `gh-pages/images/random-app-ideas/screenshots/`.
+Note that this new file needs to be reflected correctly under `gh-pages/palladius.json`.
 
 ## rules of the game
 
 * DO NOT ALTER EXISTING CODE
 * You work in read-mode, and you're ONLY allowed to write the `gh-pages/palladius.json`
+* You're also allowed to copy screenshots from `random-apps-ideas/` onto gh-pages/
 * You can study, understand, everything but you can only write ONE file.
 
 ## Final actions
