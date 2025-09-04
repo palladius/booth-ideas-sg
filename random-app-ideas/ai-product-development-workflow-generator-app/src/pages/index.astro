@@ -1,47 +1,54 @@
 ---
-
+import '../styles/global.css';
 ---
 
-<html lang="en">
+<html lang="en" data-theme="light">
 	<head>
 		<meta charset="utf-8" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
 		<meta name="viewport" content="width=device-width" />
+		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
 		<meta name="generator" content={Astro.generator} />
-		<title>AI Product Development Workflow Generator</title>
-		<style>
-			body {
-				font-family: sans-serif;
-				padding: 2em;
-			}
-			h1 {
-				text-align: center;
-				color: #333;
-			}
-			textarea {
-				width: 100%;
-				min-height: 200px;
-				padding: 1em;
-				border-radius: 8px;
-				border: 1px solid #ccc;
-				margin-bottom: 1em;
-			}
-			button {
-				display: block;
-				width: 100%;
-				padding: 1em;
-				border-radius: 8px;
-				border: none;
-				background-color: #007bff;
-				color: white;
-				font-size: 1em;
-				cursor: pointer;
-			}
-		</style>
+		<title>Idea to Code Platform</title>
 	</head>
+
 	<body>
-		<h1>AI Product Development Workflow Generator</h1>
-		<textarea placeholder="Describe your product concept here..."></textarea>
-		<button>Generate</button>
+		<div class="container mx-auto p-4">
+			<header class="navbar bg-base-100">
+				<a class="btn btn-ghost normal-case text-xl">Idea to Code</a>
+			</header>
+
+			<main class="py-8">
+				<h1 class="text-4xl font-bold text-center mb-8">
+					AI Product Development Workflow Generator
+				</h1>
+
+				<div class="card w-full bg-base-100 shadow-xl">
+					<div class="card-body">
+						<h2 class="card-title">Describe your product concept</h2>
+						<textarea id="product-idea" class="textarea textarea-bordered h-48" placeholder="Enter your product idea here..."></textarea>
+						<div class="card-actions justify-end">
+							<button id="generate-btn" class="btn btn-primary">Generate</button>
+						</div>
+					</div>
+				</div>
+			</main>
+
+			<footer class="footer footer-center p-4 bg-base-300 text-base-content">
+				<div>
+					<p>Copyright © 2025 - All right reserved by ACME Industries Ltd</p>
+				</div>
+			</footer>
+		</div>
+
+		<script>
+			document.getElementById('generate-btn').addEventListener('click', () => {
+				const productIdea = document.getElementById('product-idea').value;
+				if (productIdea) {
+					alert(`Your product idea:\n\n${productIdea}`);
+				} else {
+					alert('Please enter your product idea first.');
+				}
+			});
+		</script>
 	</body>
 </html>
