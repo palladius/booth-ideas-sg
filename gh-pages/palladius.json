@@ -17,7 +17,8 @@
             "url": "https://github.com/palladius/booth-ideas-sg/issues/2",
             "abstract": "A smart fondue pot that monitors temperature.",
             "category": "Technology",
-            "appName": "fondue-app"
+            "appName": "fondue-app",
+            "screenshot": "random-app-ideas/02--fondue-app/screenshot-800x600.png"
         },
         {
             "createdAt": "2025-09-03T09:00:00Z",
@@ -26,7 +27,8 @@
             "url": "https://github.com/palladius/booth-ideas-sg/issues/1",
             "abstract": "A cuckoo clock that tweets jokes.",
             "category": "Crafts",
-            "appName": "cuckoo-clock-app"
+            "appName": "cuckoo-clock-app",
+            "screenshot": "random-app-ideas/01--cuckoo-clock-app/screenshot-800x600.png"
         }
     ]
 }
