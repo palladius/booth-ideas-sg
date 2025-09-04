@@ -107,29 +107,6 @@ export default function CodeGeniusClient() {
                 className="min-h-[150px] text-base resize-y"
                 required
               />
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 pt-4">
-                <div>
-                  <label htmlFor="emoji" className="block text-sm font-medium text-gray-700">Emoji (optional)</label>
-                  <Input
-                    type="text"
-                    name="emoji"
-                    id="emoji"
-                    placeholder="e.g., 🇨🇭"
-                    className="mt-1 block w-full"
-                  />
-                </div>
-                <div>
-                  <label htmlFor="nickname" className="block text-sm font-medium text-gray-700">Nickname (required)</label>
-                  <Input
-                    type="text"
-                    name="nickname"
-                    id="nickname"
-                    placeholder="e.g., Riccardo"
-                    className="mt-1 block w-full"
-                    required
-                  />
-                </div>
-              </div>
             </CardContent>
             <CardFooter>
               <SubmitButton />
