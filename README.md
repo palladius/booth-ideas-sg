@@ -1,8 +1,10 @@
 # Idea to Code: Euro Cloud Summit Demo
 
-Welcome! This repository contains the source code for the "Idea to Code" demo application, showcased at the Google Cloud booth during the Euro Cloud Summit in Switzerland.
+Welcome! This repository contains the source code for the "Idea to Code" demo application, showcased at the
+Google Cloud booth during the Euro Cloud Summit in Switzerland.
 
-This interactive demo showcases how generative AI can dramatically accelerate the software development lifecycle, taking a simple idea from concept to a functional, deployable prototype in minutes.
+This interactive demo showcases how generative AI can dramatically accelerate the software development lifecycle,
+taking a simple idea from concept to a functional, deployable prototype in minutes.
 
 ## 💡 Idea Gallery
 
@@ -40,3 +42,11 @@ The web application itself is a Next.js project located in the `ideas-app/` dire
 
 * changed `gh_pages` from branch to GH action. Now it beautifull deploys to https://palladius.github.io/booth-ideas-sg/
 * Abandoned fork + added
+
+## The code here
+
+There are pieces of code in this repo:
+
+* `random-app-ideas/`: collection of apps vibecoded by Gemini after users create ideas.
+* `ideas-app/`: This is an app vibecoded by the original authors Paul Datta & c on Firebase Studio. can be deployed to Cloud run.
+  * Ricc deployed to

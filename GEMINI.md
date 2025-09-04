@@ -63,3 +63,12 @@ ls -al random-apps-ideas/
 So:
 * the code is under `random-apps-ideas/{ISSUE_ID}_{APP_NAME}/`
   * and probably you can find a screenshot there under `random-apps-ideas/{ISSUE_ID}_{APP_NAME}/screenshot.png`
+
+## CUJs
+
+I've created some LLM-friendly tests to be carried on mostly via Playwright.
+They consist in navigating through an Endpoint and check that certain functionality is available.
+
+* All CUJs are under `docs/CUJs/`.
+* All CUJs have a number, so if I say "Execute CUJ 3", you're looking at `docs/CUJs/3-*.md` with at most some '0's padding (03, 003, ..).
+  * Maybe the naming can be "cuj03-", but you got the general gist.

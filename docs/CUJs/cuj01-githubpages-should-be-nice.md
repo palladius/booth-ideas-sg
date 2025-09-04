@@ -8,7 +8,7 @@ This can be easily tested:
 # Pages in PROD and DEV
 
 * PROD page (published on GH): https://palladius.github.io/booth-ideas-sg/ this is the most important page
-* DEV page (Local): `just run-ghpages-server-p8000` and open https://localhost:8000/ .
+* DEV page (Local): `just run-ghpages-server-p8000 &` and open https://localhost:8000/ .
 
 
 # Testing the UI
