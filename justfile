@@ -19,6 +19,10 @@ test-screenshot:
 test-screenshot-fondue:
     time ./bin/create-screenshot.sh random-app-ideas/fondue-app/
 
+# Finds folders with missing screenshots
+find-missing-screenshots:
+    ./bin/find-missing-screenshots.sh
+
 # TERRAFORM: Apply
 tf-apply:
     cd infra/ && just apply

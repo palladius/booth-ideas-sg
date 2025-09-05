@@ -1,5 +1,10 @@
 # Changelog
 
+## [1.0.13] - 2025-09-05
+
+### Added
+- ✨ Added `just find-missing-screenshots` command and script to identify apps missing screenshots.
+
 ## [1.0.12] - 2025-09-04
 
 ### Fixed
