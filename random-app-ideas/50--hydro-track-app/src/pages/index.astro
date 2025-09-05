@@ -1,0 +1,55 @@
+---
+import Layout from '../layouts/Layout.astro';
+---
+
+<Layout title="HydroTrack - Daily Water Intake Tracker">
+  <main class="container mx-auto px-4 py-8">
+    <h1 class="text-4xl font-bold text-center mb-8">HydroTrack</h1>
+
+    <div class="max-w-md mx-auto bg-white rounded-xl shadow-md overflow-hidden md:max-w-2xl">
+      <div class="p-8">
+        <div class="uppercase tracking-wide text-sm text-indigo-500 font-semibold">Your Daily Goal</div>
+        <p class="block mt-1 text-lg leading-tight font-medium text-black">2000 ml</p>
+
+        <div class="mt-4">
+          <div class="uppercase tracking-wide text-sm text-indigo-500 font-semibold">Current Intake</div>
+          <p id="currentIntake" class="block mt-1 text-lg leading-tight font-medium text-black">0 ml</p>
+        </div>
+
+        <div class="mt-4">
+          <div class="w-full bg-gray-200 rounded-full h-2.5 dark:bg-gray-700">
+            <div id="progressBar" class="bg-blue-600 h-2.5 rounded-full" style="width: 0%"></div>
+          </div>
+        </div>
+
+        <div class="mt-8 flex justify-around">
+          <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-full" onclick="addIntake(250)">+250 ml</button>
+          <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-full" onclick="addIntake(500)">+500 ml</button>
+          <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-full" onclick="addIntake(750)">+750 ml</button>
+        </div>
+      </div>
+    </div>
+  </main>
+</Layout>
+
+<script>
+  let currentIntake = 0;
+  const dailyGoal = 2000;
+
+  const currentIntakeEl = document.getElementById('currentIntake');
+  const progressBarEl = document.getElementById('progressBar');
+
+  function addIntake(amount) {
+    currentIntake += amount;
+    if (currentIntake > dailyGoal) {
+      currentIntake = dailyGoal;
+    }
+    updateUI();
+  }
+
+  function updateUI() {
+    currentIntakeEl.textContent = `${currentIntake} ml`;
+    const progress = (currentIntake / dailyGoal) * 100;
+    progressBarEl.style.width = `${progress}%`;
+  }
+</script>
