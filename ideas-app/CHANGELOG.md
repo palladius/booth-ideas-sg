@@ -2,6 +2,11 @@
 
 Version is taken from `package.json`
 
+## 0.1.2 - 2025-09-05
+
+### :sparkles: Features
+- Updated footer component to dynamically show version.
+
 ## 0.1.1 - 2025-09-05
 
 ### :tada: First release bump
