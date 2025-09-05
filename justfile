@@ -62,3 +62,7 @@ gemini-execute-cuj CUJ_ID:
 # Deploys the gh-pages folder to GitHub Pages using the GitHub Action
 deploy-gh-pages:
     gh workflow run ricc-deploy-gh-pages.yml
+
+
+gemini-archeologist-restore-palladius:
+    gemini -c -y -p '/ricc:git_recover_history FILE_NAME=gh-pages/palladius.json We lost great apps there with their screenshot too.'
