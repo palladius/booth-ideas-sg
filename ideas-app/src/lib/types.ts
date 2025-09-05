@@ -8,6 +8,7 @@ export type GitHubPushResult = {
   error: string | null;
   pullRequestUrl: string | null;
   branchName: string | null;
+  messages?: { type: 'info' | 'error', text: string }[];
 };
 
 export interface GenerationResult {
