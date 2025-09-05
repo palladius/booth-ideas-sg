@@ -22,9 +22,7 @@ export default function RootLayout({
       </head>
       <body className={cn("font-body antialiased")}>
         {children}
-        <div className="text-center text-xs text-gray-500 py-4">
-          v1.0.2
-        </div>
+        
         <Toaster />
       </body>
     </html>

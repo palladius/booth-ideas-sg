@@ -1,7 +1,9 @@
 import CodeGeniusClient from '@/components/home/CodeGeniusClient';
 import Header from '@/components/layout/Header';
+import packageJson from '../../package.json';
 
 export default function Home() {
+  const version = packageJson.version;
   return (
     <div className="flex flex-col min-h-screen bg-background">
       <Header />
@@ -9,7 +11,7 @@ export default function Home() {
         <CodeGeniusClient />
       </main>
       <footer className="py-6 text-center text-sm text-muted-foreground">
-        <p>built with ❤️ on firebase studio</p>
+        <p>built with ❤️ on firebase studio <b>v{version}</b></p>
       </footer>
     </div>
   );
