@@ -1,5 +1,10 @@
 # Changelog
 
+## [1.0.14] - 2025-09-05
+
+### Added
+- 🔍 Added `just reconcile-apps` command and script to compare local apps with JSON data.
+
 ## [1.0.13] - 2025-09-05
 
 ### Added

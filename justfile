@@ -23,6 +23,10 @@ test-screenshot-fondue:
 find-missing-screenshots:
     ./bin/find-missing-screenshots.sh
 
+# Reconciles apps between local folders and JSON
+reconcile-apps:
+    ./bin/reconcile-apps.sh
+
 # TERRAFORM: Apply
 tf-apply:
     cd infra/ && just apply
