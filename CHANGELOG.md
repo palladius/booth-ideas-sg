@@ -1,5 +1,10 @@
 # Changelog
 
+## [1.0.16] - 2025-09-05
+
+### Fixed
+- 🛠️ Reconciled app data: created missing app directories and updated `gh-pages/palladius.json` with new app entries.
+
 ## [1.0.15] - 2025-09-05
 
 ### Fixed
