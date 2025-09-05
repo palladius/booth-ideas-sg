@@ -12,13 +12,13 @@ if [ "$DEBUG" = "true" ]; then
     done
 else
     # Normal mode with concise output and hint
+    echo "# set DEBUG=true to see more"
     for app_dir in random-app-ideas/*/; do
         folder_name=$(basename "${app_dir}")
         if [ ! -f "${app_dir}screenshot.png" ]; then
-            echo "${folder_name}: MISSING"
-        else
-            echo "${folder_name}: FOUND"
+            echo "random-app-ideas/${folder_name}: MISSING"
+        #else
+            #echo "${folder_name}: FOUND"
         fi
     done
-    echo "# set DEBUG=true to see more"
 fi

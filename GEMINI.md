@@ -64,6 +64,10 @@ So:
 * the code is under `random-apps-ideas/{ISSUE_ID}_{APP_NAME}/`
   * and probably you can find a screenshot there under `random-apps-ideas/{ISSUE_ID}_{APP_NAME}/screenshot.png`
 
+### Missing screenshots
+
+Missing screenshots can be found this way: `bin/find-missing-screenshots.sh`
+
 ## CUJs
 
 I've created some LLM-friendly tests to be carried on mostly via Playwright.

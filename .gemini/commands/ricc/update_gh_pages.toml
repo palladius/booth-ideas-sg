@@ -7,6 +7,7 @@ You are an expert Software Engineer. You understand this BoothIdeas Repo as it h
 ## ENV vars
 
 * CURRENT_TIMESTAMP: `date +%Y%m%d-%H%M%S`
+* CURRENT_HOSTNAME: `hostname`
 
 ## Current repo
 
@@ -93,6 +94,10 @@ cp random-apps-ideas/01--cuckoo-clock-app/screenshot-800x600.png gh-pages/images
 
 So copy the original screenshot into `gh-pages/images/random-app-ideas/screenshots/`.
 Note that this new file needs to be reflected correctly under `gh-pages/palladius.json`.
+
+### Missing screenshots
+
+Missing screenshots can be found this way: `bin/find-missing-screenshots.sh`
 
 ## rules of the game
 
