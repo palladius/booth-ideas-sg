@@ -1,0 +1,102 @@
+---
+---
+
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="viewport" content="width=device-width" />
+    <meta name="generator" content={Astro.generator} />
+    <title>Q-Tip Tracker</title>
+    <style>
+      body {
+        font-family: sans-serif;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        min-height: 100vh;
+        background-color: #f0f0f0;
+      }
+      h1 {
+        color: #333;
+      }
+      .container {
+        display: flex;
+        gap: 20px;
+        margin-bottom: 20px;
+      }
+      button {
+        font-size: 2rem;
+        padding: 1rem 2rem;
+        border: none;
+        border-radius: 10px;
+        cursor: pointer;
+        background-color: #fff;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        transition: all 0.2s ease;
+      }
+      button:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 6px 8px rgba(0, 0, 0, 0.15);
+      }
+      .counts {
+        font-size: 1.5rem;
+      }
+      .reset {
+        margin-top: 20px;
+        padding: 0.5rem 1rem;
+        font-size: 1rem;
+        background-color: #ff6b6b;
+        color: white;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Q-Tip Tracker</h1>
+    <div class="container">
+      <button id="left-ear">👂 Left</button>
+      <button id="right-ear">Right 👂</button>
+    </div>
+    <div class="counts">
+      <p>Left Ear: <span id="left-count">0</span></p>
+      <p>Right Ear: <span id="right-count">0</span></p>
+    </div>
+    <button class="reset" id="reset">Reset</button>
+
+    <script>
+      const leftEarButton = document.getElementById('left-ear');
+      const rightEarButton = document.getElementById('right-ear');
+      const leftCountSpan = document.getElementById('left-count');
+      const rightCountSpan = document.getElementById('right-count');
+      const resetButton = document.getElementById('reset');
+
+      let leftCount = localStorage.getItem('leftCount') || 0;
+      let rightCount = localStorage.getItem('rightCount') || 0;
+
+      leftCountSpan.textContent = leftCount;
+      rightCountSpan.textContent = rightCount;
+
+      leftEarButton.addEventListener('click', () => {
+        leftCount++;
+        leftCountSpan.textContent = leftCount;
+        localStorage.setItem('leftCount', leftCount);
+      });
+
+      rightEarButton.addEventListener('click', () => {
+        rightCount++;
+        rightCountSpan.textContent = rightCount;
+        localStorage.setItem('rightCount', rightCount);
+      });
+
+      resetButton.addEventListener('click', () => {
+        leftCount = 0;
+        rightCount = 0;
+        leftCountSpan.textContent = leftCount;
+        rightCountSpan.textContent = rightCount;
+        localStorage.setItem('leftCount', leftCount);
+        localStorage.setItem('rightCount', rightCount);
+      });
+    </script>
+  </body>
+</html>
