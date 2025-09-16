@@ -68,6 +68,13 @@ So:
 
 Missing screenshots can be found this way: `bin/find-missing-screenshots.sh`
 
+To capture a screenshot of an application, just do this:
+
+1. Ensure the app is running, like `cd path/to/app` and `npm run` or similar.
+2. USe MCP Playwright to navigate to the local app, likely https://localhost:3000/ or https://localhost:9002/ (check the app config)
+3. Take a screenshot of a reasonable area. Could be a 800x600 centered on top.
+
+
 ## CUJs
 
 I've created some LLM-friendly tests to be carried on mostly via Playwright.
