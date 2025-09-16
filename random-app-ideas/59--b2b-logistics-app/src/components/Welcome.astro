@@ -1,0 +1,50 @@
+<main>
+	<h1>NexaLogistics</h1>
+	<p>Your B2B Logistics Solution</p>
+
+	<div class="dashboard">
+		<div class="card">
+			<h2>Shipments</h2>
+			<p>Manage your shipments</p>
+		</div>
+		<div class="card">
+			<h2>Inventory</h2>
+			<p>Track your inventory</p>
+		</div>
+		<div class="card">
+			<h2>Routes</h2>
+			<p>Optimize your routes</p>
+		</div>
+	</div>
+</main>
+
+<style>
+	main {
+		padding: 2rem;
+	}
+
+	h1 {
+		font-size: 3rem;
+		font-weight: 800;
+		margin: 0;
+	}
+
+	.dashboard {
+		display: grid;
+		grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+		gap: 1rem;
+		margin-top: 2rem;
+	}
+
+	.card {
+		background-color: #1f2937;
+		border-radius: 0.5rem;
+		padding: 1.5rem;
+	}
+
+	.card h2 {
+		font-size: 1.5rem;
+		font-weight: 600;
+		margin: 0 0 0.5rem;
+	}
+</style>
