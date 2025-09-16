@@ -57,6 +57,7 @@ gcloud-build:
 [group('firebaseapp')]
 ideas-app-run:
     #!/bin/bash
+    # TODO move to subdir
     set -euo pipefail
     mkdir -p log
     set -a; source .env; set +a
@@ -83,3 +84,10 @@ deploy-gh-pages:
 [group('gemini')]
 gemini-archeologist-restore-palladius:
     gemini -c -y -p '/ricc:git_recover_history FILE_NAME=gh-pages/palladius.json We lost great apps there with their screenshot too.'
+
+
+# Adding MCP via CLI - wow!
+gemini-add-playwright-mcp:
+    gemini mcp add playwright npx @playwright/mcp@latest
+    gemini mcp add --transport sse ricc-rails8-turbo-chat-sse https://rails8-turbo-chat-dev-272932496670.europe-west10.run.app/mcp/sse
+    cat .gemini/settings.json

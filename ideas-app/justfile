@@ -1,0 +1,18 @@
+
+list:
+    just -l
+
+
+run: ideas-app-run
+
+# Infinite loop, call it with timeout if Gemini
+ideas-app-run:
+    #!/bin/bash
+    set -euo pipefail
+    mkdir -p log
+    set -a; source ../.env; set +a
+    echo "IdeasApp started in the FOREGROUND. Tailing log/ideas-app.log..."
+    (npm install && npm run dev)  2>&1 | tee -a log/ideas-app.log
+
+tail-logs:
+    tail -f log/ideas-app.log
