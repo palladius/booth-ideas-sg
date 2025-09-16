@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.0.17] - 2025-09-16
+
+### Changed
+- ⬆️ Upgraded Next.js to v15.5.3 and React to v19.1.1 to support `useActionState`.
+- ✨ Refactored `ideas-app` to stream logs for a better user experience.
+- 💄 Removed the emoji field from the UI.
+
 ## [1.0.16] - 2025-09-05
 
 ### Fixed

@@ -3,10 +3,10 @@ list:
     just -l
 
 
-run: ideas-app-run
+run: ideas-app-run-9002
 
 # Infinite loop, call it with timeout if Gemini
-ideas-app-run:
+ideas-app-run-9002:
     #!/bin/bash
     set -euo pipefail
     mkdir -p log
@@ -16,3 +16,7 @@ ideas-app-run:
 
 tail-logs:
     tail -f log/ideas-app.log
+
+
+gemini-permissive:
+    gemini -c -y

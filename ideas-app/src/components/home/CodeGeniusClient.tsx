@@ -7,8 +7,6 @@ import { useToast } from "@/hooks/use-toast";
 import type { ServerActionState } from '@/lib/types';
 
 import { Button } from '@/components/ui/button';
-import { Input } from '@/components/ui/input';
-import { Label } from '@/components/ui/label';
 import { Textarea } from '@/components/ui/textarea';
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from '@/components/ui/card';
 import { Lightbulb, Rocket, Sparkles } from 'lucide-react';
@@ -47,17 +45,6 @@ function FormResult({ state }: { state: ServerActionState }) {
     return <LoadingState />;
   }
 
-  // Display messages if available
-  if (state.messages && state.messages.length > 0) {
-    return (
-      <div className="space-y-2 text-sm font-mono">
-        {state.messages.map((msg, index) => (
-          <p key={index} className={msg.type === 'error' ? 'text-red-500' : 'text-gray-500'} dangerouslySetInnerHTML={{ __html: msg.text }} />
-        ))}
-      </div>
-    );
-  }
-
   if (state.success && state.data) {
     return (
       <div className="space-y-8">
@@ -65,7 +52,7 @@ function FormResult({ state }: { state: ServerActionState }) {
       </div>
     );
   }
-
+  
   return null;
 }
 
@@ -98,17 +85,6 @@ export default function CodeGeniusClient() {
               </CardDescription>
             </CardHeader>
             <CardContent>
-              <div className="grid grid-cols-1 gap-4 mb-4">
-                <div>
-                  <label htmlFor="nickname" className="block text-sm font-medium text-gray-700">Your Nickname</label>
-                  <Input
-                    name="nickname"
-                    id="nickname"
-                    placeholder="Jane Doe"
-                    className="text-base text-gray-600"
-                  />
-                </div>
-              </div>
               <Textarea
                 name="idea"
                 id="idea"
@@ -122,7 +98,7 @@ export default function CodeGeniusClient() {
             </CardFooter>
           </form>
         </Card>
-
+      
       <FormResult state={state} />
     </div>
   );

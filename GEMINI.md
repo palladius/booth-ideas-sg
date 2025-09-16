@@ -23,7 +23,7 @@ Note: This is only PAST-looking, from the future (riccardo commits), we dont car
 
 ## Feedback loop
 
-* Do not execute long running servers.
+* Do not execute long running servers (`just run`/`npm dev`/..), or long-running processes (`tail -f`). If you have to, prepend a `timeout 30 COMMAND` to ensure you return soon.
 * For `gh` pages, for instance, ask the USER to run `just run-ghpages-server-p8000` and check logs in `log/` folder.
 
 ## Git flow

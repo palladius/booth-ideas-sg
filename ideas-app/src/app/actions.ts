@@ -15,22 +15,14 @@ import { marked } from 'marked';
 
 const ideaSchema = z.object({
   idea: z.string().min(20, { message: "Your idea is too short. Please elaborate a bit more to get better results!" }),
-  emoji: z.string().optional(),
-  nickname: z.string().optional(),
 });
 
-function addMessage(messages: { type: 'info' | 'error', text: string }[], type: 'info' | 'error', text: string) {
-  const time = new Date().toLocaleTimeString();
-  messages.push({ type, text: `[${time}] ${text}` });
-}
-
-async function pushPrdToGitHub(prd: string, projectTitle: string, emoji: string | undefined, nickname: string | undefined, messages: { type: 'info' | 'error', text: string }[]): Promise<GitHubPushResult> {
+async function pushPrdToGitHub(prd: string, projectTitle: string): Promise<GitHubPushResult> {
     const pat = process.env.GITHUB_PAT;
     const repoUrl = process.env.NEXT_PUBLIC_GITHUB_REPO_URL;
     let owner: string, repo: string;
 
     if (!pat || !repoUrl) {
-        addMessage(messages, 'error', "🐙 GitHub PAT or Repository URL is not configured.");
         return { success: false, error: "GitHub PAT or Repository URL is not configured in your .env file.", pullRequestUrl: null, branchName: null };
     }
 
@@ -43,24 +35,16 @@ async function pushPrdToGitHub(prd: string, projectTitle: string, emoji: string 
 
         const octokit = new Octokit({ auth: pat });
         
-        addMessage(messages, 'info', '🐙 Creating GitHub issue...');
         // 1. Create an issue
-        const issueBody = `${prd}` +
-`
-${emoji ? `Emoji: ${emoji}
-` : ''}${nickname ? `Nickname: ${nickname}` : ''}`;
         const issue = await octokit.issues.create({
             owner,
             repo,
-            title: `[AppIdea] ${projectTitle} - by ${nickname}`,
-            body: issueBody,
-            labels: ['PRD', 'pauldatta-app'],
+            title: projectTitle,
+            body: prd,
+            labels: ['PRD'],
         });
         const issueNumber = issue.data.number;
-        const issueUrl = `https://github.com/${owner}/${repo}/issues/${issueNumber}`;
-        addMessage(messages, 'info', `🐙 GitHub issue created: <a href="${issueUrl}" target="_blank" class="underline">#${issueNumber}</a>`);
         
-        addMessage(messages, 'info', '🌿 Determining unique branch name...');
         // 2. Determine a unique branch name
         const baseBranchName = projectTitle.toLowerCase().replace(/\s+/g, '-').replace(/[^a-z0-9-]/g, '');
         let branchName = baseBranchName;
@@ -87,9 +71,7 @@ ${emoji ? `Emoji: ${emoji}
                 }
             }
         }
-        addMessage(messages, 'info', `🌿 Unique branch name determined: ${branchName}`);
 
-        addMessage(messages, 'info', '🌿 Creating new branch...');
         // 3. Create the new branch with the unique name
         const { data: repoData } = await octokit.repos.get({ owner, repo });
         const defaultBranch = repoData.default_branch;
@@ -106,9 +88,7 @@ ${emoji ? `Emoji: ${emoji}
             ref: `refs/heads/${branchName}`,
             sha: latestCommitSha,
         });
-        addMessage(messages, 'info', `🌿 Branch created: ${branchName}`);
 
-        addMessage(messages, 'info', '🐙 Pushing PRD to GitHub...');
         // 4. Push PRD, linking to the issue in the commit message
         const prdFileName = `prd-${issueNumber}.md`;
         await octokit.repos.createOrUpdateFileContents({
@@ -119,9 +99,7 @@ ${emoji ? `Emoji: ${emoji}
             content: Buffer.from(prd).toString('base64'),
             branch: branchName,
         });
-        addMessage(messages, 'info', `🐙 PRD pushed to GitHub: ${prdFileName}`);
         
-        addMessage(messages, 'info', '🐙 Creating pull request...');
         // 5. Create a pull request
         const pullRequest = await octokit.pulls.create({
             owner,
@@ -131,9 +109,7 @@ ${emoji ? `Emoji: ${emoji}
             base: defaultBranch,
             body: `This PR adds a new Product Requirements Document as discussed in issue #${issueNumber}.`,
         });
-        addMessage(messages, 'info', `🐙 Pull request created: ${pullRequest.data.html_url}`);
 
-        addMessage(messages, 'info', '🐙 Adding comment to pull request...');
         // 6. Add a comment to the pull request
         await octokit.issues.createComment({
             owner,
@@ -141,12 +117,11 @@ ${emoji ? `Emoji: ${emoji}
             issue_number: pullRequest.data.number,
             body: "@gemini-cli Generate an Astro frontend application referencing the PRD",
         });
-        addMessage(messages, 'info', '🐙 Comment added to pull request.');
 
-        return { success: true, error: null, pullRequestUrl: pullRequest.data.html_url, branchName, messages };
+        return { success: true, error: null, pullRequestUrl: pullRequest.data.html_url, branchName };
 
     } catch (error: any) {
-        console.error("🐙 GitHub push failed:", error);
+        console.error("GitHub push failed:", error);
         let errorMessage = "An unexpected error occurred while pushing to GitHub.";
         if (error.status === 401) {
             errorMessage = "Authentication failed. Please check your Personal Access Token.";
@@ -155,31 +130,21 @@ ${emoji ? `Emoji: ${emoji}
         } else if (error.message) {
             errorMessage = error.message;
         }
-        addMessage(messages, 'error', `🐙 GitHub push failed: ${errorMessage}`);
-        return { success: false, error: errorMessage, pullRequestUrl: null, branchName: null, messages };
+        return { success: false, error: errorMessage, pullRequestUrl: null, branchName: null };
     }
 }
 
 
 export async function generateAll(prevState: ServerActionState, formData: FormData): Promise<ServerActionState> {
-  const messages: { type: 'info' | 'error', text: string }[] = [];
-  addMessage(messages, 'info', '💡 Starting idea processing...');
-
-  const ideaData = {
-    idea: formData.get('idea') as string,
-    emoji: formData.get('emoji') as string,
-    nickname: formData.get('nickname') as string,
-  };
+  const ideaData = { idea: formData.get('idea') as string };
   
   const validation = ideaSchema.safeParse(ideaData);
   if (!validation.success) {
-    addMessage(messages, 'error', `Validation failed: ${validation.error.errors.map(e => e.message).join(', ')}`);
-    return { ...initialState, success: false, error: validation.error.errors.map(e => e.message).join(', '), messages };
+    return { ...initialState, success: false, error: validation.error.errors.map(e => e.message).join(', ') };
   }
-  const { idea, emoji, nickname } = validation.data;
+  const idea = validation.data.idea;
 
   try {
-    addMessage(messages, 'info', '📝 Generating PRD overview, evaluation criteria, and project title...');
     const prdPromise = generatePrdOverview({ idea });
     const criteriaPromise = suggestEvaluationCriteria({ idea });
     const projectTitlePromise = generateProjectTitle({ idea });
@@ -216,20 +181,14 @@ export async function generateAll(prevState: ServerActionState, formData: FormDa
     console.log(fullPrdHtml);
 
     // Automatically push to GitHub
-    addMessage(messages, 'info', '🐙 Attempting to push to GitHub...');
-    const githubResult = await pushPrdToGitHub(prd.prd, projectTitleResult.projectTitle, emoji, nickname, messages);
-
-    if (githubResult.success) {
-        addMessage(messages, 'info', '✅ Success! The full process is complete.');
-    }
+    const githubResult = await pushPrdToGitHub(prd.prd, projectTitleResult.projectTitle);
 
     const result: GenerationResult = { prd: prdOverview, criteria, code, fullPrd: prd, fullPrdHtml, githubResult };
     
-    return { success: true, data: result, error: null, messages };
+    return { success: true, data: result, error: null };
   } catch (error) {
     console.error("Generation failed:", error);
-    addMessage(messages, 'error', 'An unexpected error occurred during generation. Please check the server logs and try again.');
-    return { ...initialState, success: false, error: 'An unexpected error occurred during generation. Please check the server logs and try again.', messages };
+    return { ...initialState, success: false, error: 'An unexpected error occurred during generation. Please check the server logs and try again.' };
   }
 }
 
@@ -504,5 +463,4 @@ const initialState: ServerActionState = {
   success: false,
   data: undefined,
   error: null,
-  messages: [],
 };
