@@ -1,5 +1,7 @@
 # Astro Starter Kit: Minimal
 
+![Screenshot](./screenshot.png)
+
 ```sh
 npm create astro@latest -- --template minimal
 ```
