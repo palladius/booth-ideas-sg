@@ -60,6 +60,13 @@ const generateCodeFlow = ai.defineFlow(
     name: 'generateCodeFlow',
     inputSchema: GenerateCodeInputSchema,
     outputSchema: GenerateCodeOutputSchema,
+    retry: {
+      maxAttempts: 5,
+      backoff: {
+        delay: 2000,
+        multiplier: 2,
+      },
+    },
   },
   async input => {
     const {output} = await prompt(input);
