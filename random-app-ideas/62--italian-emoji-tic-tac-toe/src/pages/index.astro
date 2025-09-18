@@ -1,16 +1,160 @@
 ---
-
 ---
-
 <html lang="en">
-	<head>
-		<meta charset="utf-8" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<meta name="viewport" content="width=device-width" />
-		<meta name="generator" content={Astro.generator} />
-		<title>Astro</title>
-	</head>
-	<body>
-		<h1>Astro</h1>
-	</body>
+<head>
+    <meta charset="utf-8" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="viewport" content="width=device-width" />
+    <meta name="generator" content={Astro.generator} />
+    <title>Italian Emoji Tic-Tac-Toe</title>
+    <style>
+        body {
+            font-family: sans-serif;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            background-color: #f0f0f0;
+        }
+        h1 {
+            color: #333;
+        }
+        .game-board {
+            display: grid;
+            grid-template-columns: repeat(3, 100px);
+            grid-template-rows: repeat(3, 100px);
+            gap: 5px;
+            background-color: #333;
+            border: 5px solid #333;
+        }
+        .cell {
+            width: 100px;
+            height: 100px;
+            background-color: #fff;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 50px;
+            cursor: pointer;
+        }
+        .status {
+            margin-top: 20px;
+            font-size: 24px;
+            font-weight: bold;
+        }
+        .restart-btn {
+            margin-top: 20px;
+            padding: 10px 20px;
+            font-size: 18px;
+            cursor: pointer;
+            border: none;
+            border-radius: 5px;
+            background-color: #333;
+            color: #fff;
+        }
+    </style>
+</head>
+<body>
+    <h1>Italian Emoji Tic-Tac-Toe</h1>
+    <div class="game-board">
+        <div class="cell" data-cell></div>
+        <div class="cell" data-cell></div>
+        <div class="cell" data-cell></div>
+        <div class="cell" data-cell></div>
+        <div class="cell" data-cell></div>
+        <div class="cell" data-cell></div>
+        <div class="cell" data-cell></div>
+        <div class="cell" data-cell></div>
+        <div class="cell" data-cell></div>
+    </div>
+    <div class="status">Player 🍕's turn</div>
+    <button class="restart-btn">Restart Game</button>
+
+    <script>
+        const cells = document.querySelectorAll('[data-cell]');
+        const statusDisplay = document.querySelector('.status');
+        const restartButton = document.querySelector('.restart-btn');
+
+        let currentPlayer = '🍕';
+        let gameActive = true;
+        let gameState = ["", "", "", "", "", "", "", "", ""];
+
+        const winningConditions = [
+            [0, 1, 2],
+            [3, 4, 5],
+            [6, 7, 8],
+            [0, 3, 6],
+            [1, 4, 7],
+            [2, 5, 8],
+            [0, 4, 8],
+            [2, 4, 6]
+        ];
+
+        function handleCellClick(e) {
+            const clickedCell = e.target;
+            const clickedCellIndex = Array.from(cells).indexOf(clickedCell);
+
+            if (gameState[clickedCellIndex] !== "" || !gameActive) {
+                return;
+            }
+
+            handleCellPlayed(clickedCell, clickedCellIndex);
+            handleResultValidation();
+        }
+
+        function handleCellPlayed(clickedCell, clickedCellIndex) {
+            gameState[clickedCellIndex] = currentPlayer;
+            clickedCell.innerHTML = currentPlayer;
+        }
+
+        function handleResultValidation() {
+            let roundWon = false;
+            for (let i = 0; i < winningConditions.length; i++) {
+                const winCondition = winningConditions[i];
+                let a = gameState[winCondition[0]];
+                let b = gameState[winCondition[1]];
+                let c = gameState[winCondition[2]];
+                if (a === '' || b === '' || c === '') {
+                    continue;
+                }
+                if (a === b && b === c) {
+                    roundWon = true;
+                    break;
+                }
+            }
+
+            if (roundWon) {
+                statusDisplay.innerHTML = `Player ${currentPlayer} has won!`;
+                gameActive = false;
+                return;
+            }
+
+            let roundDraw = !gameState.includes("");
+            if (roundDraw) {
+                statusDisplay.innerHTML = `Game ended in a draw!`;
+                gameActive = false;
+                return;
+            }
+
+            handlePlayerChange();
+        }
+
+        function handlePlayerChange() {
+            currentPlayer = currentPlayer === "🍕" ? "🍝" : "🍕";
+            statusDisplay.innerHTML = `Player ${currentPlayer}'s turn`;
+        }
+
+        function handleRestartGame() {
+            gameActive = true;
+            currentPlayer = "🍕";
+            gameState = ["", "", "", "", "", "", "", "", ""];
+            statusDisplay.innerHTML = `Player ${currentPlayer}'s turn`;
+            cells.forEach(cell => cell.innerHTML = "");
+        }
+
+        cells.forEach(cell => cell.addEventListener('click', handleCellClick));
+        restartButton.addEventListener('click', handleRestartGame);
+    </script>
+</body>
 </html>
