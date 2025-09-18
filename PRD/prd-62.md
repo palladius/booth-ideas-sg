@@ -117,4 +117,27 @@ Our objectives for the Italian Emoji Tic-Tac-Toe game are specific, measurable, 
 *   **Mitigation**:
     *   **Strong Marketing Focus**: Emphasize the unique Italian emoji theme and its charming, lighthearted appeal in all marketing materials.
     *   **Thematic Updates**: Plan for future updates that introduce new emoji packs, background themes, or even slight rule variations (e.g., larger grid options as a premium feature) to keep the game fresh.
-    *   **Social Sharing**: Implement easy sharing of game outcomes (e.g., 
+a screenshot of a win with custom emojis) to encourage organic growth.
+
+### 8.2 Risk: Intellectual Property Concerns with Emojis
+*   **Description**: Using emoji designs that are too similar to existing, copyrighted sets could lead to legal issues.
+*   **Mitigation**:
+    *   **Original Artwork**: Commission or create entirely original emoji designs. Ensure all artwork is owned by the project.
+    *   **Clear Licensing**: If using any third-party assets, ensure they are properly licensed for commercial use.
+
+### 8.3 Risk: Technical Debt from a Rushed MVP
+*   **Description**: In an effort to launch quickly, the codebase might become disorganized, making future updates difficult and time-consuming.
+*   **Mitigation**:
+    *   **Adherence to Architecture**: Strictly follow the modular design principles outlined in the architecture section.
+    *   **Code Reviews**: Implement a process for code reviews to ensure quality and consistency.
+    *   **Automated Testing**: Write unit tests for core game logic to prevent regressions.
+
+## 9. Success Metrics
+
+### Key Performance Indicators (KPIs):
+*   **Daily Active Users (DAU)**: The number of unique users who open the app each day.
+*   **Monthly Active Users (MAU)**: The number of unique users who open the app each month.
+*   **Session Length**: The average amount of time a user spends in the app per session.
+*   **Retention Rate**: The percentage of users who return to the app after their first visit (e.g., Day 1, Day 7, Day 30 retention).
+*   **App Store Rating**: The average user rating on the Apple App Store and Google Play Store.
+*   **Number of Games Played**: The total number of games completed per day/week/month.
