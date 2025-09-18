@@ -1,16 +1,206 @@
 ---
-
+// src/pages/index.astro
+const initialBoard = Array(9).fill(null);
+const initialPlayer = '🤌';
 ---
 
 <html lang="en">
-	<head>
-		<meta charset="utf-8" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<meta name="viewport" content="width=device-width" />
-		<meta name="generator" content={Astro.generator} />
-		<title>Astro</title>
-	</head>
-	<body>
-		<h1>Astro</h1>
-	</body>
+<head>
+    <meta charset="utf-8" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="viewport" content="width=device-width" />
+    <meta name="generator" content={Astro.generator} />
+    <title>Italian Emoji Tic-Tac-Toe</title>
+    <style>
+        body {
+            font-family: 'Comic Sans MS', 'Chalkboard SE', 'Marker Felt', sans-serif;
+            background: linear-gradient(135deg, #ffeadb, #faf0e6);
+            color: #5a4637;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            margin: 0;
+            text-align: center;
+        }
+        .container {
+            background-color: #fff;
+            padding: 40px;
+            border-radius: 20px;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+            border: 5px solid #d4a373;
+        }
+        h1 {
+            color: #c18c5d;
+            font-size: 3rem;
+            margin-bottom: 20px;
+            text-shadow: 2px 2px #fde4cf;
+        }
+        .board {
+            display: grid;
+            grid-template-columns: repeat(3, 100px);
+            grid-gap: 10px;
+            margin: 20px auto;
+        }
+        .cell {
+            width: 100px;
+            height: 100px;
+            background-color: #fde4cf;
+            border: 2px solid #d4a373;
+            border-radius: 10px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 3.5rem;
+            cursor: pointer;
+            transition: background-color 0.3s, transform 0.2s;
+        }
+        .cell:hover {
+            background-color: #f8d5b9;
+            transform: scale(1.05);
+        }
+        .status {
+            font-size: 1.8rem;
+            margin-bottom: 20px;
+            color: #8a6d4f;
+        }
+        .reset-button {
+            background-color: #c18c5d;
+            color: white;
+            border: none;
+            padding: 15px 30px;
+            font-size: 1.2rem;
+            border-radius: 10px;
+            cursor: pointer;
+            transition: background-color 0.3s, transform 0.2s;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        .reset-button:hover {
+            background-color: #a97b50;
+            transform: translateY(-2px);
+        }
+        .emoji-picker {
+            margin-bottom: 20px;
+        }
+        .emoji-picker label {
+            font-size: 1.2rem;
+            margin-right: 10px;
+        }
+        .emoji-picker select {
+            padding: 8px;
+            border-radius: 5px;
+            border: 2px solid #d4a373;
+            font-size: 1rem;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Italian Emoji Tic-Tac-Toe</h1>
+        <div class="emoji-picker">
+            <label for="player1-emoji">Player 1:</label>
+            <select id="player1-emoji">
+                <option value="🤌">🤌</option>
+                <option value="🍕">🍕</option>
+                <option value="🍝">🍝</option>
+            </select>
+            <label for="player2-emoji">Player 2:</label>
+            <select id="player2-emoji">
+                <option value="🤌🏼">🤌🏼</option>
+                <option value="🇮🇹">🇮🇹</option>
+                <option value="🛵">🛵</option>
+            </select>
+        </div>
+        <div id="status" class="status">Player 🤌's turn</div>
+        <div id="board" class="board">
+            {initialBoard.map((_, i) => <div class="cell" data-index={i}></div>)}
+        </div>
+        <button id="reset" class="reset-button">Play Again</button>
+    </div>
+
+    <script define:vars={{ initialBoard, initialPlayer }}>
+        let board = [...initialBoard];
+        let currentPlayer;
+        let player1Emoji = '🤌';
+        let player2Emoji = '🤌🏼';
+
+        const statusDisplay = document.getElementById('status');
+        const boardDiv = document.getElementById('board');
+        const resetBtn = document.getElementById('reset');
+        const player1Select = document.getElementById('player1-emoji');
+        const player2Select = document.getElementById('player2-emoji');
+
+        function initializeGame() {
+            currentPlayer = player1Emoji;
+            updateStatus();
+            boardDiv.addEventListener('click', handleCellClick);
+        }
+
+        function handleCellClick(e) {
+            const cell = e.target;
+            const index = cell.dataset.index;
+
+            if (board[index] || checkWinner()) {
+                return;
+            }
+
+            board[index] = currentPlayer;
+            cell.textContent = currentPlayer;
+
+            if (checkWinner()) {
+                statusDisplay.textContent = `Player ${currentPlayer} wins! 🎉`;
+                boardDiv.removeEventListener('click', handleCellClick);
+            } else if (board.every(cell => cell)) {
+                statusDisplay.textContent = "It's a draw! 🤝";
+            } else {
+                currentPlayer = currentPlayer === player1Emoji ? player2Emoji : player1Emoji;
+                updateStatus();
+            }
+        }
+
+        function updateStatus() {
+            statusDisplay.textContent = `Player ${currentPlayer}'s turn`;
+        }
+
+        function checkWinner() {
+            const winningCombos = [
+                [0, 1, 2], [3, 4, 5], [6, 7, 8],
+                [0, 3, 6], [1, 4, 7], [2, 5, 8],
+                [0, 4, 8], [2, 4, 6]
+            ];
+
+            return winningCombos.some(combo => {
+                return combo.every(index => board[index] === currentPlayer);
+            });
+        }
+
+        function resetGame() {
+            board = [...initialBoard];
+            currentPlayer = player1Emoji;
+            updateStatus();
+            document.querySelectorAll('.cell').forEach(cell => cell.textContent = '');
+            boardDiv.addEventListener('click', handleCellClick);
+        }
+
+        player1Select.addEventListener('change', (e) => {
+            player1Emoji = e.target.value;
+            if (currentPlayer !== player2Emoji) {
+               currentPlayer = player1Emoji;
+               updateStatus();
+            }
+        });
+
+        player2Select.addEventListener('change', (e) => {
+            player2Emoji = e.target.value;
+            if (currentPlayer !== player1Emoji) {
+                currentPlayer = player2Emoji;
+                updateStatus();
+            }
+        });
+
+        resetBtn.addEventListener('click', resetGame);
+
+        initializeGame();
+    </script>
+</body>
 </html>
