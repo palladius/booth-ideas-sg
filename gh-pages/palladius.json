@@ -257,16 +257,6 @@
             "category": "pauldatta-app",
             "appName": "shoe-mileage-tracker",
             "screenshot": "gh-pages/images/random-app-ideas/screenshots/shoe-mileage-tracker.png"
-        },
-        {
-            "createdAt": "2025-09-04T07:34:32Z",
-            "number": 19,
-            "title": "Set up Cloud Run via infra/ and TF",
-            "url": "https://github.com/palladius/booth-ideas-sg/issues/19",
-            "abstract": "I found out `infra/` contains TF instruction to push to Cloud Run -> I've just commited it and it wo...",
-            "category": "General",
-            "appName": null,
-            "screenshot": null
         }
     ]
 }
