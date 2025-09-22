@@ -25,3 +25,4 @@ node_modules/
 .env
 .git-privatize
 node_modules/
+issues.json

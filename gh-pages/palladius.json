@@ -3,6 +3,66 @@
     "eventEmojis": "🇨🇭☁️",
     "ideas": [
         {
+            "createdAt": "2025-09-22T10:00:00Z",
+            "appName": "pill-calendar-app",
+            "number": 25,
+            "title": "A calendar app to show if you took your daily/weekly/monthly pill",
+            "url": "https://github.com/palladius/booth-ideas-sg/issues/25",
+            "author": "ricky",
+            "emoji": "🤌",
+            "abstract": "A calendar app to show if you took your daily/weekly/monthly pill.",
+            "screenshot": "images/random-app-ideas/screenshots/pill-calendar-app.png",
+            "category": "Health"
+        },
+        {
+            "createdAt": "2025-09-22T10:00:00Z",
+            "appName": "multiflag-app",
+            "number": 21,
+            "title": "Create a multiflag app using only emoji",
+            "url": "https://github.com/palladius/booth-ideas-sg/issues/21",
+            "author": "Derek",
+            "emoji": "🇲🇹",
+            "abstract": "Create a multiflag app using only emoji. Like a country emoji coohser with buttons to select just from Europe, Asia, Africa and so on.",
+            "screenshot": "images/random-app-ideas/screenshots/multiflag-app.png",
+            "category": "Fun"
+        },
+        {
+            "createdAt": "2025-09-22T10:00:00Z",
+            "appName": "ai-product-development-workflow-generator-app",
+            "number": 20,
+            "title": "AI Product Development Generator",
+            "url": "https://github.com/palladius/booth-ideas-sg/issues/20",
+            "author": "palladius",
+            "emoji": "🤖",
+            "abstract": "AI-Powered Idea-to-Development Accelerator.",
+            "screenshot": "",
+            "category": "Technology"
+        },
+        {
+            "createdAt": "2025-09-22T10:00:00Z",
+            "appName": "fondue-app",
+            "number": 2,
+            "title": "Smart Fondue Pot Temperature Monitor",
+            "url": "https://github.com/palladius/booth-ideas-sg/issues/2",
+            "author": "palladius",
+            "emoji": "🫕",
+            "abstract": "This app helps you to make the perfect fondue.",
+            "screenshot": "images/random-app-ideas/screenshots/fondue-app.png",
+            "category": "Food"
+        },
+        {
+            "createdAt": "2025-09-22T10:00:00Z",
+            "appName": "cuckoo-clock-app",
+            "number": 1,
+            "title": "A Cuckoo Clock That Tweets Jokes",
+            "url": "https://github.com/palladius/booth-ideas-sg/issues/1",
+            "author": "palladius",
+            "emoji": "🐦",
+            "abstract": "This app rings a cuckoo sound when you press the button",
+            "screenshot": "images/random-app-ideas/screenshots/cuckoo-clock-app.png",
+            "category": "Art"
+        },
+        {
             "createdAt": "2025-09-22T09:32:35Z",
             "number": 77,
             "title": "Colorful Dark Green Calendar",
@@ -88,16 +148,6 @@
             "title": "[AppIdea] Responsive Timed Fifteen Puzzle with Leaderboard - by Roberto",
             "url": "https://github.com/palladius/booth-ideas-sg/issues/54",
             "abstract": "# Product Requirements Document: The Responsive Fifteen Puzzle\n\n## 1. Introduction\n\nThis document ou...",
-            "category": "General",
-            "appName": null,
-            "screenshot": null
-        },
-        {
-            "createdAt": "2025-09-04T16:59:17Z",
-            "number": 35,
-            "title": "[CRun] Doesnt work",
-            "url": "https://github.com/palladius/booth-ideas-sg/issues/35",
-            "abstract": "Cloud run app doesnt work. I fixed these:\n\n* `.env` has GITHUB_TOKEN, but had to be GITHUB_PAT => fi...",
             "category": "General",
             "appName": null,
             "screenshot": null
