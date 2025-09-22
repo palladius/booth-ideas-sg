@@ -66,7 +66,8 @@ document.addEventListener('DOMContentLoaded', () => {
         const filteredIdeas = ideasData.filter(idea => {
             const matchesCategory = currentCategoryFilter === 'All' || idea.category === currentCategoryFilter;
             const matchesSearch = idea.title.toLowerCase().includes(filterText);
-            const matchesScreenshot = screenshotFilter === 'All' || (screenshotFilter === 'Only Screenshots' && idea.screenshot);
+            const hasScreenshot = idea.screenshot !== null && idea.screenshot !== '';
+            const matchesScreenshot = screenshotFilter === 'All' || (screenshotFilter === 'Only Screenshots' && hasScreenshot);
             return matchesCategory && matchesSearch && matchesScreenshot;
         });
 
