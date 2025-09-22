@@ -92,5 +92,5 @@ gemini-archeologist-restore-palladius:
 [group('gemini')]
 gemini-add-playwright-mcp:
     gemini mcp add playwright npx @playwright/mcp@latest
-    gemini mcp add --transport sse ricc-rails8-turbo-chat-sse https://rails8-turbo-chat-dev-272932496670.europe-west10.run.app/mcp/sse
+    #gemini mcp add --transport sse ricc-rails8-turbo-chat-sse https://rails8-turbo-chat-dev-272932496670.europe-west10.run.app/mcp/sse
     cat .gemini/settings.json
