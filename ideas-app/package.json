@@ -1,8 +1,9 @@
 {
   "name": "nextn",
-  "version": "0.1.2",
+  "version": "0.1.3",
   "private": true,
   "scripts": {
+    "dev9003": "next dev --turbopack -p 9003",
     "dev": "next dev --turbopack -p 9002",
     "genkit:dev": "genkit start -- tsx src/ai/dev.ts",
     "genkit:watch": "genkit start -- tsx --watch src/ai/dev.ts",

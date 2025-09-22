@@ -2,6 +2,11 @@
 
 Version is taken from `package.json`
 
+## 0.1.3 - 2025-09-18
+
+### :bug: Fixes
+- Added retry mechanism to handle transient 503 errors from the API.
+
 ## 0.1.2 - 2025-09-05
 
 ### :sparkles: Features
