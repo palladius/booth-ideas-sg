@@ -1,5 +1,10 @@
 # Changelog
 
+## [1.0.19] - 2025-09-22
+
+### Added
+- ✨ Added instructions so `app-has-screenshot` label is added
+
 ## [1.0.18] - 2025-09-22
 
 ### Added

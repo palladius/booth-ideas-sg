@@ -1,3 +1,7 @@
+// This script is called by `bin/create-screenshot.sh`.
+// It takes a URL and a filename as command-line arguments.
+// It launches a Playwright browser, navigates to the URL, takes a screenshot,
+// and saves it to the specified filename.
 const { chromium } = require('playwright');
 const sharp = require('sharp');
 const fs = require('fs');
