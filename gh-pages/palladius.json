@@ -3,6 +3,16 @@
     "eventEmojis": "🇨🇭☁️🏔️",
     "ideas": [
         {
+            "createdAt": "2025-09-22T00:00:00Z",
+            "number": 73,
+            "title": "Daily Vital Signs Tracker App",
+            "url": "https://github.com/palladius/booth-ideas-sg/issues/73",
+            "abstract": "A simple app to track daily vital signs.",
+            "category": "Health",
+            "appName": "daily-vital-signs-tracker-app",
+            "screenshot": "images/random-app-ideas/screenshots/73--daily-vital-signs-tracker-app.png"
+        },
+        {
             "createdAt": "2025-09-04T17:23:30Z",
             "number": 46,
             "title": "[AppIdea] AI Product Concept to Development Workflow Creator - by deleteme",
