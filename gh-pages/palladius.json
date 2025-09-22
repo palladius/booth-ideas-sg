@@ -249,16 +249,6 @@
             "screenshot": null
         },
         {
-            "createdAt": "2025-09-04T14:15:18Z",
-            "number": 30,
-            "title": "check CUJ01",
-            "url": "https://github.com/palladius/booth-ideas-sg/issues/30",
-            "abstract": "@gemini-cli execute logic in `docs/CUJs/cuj01-githubpages-should-be-nice.md`...",
-            "category": "General",
-            "appName": null,
-            "screenshot": null
-        },
-        {
             "createdAt": "2025-09-04T13:58:56Z",
             "number": 29,
             "title": "[AppIdea] Running Shoe Mileage  Counter - by danistrebel",
@@ -278,75 +268,5 @@
             "appName": null,
             "screenshot": null
         },
-        {
-            "createdAt": "2025-09-04T06:42:37Z",
-            "number": 18,
-            "title": "Script to capture a picture on genric path/to/app",
-            "url": "https://github.com/palladius/booth-ideas-sg/issues/18",
-            "abstract": "...",
-            "category": "General",
-            "appName": null,
-            "screenshot": null
-        },
-        {
-            "createdAt": "2025-09-03T15:15:12Z",
-            "number": 15,
-            "title": "[7.8] Implement automated PR reviews with a distinct Gemini persona",
-            "url": "https://github.com/palladius/booth-ideas-sg/issues/15",
-            "abstract": "From issue #7, this task is to set up automated PR reviews performed by Gemini CLI. The reviews shou...",
-            "category": "General",
-            "appName": null,
-            "screenshot": null
-        },
-        {
-            "createdAt": "2025-09-03T15:15:10Z",
-            "number": 13,
-            "title": "[7.6] Automate updates to gh-pages/palladius.json",
-            "url": "https://github.com/palladius/booth-ideas-sg/issues/13",
-            "abstract": "As requested in #7, the process of updating `gh-pages/palladius.json` should be automated as part of...",
-            "category": "General",
-            "appName": null,
-            "screenshot": null
-        },
-        {
-            "createdAt": "2025-09-03T15:15:09Z",
-            "number": 12,
-            "title": "[7.5] Define and enforce a branch naming convention for app proposals",
-            "url": "https://github.com/palladius/booth-ideas-sg/issues/12",
-            "abstract": "From the request in #7, we need to define and enforce a branch naming convention for new app proposa...",
-            "category": "General",
-            "appName": null,
-            "screenshot": null
-        },
-        {
-            "createdAt": "2025-09-03T15:15:08Z",
-            "number": 11,
-            "title": "[7.4] Enforce standardized issue naming/labeling for new app proposals",
-            "url": "https://github.com/palladius/booth-ideas-sg/issues/11",
-            "abstract": "Following up on #7, this issue is to establish and enforce a consistent naming or labeling scheme fo...",
-            "category": "General",
-            "appName": null,
-            "screenshot": null
-        },
-        {
-            "createdAt": "2025-09-03T15:15:07Z",
-            "number": 10,
-            "title": "[7.3] Clarify and document the branching strategy for new applications",
-            "url": "https://github.com/palladius/booth-ideas-sg/issues/10",
-            "abstract": "As per the discussion in #7, this issue is to clarify and document the official branching strategy. ...",
-            "category": "General",
-            "appName": null,
-            "screenshot": null
-        },
-        {
-            "createdAt": "2025-09-03T15:15:05Z",
-            "number": 8,
-            "title": "[7.1] Integrate image generation into the GitHub Actions workflow",
-            "url": "https://github.com/palladius/booth-ideas-sg/issues/8",
-            "abstract": "As requested in #7, this issue tracks the integration of image generation into the GitHub Actions wo...",
-            "category": "General",
-            "appName": null,
-            "screenshot": null
-        }
     ]
 }

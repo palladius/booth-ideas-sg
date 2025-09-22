@@ -4,9 +4,11 @@ document.addEventListener('DOMContentLoaded', () => {
     const ideaCountElement = document.getElementById('idea-count');
     const timelineEventsContainer = document.getElementById('timeline-events');
     const filterContainer = document.getElementById('filter-container');
+    const screenshotFilterContainer = document.getElementById('screenshot-filter-container');
     const eventSelectorContainer = document.getElementById('event-selector-container');
 
     let currentCategoryFilter = 'All';
+    let screenshotFilter = 'Only Screenshots'; // or 'All'
     let eventName = '';
     let eventEmojis = '';
     let ideasData = [];
@@ -64,7 +66,8 @@ document.addEventListener('DOMContentLoaded', () => {
         const filteredIdeas = ideasData.filter(idea => {
             const matchesCategory = currentCategoryFilter === 'All' || idea.category === currentCategoryFilter;
             const matchesSearch = idea.title.toLowerCase().includes(filterText);
-            return matchesCategory && matchesSearch;
+            const matchesScreenshot = screenshotFilter === 'All' || (screenshotFilter === 'Only Screenshots' && idea.screenshot);
+            return matchesCategory && matchesSearch && matchesScreenshot;
         });
 
         ideaCountElement.textContent = `Displaying ${filteredIdeas.length} of ${ideasData.length} ideas.`;
@@ -169,6 +172,25 @@ document.addEventListener('DOMContentLoaded', () => {
                 renderCards();
             });
             filterContainer.appendChild(btn);
+        });
+    }
+
+    function renderScreenshotFilter() {
+        screenshotFilterContainer.innerHTML = '';
+        const filters = ['Only Screenshots', 'All'];
+        filters.forEach(filter => {
+            const btn = document.createElement('button');
+            btn.className = 'filter-btn';
+            btn.textContent = filter;
+            if (filter === screenshotFilter) {
+                btn.classList.add('active');
+            }
+            btn.addEventListener('click', () => {
+                screenshotFilter = filter;
+                renderScreenshotFilter();
+                renderCards();
+            });
+            screenshotFilterContainer.appendChild(btn);
         });
     }
 
@@ -320,6 +342,7 @@ document.addEventListener('DOMContentLoaded', () => {
         await loadIdeasData();
 
         if (ideasData.length > 0) {
+            renderScreenshotFilter();
             renderFilters();
             renderCards();
             renderTimeline();
