@@ -31,11 +31,11 @@ steps:
   - '${_LOCATION}'
   - '--platform'
   - 'managed'
-  
+
 images:
 - '${_LOCATION}-docker.pkg.dev/${PROJECT_ID}/${_REPOSITORY}/${_IMAGE_NAME}:${COMMIT_SHA}'
 substitutions:
   _LOCATION: 'europe-west1'
   _REPOSITORY: 'ideas-app-repo'
-  _IMAGE_NAME: 'ideas-app'
+  _IMAGE_NAME: 'ideas-app-original'
   _SERVICE_NAME: 'ideas-app'
