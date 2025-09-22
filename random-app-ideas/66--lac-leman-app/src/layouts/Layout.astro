@@ -1,0 +1,39 @@
+---
+interface Props {
+	title: string;
+}
+
+const { title } = Astro.props;
+---
+
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="description" content="Astro description" />
+		<meta name="viewport" content="width=device-width" />
+		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+		<meta name="generator" content={Astro.generator} />
+		<title>{title}</title>
+	</head>
+	<body class="bg-gray-100 text-gray-900">
+		<header class="bg-white shadow-md">
+			<nav class="container mx-auto px-4 py-6 flex justify-between items-center">
+				<a href="/" class="text-2xl font-bold">WindWise Léman</a>
+				<div>
+					<a href="/" class="text-lg mx-2">Home</a>
+					<a href="/about" class="text-lg mx-2">About</a>
+				</div>
+			</nav>
+		</header>
+		<slot />
+		<footer class="bg-gray-800 text-white py-8">
+			<div class="container mx-auto px-4 text-center">
+				<p>&copy; 2025 WindWise Léman. All rights reserved.</p>
+			</div>
+		</footer>
+	</body>
+</html>
+<style is:global>
+	@import '../styles/global.css';
+</style>

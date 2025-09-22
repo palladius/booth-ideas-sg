@@ -1,0 +1,22 @@
+---
+import Calendar from '../components/Calendar.astro';
+---
+
+<html lang="en">
+	<head>
+		<meta charset="utf-8" />
+		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+		<meta name="viewport" content="width=device-width" />
+		<meta name="generator" content={Astro.generator} />
+		<title>ChromaCal</title>
+		<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/fullcalendar@5.11.3/main.min.css" />
+	</head>
+	<body style="background-color: #A2B2A2;">
+		<main>
+			<h1 style="color: white; text-align: center;">ChromaCal</h1>
+			<h2 style="color: white; text-align: center;">Your Colorful Dark Green Calendar</h2>
+			<p style="color: white; text-align: center;">Welcome to ChromaCal! This is a simple calendar application to demonstrate the power of Astro and FullCalendar.</p>
+			<Calendar />
+		</main>
+	</body>
+</html>

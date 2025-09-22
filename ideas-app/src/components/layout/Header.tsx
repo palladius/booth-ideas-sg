@@ -9,13 +9,13 @@ export default function Header() {
             Idea to Code 🇨🇭
           </h1>
         </div>
-        <a 
-          href="https://github.com/google-gemini/gemini-cli" 
-          target="_blank" 
+        <a
+          href="https://github.com/google-gemini/gemini-cli"
+          target="_blank"
           rel="noopener noreferrer"
           className="hidden sm:flex items-center gap-2 text-sm text-gray-200 hover:text-white transition-colors"
         >
-          Learn more
+          More about <tt>gemini-cli</tt>
           <ExternalLink className="w-4 h-4" />
         </a>
       </div>

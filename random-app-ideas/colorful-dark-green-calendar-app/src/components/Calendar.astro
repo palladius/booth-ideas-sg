@@ -1,0 +1,46 @@
+---
+// src/components/Calendar.astro
+import { Calendar } from '@fullcalendar/core';
+import dayGridPlugin from '@fullcalendar/daygrid';
+import timeGridPlugin from '@fullcalendar/timegrid';
+import listPlugin from '@fullcalendar/list';
+
+const calendarElId = 'calendar';
+---
+
+<div id={calendarElId}></div>
+
+<script define:vars={{ calendarElId }}>
+  document.addEventListener('DOMContentLoaded', function() {
+    const calendarEl = document.getElementById(calendarElId);
+    const calendar = new Calendar(calendarEl, {
+      plugins: [dayGridPlugin, timeGridPlugin, listPlugin],
+      initialView: 'dayGridMonth',
+      headerToolbar: {
+        left: 'prev,next today',
+        center: 'title',
+        right: 'dayGridMonth,timeGridWeek,timeGridDay,listWeek'
+      },
+      events: [
+        {
+          title: 'Meeting',
+          start: '2025-09-22T10:30:00',
+          end: '2025-09-22T12:30:00',
+          color: '#FF5733'
+        },
+        {
+          title: 'Lunch',
+          start: '2025-09-22T13:00:00',
+          color: '#33FF57'
+        },
+        {
+          title: 'Conference',
+          start: '2025-09-23',
+          end: '2025-09-25',
+          color: '#3357FF'
+        }
+      ]
+    });
+    calendar.render();
+  });
+</script>
