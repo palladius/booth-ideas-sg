@@ -23,7 +23,7 @@ Note: This is only PAST-looking, from the future (riccardo commits), we dont car
 
 ## Feedback loop
 
-* Do not execute long running servers.
+* Do not execute long running servers (`just run`/`npm dev`/..), or long-running processes (`tail -f`). If you have to, prepend a `timeout 30 COMMAND` to ensure you return soon.
 * For `gh` pages, for instance, ask the USER to run `just run-ghpages-server-p8000` and check logs in `log/` folder.
 
 ## Git flow
@@ -67,6 +67,13 @@ So:
 ### Missing screenshots
 
 Missing screenshots can be found this way: `bin/find-missing-screenshots.sh`
+
+To capture a screenshot of an application, just do this:
+
+1. Ensure the app is running, like `cd path/to/app` and `npm run` or similar.
+2. USe MCP Playwright to navigate to the local app, likely https://localhost:3000/ or https://localhost:9002/ (check the app config)
+3. Take a screenshot of a reasonable area. Could be a 800x600 centered on top.
+
 
 ## CUJs
 

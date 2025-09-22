@@ -1,93 +1,99 @@
+
 'use client';
 
 import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
-import { Download, QrCode, Loader2 } from "lucide-react";
+import { QrCode, GitBranch, GitPullRequest, AlertCircle } from "lucide-react";
 import Image from "next/image";
 import type { GenerationResult } from "@/lib/types";
-import { useState } from "react";
-import { useToast } from "@/hooks/use-toast";
+import { Alert, AlertDescription, AlertTitle } from "@/components/ui/alert";
+
 
 interface DownloadSectionProps {
   data: GenerationResult;
 }
 
 export function DownloadSection({ data }: DownloadSectionProps) {
-    const [isLoading, setIsLoading] = useState(false);
-    const { toast } = useToast();
+    const repoUrl = process.env.NEXT_PUBLIC_GITHUB_REPO_URL;
     
-    // The QR code will now point to the page, and the user can initiate download from there.
-    // This simplifies the QR logic as it doesn't need a unique, expiring URL.
-    const pageUrl = typeof window !== 'undefined' ? window.location.href : '';
-    const qrCodeUrl = `https://api.qrserver.com/v1/create-qr-code/?size=180x180&data=${encodeURIComponent(pageUrl)}&qzone=1`;
+    const { githubResult } = data;
+    let qrCodeUrl = '';
 
-    const handleDownload = async () => {
-        setIsLoading(true);
-        try {
-            const response = await fetch('/api/download', {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json',
-                },
-                body: JSON.stringify(data),
-            });
+    if (githubResult.success && githubResult.branchName && repoUrl) {
+      const branchUrl = `${repoUrl.replace(/\.git$/, '')}/tree/${githubResult.branchName}`;
+      qrCodeUrl = `https://api.qrserver.com/v1/create-qr-code/?size=180x180&data=${encodeURIComponent(branchUrl)}&qzone=1`;
+    }
 
-            if (!response.ok) {
-                const errorText = await response.text();
-                throw new Error(errorText || 'Failed to generate download.');
-            }
-
-            const blob = await response.blob();
-            const url = window.URL.createObjectURL(blob);
-            const link = document.createElement('a');
-            link.href = url;
-            link.setAttribute('download', 'prototype-project.zip');
-            document.body.appendChild(link);
-            link.click();
-            document.body.removeChild(link);
-            window.URL.revokeObjectURL(url);
-
-        } catch (error) {
-            console.error("Download failed:", error);
-            toast({
-                variant: "destructive",
-                title: "Download Failed",
-                description: error instanceof Error ? error.message : "An unknown error occurred.",
-            })
-        } finally {
-            setIsLoading(false);
+    const renderGitHubStatus = () => {
+        if (githubResult.success && githubResult.pullRequestUrl && githubResult.branchName && repoUrl) {
+             const branchUrl = `${repoUrl.replace(/\.git$/, '')}/tree/${githubResult.branchName}`;
+            return (
+                 <Alert variant="default" className="bg-transparent border-0 p-0">
+                    <AlertTitle className="text-xl font-headline font-semibold text-green-400">
+                        Your Project Is Ready!
+                    </AlertTitle>
+                    <AlertDescription className="text-muted-foreground mt-2">
+                        A new branch <code className="font-mono bg-muted text-foreground rounded px-1 py-0.5">{githubResult.branchName}</code> has been created and a pull request opened for your review.
+                        <div className="mt-4 flex flex-wrap gap-4">
+                            <Button asChild variant="link" className="p-0 h-auto text-primary font-bold">
+                                <a href={branchUrl} target="_blank" rel="noopener noreferrer">
+                                    <GitBranch className="mr-1 h-4 w-4" />
+                                    View Branch
+                                </a>
+                            </Button>
+                            <Button asChild variant="link" className="p-0 h-auto text-primary font-bold">
+                                <a href={githubResult.pullRequestUrl} target="_blank" rel="noopener noreferrer">
+                                    <GitPullRequest className="mr-1 h-4 w-4" />
+                                    View Pull Request
+                                </a>
+                            </Button>
+                        </div>
+                    </AlertDescription>
+                </Alert>
+            );
         }
-    };
+
+        if(!githubResult.success) {
+            return (
+                <Alert variant="destructive">
+                    <AlertCircle className="h-4 w-4" />
+                    <AlertTitle>GitHub Push Failed</AlertTitle>
+                    <AlertDescription>
+                        {githubResult.error ? githubResult.error : "An unknown error occurred. Please check your environment variables."}
+                    </AlertDescription>
+                </Alert>
+            )
+        }
+
+        return null
+    }
 
     return (
         <section className="space-y-6">
             <div className="flex items-center gap-3">
-                <Download className="w-8 h-8 text-accent" />
-                <h2 className="text-3xl font-headline font-bold">Download Project Assets</h2>
+                <QrCode className="w-8 h-8 text-accent" />
+                <h2 className="text-3xl font-headline font-bold">Scan to View Project Source</h2>
             </div>
             <Card className="shadow-md">
-                <CardContent className="p-6 flex flex-col md:flex-row items-center gap-6 md:gap-10">
-                    <div className="p-4 border bg-card rounded-lg shadow-inner">
-                         <Image 
-                            src={qrCodeUrl}
-                            alt="QR code to access this page on a mobile device"
-                            width={180}
-                            height={180}
-                         />
-                    </div>
-                    <div className="text-center md:text-left">
-                        <h3 className="text-xl font-headline font-semibold">Ready for Development?</h3>
-                        <p className="text-muted-foreground mt-2 max-w-md">
-                            Download a complete project archive containing your prototype, the full Product Requirements Document (PRD), and all necessary configuration files to begin development.
-                        </p>
-                        <Button size="lg" className="mt-4 font-headline" onClick={handleDownload} disabled={isLoading}>
-                            {isLoading ? (
-                                <Loader2 className="mr-2 h-5 w-5 animate-spin" />
-                            ) : (
-                                <Download className="mr-2 h-5 w-5" />
-                            )}
-                            {isLoading ? 'Packaging...' : 'Download Project (.zip)'}
-                        </Button>
+                <CardContent className="p-6">
+                    <div className="flex flex-col md:flex-row items-center gap-6 md:gap-10">
+                        {qrCodeUrl ? (
+                            <div className="p-4 border bg-card rounded-lg shadow-inner flex-shrink-0">
+                                <Image 
+                                    src={qrCodeUrl}
+                                    alt="QR code to access the project source code on GitHub"
+                                    width={180}
+                                    height={180}
+                                />
+                            </div>
+                        ) : (
+                             <div className="p-4 border bg-card rounded-lg shadow-inner w-[196px] h-[196px] flex-shrink-0 flex items-center justify-center text-center text-sm text-muted-foreground">
+                                QR code will be available once the GitHub workflow is configured.
+                            </div>
+                        )}
+                        <div className="text-center md:text-left flex-grow">
+                            {renderGitHubStatus()}
+                        </div>
                     </div>
                 </CardContent>
             </Card>
