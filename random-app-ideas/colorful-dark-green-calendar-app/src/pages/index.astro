@@ -9,12 +9,7 @@ import Calendar from '../components/Calendar.astro';
 		<meta name="viewport" content="width=device-width" />
 		<meta name="generator" content={Astro.generator} />
 		<title>ChromaCal</title>
-		<style is:global>
-			@import '@fullcalendar/core/main.css';
-			@import '@fullcalendar/daygrid/main.css';
-			@import '@fullcalendar/timegrid/main.css';
-			@import '@fullcalendar/list/main.css';
-		</style>
+		<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/fullcalendar@5.11.3/main.min.css" />
 	</head>
 	<body style="background-color: #A2B2A2;">
 		<main>
