@@ -1,13 +1,93 @@
 {
     "eventName": "Euro Cloud Summit",
-    "eventEmojis": "🇨🇭☁️🏔️",
+    "eventEmojis": "🇨🇭☁️",
     "ideas": [
         {
-            "createdAt": "2025-09-04T17:23:30Z",
-            "number": 46,
-            "title": "[AppIdea] AI Product Concept to Development Workflow Creator - by deleteme",
-            "url": "https://github.com/palladius/booth-ideas-sg/issues/46",
-            "abstract": "# Product Requirements Document: AI-Powered Concept-to-Code Accelerator\n\n## 1. Introduction\n\nThis do...",
+            "createdAt": "2025-09-22T09:32:35Z",
+            "number": 77,
+            "title": "Colorful Dark Green Calendar",
+            "url": "https://github.com/palladius/booth-ideas-sg/issues/77",
+            "abstract": "# Product Requirements Document: ChromaCal - The Visually Engaging Calendar App\n\n## 1. Introduction\n...",
+            "category": "General",
+            "appName": null,
+            "screenshot": null
+        },
+        {
+            "createdAt": "2025-09-22T09:27:52Z",
+            "number": 75,
+            "title": "AI Calendar Daily Briefing & Reminders 🗓️",
+            "url": "https://github.com/palladius/booth-ideas-sg/issues/75",
+            "abstract": "# Product Requirements Document: Intelligent Daily Agenda App\n\n## 1. Introduction\n\nThis document out...",
+            "category": "General",
+            "appName": null,
+            "screenshot": null
+        },
+        {
+            "createdAt": "2025-09-22T06:30:38Z",
+            "number": 73,
+            "title": "Daily Vital Signs Tracker",
+            "url": "https://github.com/palladius/booth-ideas-sg/issues/73",
+            "abstract": "# Product Requirements Document: Daily Health Vitals Tracker\n\n## 1. Introduction\nThis Product Requir...",
+            "category": "General",
+            "appName": null,
+            "screenshot": null
+        },
+        {
+            "createdAt": "2025-09-18T06:52:24Z",
+            "number": 68,
+            "title": "Portugal Meteo Forecast",
+            "url": "https://github.com/palladius/booth-ideas-sg/issues/68",
+            "abstract": "# Product Requirements Document: Portugal Meteo Forecast\n\n## 1. Introduction\n\nThis document outlines...",
+            "category": "General",
+            "appName": null,
+            "screenshot": null
+        },
+        {
+            "createdAt": "2025-09-16T14:09:13Z",
+            "number": 66,
+            "title": "[AppIdea] Leman Lake Wind Forecast Application - by Charley",
+            "url": "https://github.com/palladius/booth-ideas-sg/issues/66",
+            "abstract": "# WindWise Léman: Hyper-Localized Wind Forecast for Lake Geneva\n\n## 1. Introduction\n\nThe WindWise Lé...",
+            "category": "General",
+            "appName": null,
+            "screenshot": null
+        },
+        {
+            "createdAt": "2025-09-16T11:48:15Z",
+            "number": 62,
+            "title": "Italian Emoji Tic Tac Toe",
+            "url": "https://github.com/palladius/booth-ideas-sg/issues/62",
+            "abstract": "# Product Requirements Document: Italian Emoji Tic-Tac-Toe\n\n## 1. Introduction\nThis document outline...",
+            "category": "General",
+            "appName": null,
+            "screenshot": null
+        },
+        {
+            "createdAt": "2025-09-16T10:47:20Z",
+            "number": 58,
+            "title": "B2B Logistics App",
+            "url": "https://github.com/palladius/booth-ideas-sg/issues/58",
+            "abstract": "# Product Requirements Document: NexaLogistics B2B App\n\n## 1. Introduction\nThis document outlines th...",
+            "category": "General",
+            "appName": null,
+            "screenshot": null
+        },
+        {
+            "createdAt": "2025-09-16T09:48:00Z",
+            "number": 56,
+            "title": "[AppIdea] Prioritized Issue Tracking System - by Ricky",
+            "url": "https://github.com/palladius/booth-ideas-sg/issues/56",
+            "abstract": "# Product Requirements Document: Trackanizer\n\n## 1. Introduction\nTrackanizer is a proposed bug and f...",
+            "category": "General",
+            "appName": null,
+            "screenshot": null
+        },
+        {
+            "createdAt": "2025-09-08T13:44:22Z",
+            "number": 54,
+            "title": "[AppIdea] Responsive Timed Fifteen Puzzle with Leaderboard - by Roberto",
+            "url": "https://github.com/palladius/booth-ideas-sg/issues/54",
+            "abstract": "# Product Requirements Document: The Responsive Fifteen Puzzle\n\n## 1. Introduction\n\nThis document ou...",
             "category": "General",
             "appName": null,
             "screenshot": null
@@ -23,95 +103,104 @@
             "screenshot": null
         },
         {
-            "createdAt": "2025-09-04T13:45:00Z",
-            "number": 25,
-            "title": "Pill Calendar App",
-            "url": "https://github.com/palladius/booth-ideas-sg/issues/25",
-            "abstract": "A calendar app to show if you took your daily/weekly/monthly pill. It has a FE which allows you to configure your pills after which it prompts you on the day: did you take your pill? And if you say no, it keeps bugging you until you do.",
-            "category": "Health",
-            "author": "ricky",
-            "appName": "pill-calendar-app",
-            "screenshot": "images/random-app-ideas/screenshots/pill-calendar-app.png"
-        },
-        {
-            "createdAt": "2025-09-04T10:00:00Z",
-            "number": 21,
-            "title": "Multiflag Emoji App",
-            "url": "https://github.com/palladius/booth-ideas-sg/issues/21",
-            "abstract": "This app has a number of country flags with continent selector!",
-            "category": "Utilities",
-            "appName": "multiflag-app",
-            "screenshot": "images/random-app-ideas/screenshots/multiflag-app.png"
-        },
-        {
-            "createdAt": "2025-09-03T10:15:00Z",
-            "number": 2,
-            "title": "Smart Fondue Pot Temperature Monitor",
-            "url": "https://github.com/palladius/booth-ideas-sg/issues/2",
-            "abstract": "A smart fondue pot that monitors temperature.",
-            "category": "Technology",
-            "appName": "fondue-app",
-            "screenshot": "images/random-app-ideas/screenshots/fondue-app.png"
-        },
-        {
-            "createdAt": "2025-09-03T09:00:00Z",
-            "number": 1,
-            "title": "Cuckoo Clock That Tweets Jokes",
-            "url": "https://github.com/palladius/booth-ideas-sg/issues/1",
-            "abstract": "A cuckoo clock that tweets jokes.",
-            "category": "Crafts",
-            "appName": "cuckoo-clock-app",
-            "screenshot": "images/random-app-ideas/screenshots/cuckoo-clock-app.png"
-        },
-        {
-            "createdAt": "2025-09-05T00:00:00Z",
-            "number": 29,
-            "title": "Shoe Mileage Tracker",
-            "url": "https://github.com/palladius/booth-ideas-sg/issues/29",
-            "abstract": "A simple web application to track the mileage of running shoes. Goal: To help runners know when their shoes have reached the recommended mileage limit (500 miles) and should be replaced.",
-            "category": "Health",
-            "appName": "shoe-mileage-tracker",
-            "screenshot": "images/random-app-ideas/screenshots/shoe-mileage-tracker.png"
-        },
-        {
-            "createdAt": "2025-09-05T00:00:00Z",
-            "number": 33,
-            "title": "Rick and Morty Collector's Nexus",
-            "url": "https://github.com/palladius/booth-ideas-sg/issues/33",
-            "abstract": "A placeholder application for a Rick and Morty collector's nexus.",
-            "category": "Entertainment",
-            "appName": "rick-and-morty-nexus",
-            "screenshot": "images/random-app-ideas/screenshots/rick-and-morty-nexus.png"
-        },
-        {
-            "createdAt": "2025-09-05T00:00:00Z",
-            "number": 34,
-            "title": "Rick and Morty Collectors Nexus (Next.js)",
-            "url": "https://github.com/palladius/booth-ideas-sg/issues/34",
-            "abstract": "A Next.js application for a Rick and Morty collectors nexus.",
-            "category": "Entertainment",
-            "appName": "rick-and-morty-collectors-nexus",
-            "screenshot": "images/random-app-ideas/screenshots/rick-and-morty-collectors-nexus.png"
-        },
-        {
-            "createdAt": "2025-09-05T00:00:00Z",
-            "number": 37,
-            "title": "Pokemon Game of 15",
-            "url": "https://github.com/palladius/booth-ideas-sg/issues/37",
-            "abstract": "A placeholder for a Pokemon-themed game of 15 puzzle.",
-            "category": "Game",
-            "appName": "pokemon-game-of-15",
+            "createdAt": "2025-09-04T14:15:18Z",
+            "number": 30,
+            "title": "check CUJ01",
+            "url": "https://github.com/palladius/booth-ideas-sg/issues/30",
+            "abstract": "@gemini-cli execute logic in `docs/CUJs/cuj01-githubpages-should-be-nice.md`...",
+            "category": "General",
+            "appName": null,
             "screenshot": null
         },
         {
-            "createdAt": "2025-09-05T00:00:00Z",
-            "number": 42,
-            "title": "GitHub Public Repo Tracker",
-            "url": "https://github.com/palladius/booth-ideas-sg/issues/42",
-            "abstract": "This application provides a centralized and efficient way for users to monitor open issues and pull requests (PRs) across multiple public GitHub repositories.",
-            "category": "Utilities",
-            "appName": "github-public-repo-tracker",
-            "screenshot": "images/random-app-ideas/screenshots/github-public-repo-tracker.png"
+            "createdAt": "2025-09-04T13:58:56Z",
+            "number": 29,
+            "title": "[AppIdea] Running Shoe Mileage  Counter - by danistrebel",
+            "url": "https://github.com/palladius/booth-ideas-sg/issues/29",
+            "abstract": "* **Nickname**: I would walk five hundred miles\n* **Emoji**: 👟\n* **Idea**:  track the mileage acros...",
+            "category": "pauldatta-app",
+            "appName": "shoe-mileage-tracker",
+            "screenshot": "gh-pages/images/random-app-ideas/screenshots/shoe-mileage-tracker.png"
+        },
+        {
+            "createdAt": "2025-09-04T07:34:32Z",
+            "number": 19,
+            "title": "Set up Cloud Run via infra/ and TF",
+            "url": "https://github.com/palladius/booth-ideas-sg/issues/19",
+            "abstract": "I found out `infra/` contains TF instruction to push to Cloud Run -> I've just commited it and it wo...",
+            "category": "General",
+            "appName": null,
+            "screenshot": null
+        },
+        {
+            "createdAt": "2025-09-04T06:42:37Z",
+            "number": 18,
+            "title": "Script to capture a picture on genric path/to/app",
+            "url": "https://github.com/palladius/booth-ideas-sg/issues/18",
+            "abstract": "...",
+            "category": "General",
+            "appName": null,
+            "screenshot": null
+        },
+        {
+            "createdAt": "2025-09-03T15:15:12Z",
+            "number": 15,
+            "title": "[7.8] Implement automated PR reviews with a distinct Gemini persona",
+            "url": "https://github.com/palladius/booth-ideas-sg/issues/15",
+            "abstract": "From issue #7, this task is to set up automated PR reviews performed by Gemini CLI. The reviews shou...",
+            "category": "General",
+            "appName": null,
+            "screenshot": null
+        },
+        {
+            "createdAt": "2025-09-03T15:15:10Z",
+            "number": 13,
+            "title": "[7.6] Automate updates to gh-pages/palladius.json",
+            "url": "https://github.com/palladius/booth-ideas-sg/issues/13",
+            "abstract": "As requested in #7, the process of updating `gh-pages/palladius.json` should be automated as part of...",
+            "category": "General",
+            "appName": null,
+            "screenshot": null
+        },
+        {
+            "createdAt": "2025-09-03T15:15:09Z",
+            "number": 12,
+            "title": "[7.5] Define and enforce a branch naming convention for app proposals",
+            "url": "https://github.com/palladius/booth-ideas-sg/issues/12",
+            "abstract": "From the request in #7, we need to define and enforce a branch naming convention for new app proposa...",
+            "category": "General",
+            "appName": null,
+            "screenshot": null
+        },
+        {
+            "createdAt": "2025-09-03T15:15:08Z",
+            "number": 11,
+            "title": "[7.4] Enforce standardized issue naming/labeling for new app proposals",
+            "url": "https://github.com/palladius/booth-ideas-sg/issues/11",
+            "abstract": "Following up on #7, this issue is to establish and enforce a consistent naming or labeling scheme fo...",
+            "category": "General",
+            "appName": null,
+            "screenshot": null
+        },
+        {
+            "createdAt": "2025-09-03T15:15:07Z",
+            "number": 10,
+            "title": "[7.3] Clarify and document the branching strategy for new applications",
+            "url": "https://github.com/palladius/booth-ideas-sg/issues/10",
+            "abstract": "As per the discussion in #7, this issue is to clarify and document the official branching strategy. ...",
+            "category": "General",
+            "appName": null,
+            "screenshot": null
+        },
+        {
+            "createdAt": "2025-09-03T15:15:05Z",
+            "number": 8,
+            "title": "[7.1] Integrate image generation into the GitHub Actions workflow",
+            "url": "https://github.com/palladius/booth-ideas-sg/issues/8",
+            "abstract": "As requested in #7, this issue tracks the integration of image generation into the GitHub Actions wo...",
+            "category": "General",
+            "appName": null,
+            "screenshot": null
         }
     ]
 }
