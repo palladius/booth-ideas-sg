@@ -22,10 +22,16 @@ const selectedCommit = commits[0];
 				<div class="w-1/3 ml-4">
 					<h2 class="text-xl font-bold mb-2">Commits</h2>
 					<ul class="mb-4">
-						{commits.map((commit) => (
-							<li class="mb-2 p-2 bg-gray-800 rounded-lg cursor-pointer hover:bg-gray-700">
-								<p class="font-bold">{commit.message}</p>
-								<p class="text-sm text-gray-400">{commit.author}</p>
+						{commits.map((commit, index) => (
+							<li class="flex items-center mb-2 p-2 bg-gray-800 rounded-lg cursor-pointer hover:bg-gray-700">
+								<img src="/images/commit.svg" alt="commit icon" class="w-6 h-6 mr-2" />
+								<div>
+									<p class="font-bold">{commit.message}</p>
+									<div class="flex items-center">
+										<img src={`/avatars/avatar${(index % 3) + 1}.svg`} alt="author avatar" class="w-6 h-6 mr-2 rounded-full" />
+										<p class="text-sm text-gray-400">{commit.author}</p>
+									</div>
+								</div>
 							</li>
 						))}
 					</ul>
@@ -34,6 +40,7 @@ const selectedCommit = commits[0];
 						message={selectedCommit.message}
 						author={selectedCommit.author}
 						date={selectedCommit.date}
+						avatarUrl="/avatars/avatar1.svg"
 					/>
 				</div>
 			</div>
