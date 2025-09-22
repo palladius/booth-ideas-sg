@@ -1,0 +1,14 @@
+:root {
+  --weather-green: #4CAF50;
+  --weather-red: #F44336;
+  --background-color: #f0f0f0;
+  --text-color: #333;
+}
+
+body {
+  font-family: sans-serif;
+  background-color: var(--background-color);
+  color: var(--text-color);
+  margin: 0;
+  padding: 20px;
+}
