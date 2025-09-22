@@ -288,12 +288,13 @@ jobs:
                  - At the very beginning, outline the steps needed to resolve the issue or address the request and post them as a checklist comment on the issue or PR (use GitHub markdown checkboxes: `- [ ] Task`).
                  - Example:
                    ```
-                   ### Plan
+                   ### Plan v1.0.19
                    - [ ] Investigate the root cause
                    - [ ] Implement the fix in `file.py`
                    - [ ] Add/modify tests
                    - [ ] Update documentation
                    - [ ] Take Screenshot via MCP Playwright and attach to PR/Issue
+                   - [ ] Verify the screenshot is attached to PR/Issue, then label the issue with "app-has-screenshot"
                    - [ ] Verify the fix and close the issue
                    ```
                  - Use: `gh pr comment "${ISSUE_NUMBER}" --body "<plan>"` or `gh issue comment "${ISSUE_NUMBER}" --body "<plan>"` to post the initial plan.
