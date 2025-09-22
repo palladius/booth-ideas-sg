@@ -1,0 +1,25 @@
+---
+import Calendar from '../components/Calendar.astro';
+---
+
+<html lang="en">
+	<head>
+		<meta charset="utf-8" />
+		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+		<meta name="viewport" content="width=device-width" />
+		<meta name="generator" content={Astro.generator} />
+		<title>ChromaCal</title>
+		<style is:global>
+			@import '@fullcalendar/core/main.css';
+			@import '@fullcalendar/daygrid/main.css';
+			@import '@fullcalendar/timegrid/main.css';
+			@import '@fullcalendar/list/main.css';
+		</style>
+	</head>
+	<body style="background-color: #2E4F4F;">
+		<main>
+			<h1 style="color: white; text-align: center;">ChromaCal</h1>
+			<Calendar />
+		</main>
+	</body>
+</html>
