@@ -1,0 +1,53 @@
+
+{
+  "commits": [
+    {
+      "sha": "a1b2c3d",
+      "author": "Riccardo",
+      "message": "feat: Initial commit",
+      "parents": []
+    },
+    {
+      "sha": "b2c3d4e",
+      "author": "Riccardo",
+      "message": "feat: Add basic structure",
+      "parents": ["a1b2c3d"]
+    },
+    {
+      "sha": "c3d4e5f",
+      "author": "Riccardo",
+      "message": "feat: Implement feature-A",
+      "parents": ["b2c3d4e"]
+    },
+    {
+      "sha": "d4e5f6g",
+      "author": "Riccardo",
+      "message": "fix: Correct bug in feature-A",
+      "parents": ["c3d4e5f"]
+    },
+    {
+      "sha": "e5f6g7h",
+      "author": "Riccardo",
+      "message": "feat: Start feature-B",
+      "parents": ["b2c3d4e"]
+    },
+    {
+      "sha": "f6g7h8i",
+      "author": "Riccardo",
+      "message": "feat: Complete feature-B",
+      "parents": ["e5f6g7h"]
+    },
+    {
+      "sha": "g7h8i9j",
+      "author": "Riccardo",
+      "message": "merge: Merge feature-B into main",
+      "parents": ["d4e5f6g", "f6g7h8i"]
+    }
+  ],
+  "branches": {
+    "main": "g7h8i9j",
+    "feature-A": "d4e5f6g",
+    "feature-B": "f6g7h8i"
+  },
+  "head": "main"
+}

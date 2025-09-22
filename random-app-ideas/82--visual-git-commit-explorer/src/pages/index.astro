@@ -1,0 +1,12 @@
+---
+import Layout from '../layouts/Layout.astro';
+import { Mermaid } from 'astro-mermaid';
+
+const response = await fetch(new URL('/git-history.json', Astro.url));
+const data = await response.json();
+
+let graph = 'graph TD\n';
+const commitMap = new Map();
+data.commits.forEach(commit => {
+  commitMap.set(commit.sha, commit);
+  graph += `  ${commit.sha}[
