@@ -1,0 +1,100 @@
+---
+import '../styles/global.css';
+
+const current_weather = {
+  temperature: 25,
+  feels_like: 27,
+  humidity: 60,
+  wind_speed: 15,
+  wind_direction: 'NW',
+  uv_index: 5,
+  precipitation_probability: 10,
+  is_favorable: true
+};
+
+const hourly_forecast = [
+  { time: '14:00', temperature: 26, is_favorable: true },
+  { time: '15:00', temperature: 26, is_favorable: true },
+  { time: '16:00', temperature: 25, is_favorable: true },
+  { time: '17:00', temperature: 24, is_favorable: false },
+  { time: '18:00', temperature: 23, is_favorable: true },
+];
+
+const daily_forecast = [
+  { day: 'Mon', high: 28, low: 20, is_favorable: true },
+  { day: 'Tue', high: 29, low: 21, is_favorable: true },
+  { day: 'Wed', high: 27, low: 19, is_favorable: false },
+  { day: 'Thu', high: 26, low: 18, is_favorable: true },
+  { day: 'Fri', high: 28, low: 20, is_favorable: true },
+];
+---
+
+<html lang="en">
+	<head>
+		<meta charset="utf-8" />
+		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+		<meta name="viewport" content="width=device-width" />
+		<meta name="generator" content={Astro.generator} />
+		<title>Portugal Meteo Forecast</title>
+	</head>
+	<body>
+		<header>
+			<h1>Portugal Meteo Forecast</h1>
+		</header>
+		<main>
+			<section class="current-weather">
+				<h2>Current Weather</h2>
+				<div class:list={['weather-card', current_weather.is_favorable ? 'favorable' : 'adverse']}>
+					<p>Temperature: {current_weather.temperature}°C (Feels like: {current_weather.feels_like}°C)</p>
+					<p>Humidity: {current_weather.humidity}%</p>
+					<p>Wind: {current_weather.wind_speed} km/h {current_weather.wind_direction}</p>
+					<p>UV Index: {current_weather.uv_index}</p>
+					<p>Precipitation: {current_weather.precipitation_probability}%</p>
+				</div>
+			</section>
+			<section class="hourly-forecast">
+				<h2>Hourly Forecast</h2>
+				<div class="forecast-container">
+					{hourly_forecast.map(forecast => (
+						<div class:list={['weather-card', forecast.is_favorable ? 'favorable' : 'adverse']}>
+							<p>{forecast.time}</p>
+							<p>{forecast.temperature}°C</p>
+						</div>
+					))}
+				</div>
+			</section>
+			<section class="daily-forecast">
+				<h2>Daily Forecast</h2>
+				<div class="forecast-container">
+					{daily_forecast.map(forecast => (
+						<div class:list={['weather-card', forecast.is_favorable ? 'favorable' : 'adverse']}>
+							<p>{forecast.day}</p>
+							<p>High: {forecast.high}°C</p>
+							<p>Low: {forecast.low}°C</p>
+						</div>
+					))}
+				</div>
+			</section>
+		</main>
+		<style>
+			.weather-card {
+				border: 1px solid #ccc;
+				padding: 10px;
+				margin: 10px;
+				border-radius: 5px;
+			}
+			.favorable {
+				background-color: var(--weather-green);
+				color: white;
+			}
+			.adverse {
+				background-color: var(--weather-red);
+				color: white;
+			}
+			.forecast-container {
+				display: flex;
+				overflow-x: auto;
+			}
+		</style>
+	</body>
+</html>

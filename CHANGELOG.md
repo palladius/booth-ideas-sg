@@ -1,5 +1,16 @@
 # Changelog
 
+## [1.0.19] - 2025-09-22
+
+### Added
+- ✨ Added instructions so `app-has-screenshot` label is added
+
+## [1.0.18] - 2025-09-22
+
+### Added
+- ✨ Changed prompts to include MCP playwright, and instructions to use it by default in an app.
+
+
 ## [1.0.17] - 2025-09-16
 
 ### Changed
