@@ -22,9 +22,10 @@ const fs = require('fs');
     await page.goto(url, { waitUntil: 'networkidle' });
 
     // Add a small delay to be sure
-    await new Promise(resolve => setTimeout(resolve, 3000));
+    await page.waitForSelector('h1');
+    await new Promise(resolve => setTimeout(resolve, 10000));
 
-    const screenshotBuffer = await page.screenshot();
+    const screenshotBuffer = await page.locator('body').screenshot();
 
     const stats = await sharp(screenshotBuffer).stats();
     const { entropy } = stats;
