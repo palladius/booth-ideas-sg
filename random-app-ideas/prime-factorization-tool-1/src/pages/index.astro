@@ -1,0 +1,94 @@
+---
+---
+<html lang="en">
+	<head>
+		<meta charset="utf-8" />
+		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+		<meta name="viewport" content="width=device-width" />
+		<meta name="generator" content={Astro.generator} >
+		<title>Prime Factorization</title>
+	</head>
+	<body>
+		<h1>Prime Factorization</h1>
+		<form>
+			<label for="number">Enter a number:</label>
+			<input type="number" id="number" name="number" />
+			<button type="submit">Factorize</button>
+		</form>
+		<div id="result"></div>
+		<script>
+			const form = document.querySelector('form');
+			const resultDiv = document.querySelector('#result');
+
+			form.addEventListener('submit', (event) => {
+				event.preventDefault();
+				const number = new FormData(form).get('number');
+				if (number) {
+					const factors = primeFactorize(parseInt(number));
+					resultDiv.textContent = `Prime factors: ${factors.join(', ')}`;
+				}
+			});
+
+			function primeFactorize(num) {
+				const factors = [];
+				let divisor = 2;
+
+				while (num >= 2) {
+					if (num % divisor === 0) {
+						factors.push(divisor);
+						num = num / divisor;
+					} else {
+						divisor++;
+					}
+				}
+				return factors;
+			}
+		</script>
+	</body>
+</html>
+<style>
+	body {
+		font-family: sans-serif;
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		justify-content: center;
+		min-height: 100vh;
+		margin: 0;
+	}
+	h1 {
+		font-size: 2.5rem;
+		margin-bottom: 1rem;
+	}
+	form {
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		margin-bottom: 1rem;
+	}
+	label {
+		font-size: 1.2rem;
+		margin-bottom: 0.5rem;
+	}
+	input {
+		padding: 0.5rem;
+		font-size: 1.2rem;
+		border: 1px solid #ccc;
+		border-radius: 5px;
+		width: 200px;
+		text-align: center;
+	}
+	button {
+		padding: 0.5rem 1rem;
+		font-size: 1.2rem;
+		background-color: #007bff;
+		color: #fff;
+		border: none;
+		border-radius: 5px;
+		cursor: pointer;
+	}
+	#result {
+		font-size: 1.5rem;
+		font-weight: bold;
+	}
+</style>
