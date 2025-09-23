@@ -1,0 +1,1 @@
+![Screenshot](/home/runner/work/booth-ideas-sg/booth-ideas-sg/random-app-ideas/prime-factorization-tool-1/screenshot.png)

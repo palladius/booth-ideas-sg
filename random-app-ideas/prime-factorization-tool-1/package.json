@@ -1,0 +1,15 @@
+{
+  "name": "home-runner-work-booth-ideas-sg-booth-ideas-sg-random-app-ideas-prime-factorization-tool-1",
+  "type": "module",
+  "version": "0.0.1",
+  "scripts": {
+    "dev": "astro dev",
+    "build": "astro build",
+    "preview": "astro preview",
+    "astro": "astro"
+  },
+  "dependencies": {
+    "astro": "^5.13.10",
+    "uvu": "^0.5.6"
+  }
+}
