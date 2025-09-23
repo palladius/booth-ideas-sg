@@ -63,6 +63,16 @@
             "category": "Art"
         },
         {
+            "createdAt": "2025-09-04T13:58:56Z",
+            "number": 29,
+            "title": "[AppIdea] Running Shoe Mileage  Counter - by danistrebel",
+            "url": "https://github.com/palladius/booth-ideas-sg/issues/29",
+            "abstract": "* **Nickname**: I would walk five hundred miles\n* **Emoji**: 👟\n* **Idea**:  track the mileage acros...",
+            "category": "pauldatta-app",
+            "appName": "shoe-mileage-tracker",
+            "screenshot": "gh-pages/images/random-app-ideas/screenshots/shoe-mileage-tracker.png"
+        },
+        {
             "createdAt": "2025-09-23T08:07:34Z",
             "number": 92,
             "title": "Mallorca Bike Trip Planner",
