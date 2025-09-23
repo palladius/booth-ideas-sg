@@ -6,16 +6,16 @@ export default function Header() {
       <div className="container mx-auto flex items-center justify-between gap-4">
         <div className="flex items-center gap-4">
           <h1 className="text-3xl font-bold font-headline text-white tracking-tight">
-            Idea to Code 🇨🇭
+            Idea to Code - Cloud Summit Zurich 🇨🇭
           </h1>
         </div>
-        <a 
-          href="https://github.com/google-gemini/gemini-cli" 
-          target="_blank" 
+        <a
+          href="https://github.com/google-gemini/gemini-cli"
+          target="_blank"
           rel="noopener noreferrer"
           className="hidden sm:flex items-center gap-2 text-sm text-gray-200 hover:text-white transition-colors"
         >
-          Learn more
+          More about <tt>gemini-cli</tt>
           <ExternalLink className="w-4 h-4" />
         </a>
       </div>

@@ -1,0 +1,37 @@
+---
+import Layout from '../layouts/Layout.astro';
+import CantonSelect from '../components/CantonSelect.astro';
+import LocationCard from '../components/LocationCard.astro';
+---
+
+<Layout title="Swiss Canton Travel Planner">
+  <main>
+    <h1>Swiss Canton Travel Planner</h1>
+    <CantonSelect />
+    <div class="location-cards">
+      <LocationCard
+        name="Lake Geneva"
+        description="A beautiful lake with stunning views of the Alps."
+        imageUrl="https://placehold.co/600x400"
+      />
+      <LocationCard
+        name="The Matterhorn"
+        description="A famous mountain in the Alps, known for its distinctive shape."
+        imageUrl="https://placehold.co/600x400"
+      />
+      <LocationCard
+        name="Chapel Bridge"
+        description="A historic wooden bridge in Lucerne, with paintings inside."
+        imageUrl="https://placehold.co/600x400"
+      />
+    </div>
+  </main>
+</Layout>
+
+<style>
+  .location-cards {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+</style>

@@ -1,0 +1,92 @@
+---
+
+---
+
+<html lang="en">
+	<head>
+		<meta charset="utf-8" />
+		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+		<meta name="viewport" content="width=device-width" />
+		<meta name="generator" content={Astro.generator} />
+		<title>Daily Health Vitals Tracker</title>
+		<style>
+			body {
+				font-family: sans-serif;
+				background-color: #f4f4f4;
+				color: #333;
+				margin: 0;
+				padding: 2rem;
+				display: flex;
+				justify-content: center;
+				align-items: center;
+				min-height: 100vh;
+			}
+			.container {
+				background-color: white;
+				padding: 2rem;
+				border-radius: 8px;
+				box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+				max-width: 500px;
+				width: 100%;
+			}
+			h1 {
+				text-align: center;
+				color: #2c3e50;
+				margin-bottom: 1.5rem;
+			}
+			.form-group {
+				margin-bottom: 1rem;
+			}
+			label {
+				display: block;
+				margin-bottom: 0.5rem;
+				font-weight: bold;
+			}
+			input {
+				width: 100%;
+				padding: 0.5rem;
+				border: 1px solid #ccc;
+				border-radius: 4px;
+				box-sizing: border-box;
+			}
+			button {
+				width: 100%;
+				padding: 0.75rem;
+				background-color: #3498db;
+				color: white;
+				border: none;
+				border-radius: 4px;
+				font-size: 1rem;
+				cursor: pointer;
+				transition: background-color 0.3s;
+			}
+			button:hover {
+				background-color: #2980b9;
+			}
+		</style>
+	</head>
+	<body>
+		<div class="container">
+			<h1>Daily Health Vitals Tracker 💪</h1>
+			<form>
+				<div class="form-group">
+					<label for="systolic-bp">Systolic Blood Pressure (mmHg)</label>
+					<input type="number" id="systolic-bp" name="systolic-bp" required />
+				</div>
+				<div class="form-group">
+					<label for="diastolic-bp">Diastolic Blood Pressure (mmHg)</label>
+					<input type="number" id="diastolic-bp" name="diastolic-bp" required />
+				</div>
+				<div class="form-group">
+					<label for="heart-rate">Heart Rate (BPM)</label>
+					<input type="number" id="heart-rate" name="heart-rate" required />
+				</div>
+				<div class="form-group">
+					<label for="weight">Weight (kg)</label>
+					<input type="number" id="weight" name="weight" step="0.1" required />
+				</div>
+				<button type="submit">Log Vitals</button>
+			</form>
+		</div>
+	</body>
+</html>

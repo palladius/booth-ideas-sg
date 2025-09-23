@@ -2,6 +2,23 @@
 
 Version is taken from `package.json`
 
+
+## 0.1.5 - 2025-09-23
+
+### :bug: Fix
+- Fixed PRD max token from 8k to 32k token. Also said in prompt to use max 16k tokens (50% of max capacity).
+
+## 0.1.4 - 2025-09-23
+
+### :bug: Add
+- Added screenshot to the PR octo-command in the code here.
+
+
+## 0.1.3 - 2025-09-18
+
+### :bug: Fixes
+- Added retry mechanism to handle transient 503 errors from the API.
+
 ## 0.1.2 - 2025-09-05
 
 ### :sparkles: Features
