@@ -2,6 +2,12 @@
 
 Version is taken from `package.json`
 
+## 0.1.4 - 2025-09-23
+
+### :bug: Add
+- Added screenshot to the PR octo-command in the code here.
+
+
 ## 0.1.3 - 2025-09-18
 
 ### :bug: Fixes

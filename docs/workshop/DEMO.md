@@ -3,11 +3,16 @@
 Some code ideas:
 
 ```markdown
+## Travel Planner
 Create a Travel Planner to drive around Switzerland highlighting the top places to be in a certain canton, with a Canton selector.
 Every suggested location will have 1-5 stars (in emoji), a title and some comments.
 Use TailwindCSS to arrange as card with some sample images. To make it look cool, download a few REAL images of swiss locations
 from the internet to show them in homepage. The kanton selector will toggle them out or in the visualization, but defaults to EVERYTHING
 when you open the index page.
+
+## Italian travel planner region
+Create a Travel Planner to drive around Italy. It should choose among the 20 regions (eg Sicily), and provide a map of the best
+places to see in it. Please add a nice image of italy as a half-transparent background
 
 ```
 

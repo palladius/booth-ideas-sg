@@ -6,7 +6,7 @@ export default function Header() {
       <div className="container mx-auto flex items-center justify-between gap-4">
         <div className="flex items-center gap-4">
           <h1 className="text-3xl font-bold font-headline text-white tracking-tight">
-            Idea to Code 🇨🇭
+            Idea to Code - Cloud Summit Zurich 🇨🇭
           </h1>
         </div>
         <a
