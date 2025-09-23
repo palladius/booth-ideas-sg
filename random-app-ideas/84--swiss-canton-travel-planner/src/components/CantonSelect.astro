@@ -1,0 +1,40 @@
+---
+const cantons = [
+  { code: 'ZH', name: 'Zürich' },
+  { code: 'BE', name: 'Bern' },
+  { code: 'LU', name: 'Luzern' },
+  { code: 'UR', name: 'Uri' },
+  { code: 'SZ', name: 'Schwyz' },
+  { code: 'OW', name: 'Obwalden' },
+  { code: 'NW', name: 'Nidwalden' },
+  { code: 'GL', name: 'Glarus' },
+  { code: 'ZG', name: 'Zug' },
+  { code: 'FR', name: 'Fribourg' },
+  { code: 'SO', name: 'Solothurn' },
+  { code: 'BS', name: 'Basel-Stadt' },
+  { code: 'BL', name: 'Basel-Landschaft' },
+  { code: 'SH', name: 'Schaffhausen' },
+  { code: 'AR', name: 'Appenzell Ausserrhoden' },
+  { code: 'AI', name: 'Appenzell Innerrhoden' },
+  { code: 'SG', name: 'St. Gallen' },
+  { code: 'GR', name: 'Graubünden' },
+  { code: 'AG', name: 'Aargau' },
+  { code: 'TG', name: 'Thurgau' },
+  { code: 'TI', name: 'Ticino' },
+  { code: 'VD', name: 'Vaud' },
+  { code: 'VS', name: 'Valais' },
+  { code: 'NE', name: 'Neuchâtel' },
+  { code: 'GE', name: 'Geneva' },
+  { code: 'JU', name: 'Jura' },
+];
+---
+
+<div>
+  <label for="canton-select">Select a canton:</label>
+  <select id="canton-select">
+    <option value="">--Please choose a canton--</option>
+    {cantons.map((canton) => (
+      <option value={canton.code}>{canton.name}</option>
+    ))}
+  </select>
+</div>
