@@ -61,8 +61,11 @@ ls -al random-apps-ideas/
 ```
 
 So:
-* the code is under `random-apps-ideas/{ISSUE_ID}_{APP_NAME}/`
-  * and probably you can find a screenshot there under `random-apps-ideas/{ISSUE_ID}_{APP_NAME}/screenshot.png`
+* the code is under `random-apps-ideas/{PADDED_ISSUE_ID}--{APP_NAME}/`
+  * and probably you can find a screenshot there under `random-apps-ideas/{PADDED_ISSUE_ID}--{APP_NAME}/screenshot.png`
+  * Issue id is padded to 2 digits (2, 42 become 02, 42).
+* Apps should have a screenshot under `random-apps-ideas/{PADDED_ISSUE_ID}--{APP_NAME}/screenshot.png`
+  * Issue with a screenshot should be labelled `app-has-screenshot`.
 
 ### Missing screenshots
 
@@ -73,7 +76,7 @@ To capture a screenshot of an application, just do this:
 1. Ensure the app is running, like `cd path/to/app` and `npm run` or similar.
 2. USe MCP Playwright to navigate to the local app, likely https://localhost:3000/ or https://localhost:9002/ (check the app config)
 3. Take a screenshot of a reasonable area. Could be a 800x600 centered on top.
-
+4. Once taken the screenshot, ensure it's not BLANK (eg, a white rectangle). If blank, try to add a few seconds delay for it.
 
 ## CUJs
 

@@ -136,9 +136,9 @@ document.addEventListener('DOMContentLoaded', () => {
             card.appendChild(title);
             card.appendChild(categoryTag);
 
-            if (idea.appName) {
+            if (idea.screenshot) {
                 const img = document.createElement('img');
-                img.src = `images/random-app-ideas/screenshots/${idea.appName}.png`;
+                img.src = idea.screenshot;
                 img.alt = idea.title;
                 img.className = 'card-img';
                 card.appendChild(img);

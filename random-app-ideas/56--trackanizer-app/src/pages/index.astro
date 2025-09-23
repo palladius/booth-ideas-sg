@@ -1,0 +1,53 @@
+---
+import Layout from '../layouts/Layout.astro';
+
+const issues = [
+  { id: 1, title: 'UI Bug: Button not aligned', priority: 'P1', status: 'Open', assignee: 'Alice', reporter: 'Bob' },
+  { id: 2, title: 'Feature: Add dark mode', priority: 'P2', status: 'In Progress', assignee: 'Bob', reporter: 'Alice' },
+  { id: 3, title: 'API Error on login', priority: 'P1', status: 'Open', assignee: 'Charlie', reporter: 'David' },
+  { id: 4, title: 'Documentation for new API', priority: 'P3', status: 'Open', assignee: 'Alice', reporter: 'Eve' },
+  { id: 5, title: 'Refactor database schema', priority: 'P2', status: 'Closed', assignee: 'Bob', reporter: 'Frank' },
+];
+---
+
+<Layout title="Trackanizer - Issue Dashboard">
+	<main>
+		<h1 class="text-3xl font-bold text-white mb-6">Trackanizer</h1>
+		<div class="bg-gray-800 p-6 rounded-lg">
+			<div class="flex justify-between items-center mb-4">
+				<h2 class="text-xl font-semibold text-white">All Issues</h2>
+				<button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
+					New Issue
+				</button>
+			</div>
+			<table class="min-w-full bg-gray-900 text-white">
+				<thead>
+					<tr>
+						<th class="py-2 px-4 border-b border-gray-700">Title</th>
+						<th class="py-2 px-4 border-b border-gray-700">Priority</th>
+						<th class="py-2 px-4 border-b border-gray-700">Status</th>
+						<th class="py-2 px-4 border-b border-gray-700">Assignee</th>
+						<th class="py-2 px-4 border-b border-gray-700">Reporter</th>
+					</tr>
+				</thead>
+				<tbody>
+					{issues.map(issue => (
+						<tr class="hover:bg-gray-700">
+							<td class="py-2 px-4 border-b border-gray-800">{issue.title}</td>
+							<td class="py-2 px-4 border-b border-gray-800">{issue.priority}</td>
+							<td class="py-2 px-4 border-b border-gray-800">{issue.status}</td>
+							<td class="py-2 px-4 border-b border-gray-800">{issue.assignee}</td>
+							<td class="py-2 px-4 border-b border-gray-800">{issue.reporter}</td>
+						</tr>
+					))}
+				</tbody>
+			</table>
+		</div>
+	</main>
+</Layout>
+
+<style>
+	main {
+		padding: 1.5rem;
+	}
+</style>
