@@ -4,6 +4,42 @@
     "ideas": [
         {
             "createdAt": "2025-09-23T10:30:00Z",
+            "appName": "colorful-dark-green-calendar-app",
+            "number": 94,
+            "title": "Colorful Dark Green Calendar App",
+            "url": "https://github.com/palladius/booth-ideas-sg/issues/94",
+            "author": "palladius",
+            "emoji": "📅",
+            "abstract": "This issue was created automatically to track the app.",
+            "screenshot": "gh-pages/images/random-app-ideas/screenshots/colorful-dark-green-calendar-app.png",
+            "category": "Utilities"
+        },
+        {
+            "createdAt": "2025-09-23T10:30:00Z",
+            "appName": "portugal-meteo-forecast",
+            "number": 68,
+            "title": "Portugal Meteo Forecast",
+            "url": "https://github.com/palladius/booth-ideas-sg/issues/68",
+            "author": "palladius",
+            "emoji": "🇵🇹",
+            "abstract": "A visually engaging, highly accurate, and distinct weather forecasting application specifically tailored for users within Portugal.",
+            "screenshot": "gh-pages/images/random-app-ideas/screenshots/portugal-meteo-forecast.png",
+            "category": "Weather"
+        },
+        {
+            "createdAt": "2025-09-23T10:30:00Z",
+            "appName": "italian-regional-driving-tour-planner-app",
+            "number": 88,
+            "title": "Italian Regional Driving Tour Planner",
+            "url": "https://github.com/palladius/booth-ideas-sg/issues/88",
+            "author": "palladius",
+            "emoji": "🇮🇹",
+            "abstract": "An intuitive, visually rich platform to help users discover the best attractions within each of Italy's 20 regions, offering a seamless and engaging trip planning experience.",
+            "screenshot": "gh-pages/images/random-app-ideas/screenshots/italian-regional-driving-tour-planner-app.png",
+            "category": "Travel"
+        },
+        {
+            "createdAt": "2025-09-23T10:30:00Z",
             "appName": "visual-git-commit-explorer",
             "number": 82,
             "title": "Visual Git Commit Explorer",
