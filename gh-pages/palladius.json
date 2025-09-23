@@ -119,6 +119,54 @@
             "abstract": "This app rings a cuckoo sound when you press the button",
             "screenshot": "images/random-app-ideas/screenshots/01--cuckoo-clock-app.png",
             "category": "Art"
+        },
+        {
+            "createdAt": "2025-09-23T11:30:00Z",
+            "appName": "alpine-cheese--wine-calorie-tracker-app",
+            "number": 79,
+            "title": "Alpine Cheese & Wine Calorie Tracker",
+            "url": "https://github.com/palladius/booth-ideas-sg/issues/79",
+            "author": "palladius",
+            "emoji": "🧀",
+            "abstract": "The Swiss Indulgence Calorie Counter is an innovative mobile and web application designed to address the specific challenge of tracking calorie intake when enjoying traditional Swiss fondue, raclette, and accompanying wine.",
+            "screenshot": "images/random-app-ideas/screenshots/79--alpine-cheese--wine-calorie-tracker-app.png",
+            "category": "Health"
+        },
+        {
+            "createdAt": "2025-09-23T11:30:00Z",
+            "appName": "trackanizer-app",
+            "number": 56,
+            "title": "Prioritized Issue Tracking System",
+            "url": "https://github.com/palladius/booth-ideas-sg/issues/56",
+            "author": "palladius",
+            "emoji": "🦟",
+            "abstract": "Trackanizer is a proposed bug and feature tracking application designed to streamline the management and prioritization of development-related issues.",
+            "screenshot": "images/random-app-ideas/screenshots/56--trackanizer-app.png",
+            "category": "Technology"
+        },
+        {
+            "createdAt": "2025-09-23T11:30:00Z",
+            "appName": "italian-emoji-tic-tac-toe",
+            "number": 62,
+            "title": "Italian Emoji Tic Tac Toe",
+            "url": "https://github.com/palladius/booth-ideas-sg/issues/62",
+            "author": "palladius",
+            "emoji": "🇮🇹",
+            "abstract": "This document outlines the requirements for a mobile application delivering a novel and engaging twist on the classic game of Tic-Tac-Toe.",
+            "screenshot": "images/random-app-ideas/screenshots/62--italian-emoji-tic-tac-toe.png",
+            "category": "Game"
+        },
+        {
+            "createdAt": "2025-09-23T11:30:00Z",
+            "appName": "b2b-logistics-app",
+            "number": 59,
+            "title": "B2B Logistics App",
+            "url": "https://github.com/palladius/booth-ideas-sg/issues/59",
+            "author": "palladius",
+            "emoji": "🚚",
+            "abstract": "This PR adds a new Product Requirements Document as discussed in issue #58.",
+            "screenshot": "images/random-app-ideas/screenshots/59--b2b-logistics-app.png",
+            "category": "Business"
         }
     ]
 }
