@@ -14,7 +14,7 @@ interface DownloadSectionProps {
 }
 
 export function DownloadSection({ data }: DownloadSectionProps) {
-    const repoUrl = process.env.NEXT_PUBLIC_GITHUB_REPO_URL;
+    const repoUrl = process.env.NEXT_PUBLIC_GITHUB_REPO_URL || "https://github.com/palladius/booth-ideas-sg/";
     
     const { githubResult } = data;
     let qrCodeUrl = '';
