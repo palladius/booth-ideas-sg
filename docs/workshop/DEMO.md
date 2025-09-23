@@ -14,6 +14,9 @@ when you open the index page.
 Create a Travel Planner to drive around Italy. It should choose among the 20 regions (eg Sicily), and provide a map of the best
 places to see in it. Please add a nice image of italy as a half-transparent background
 
+## Cycling in Mallorca
+An app to plan my bike trips around Mallorca, with ability to track elevation and distance, estimate the total effort.
+It should have a login and allow a strava login. Create a basic
 ```
 
 ## Interactions with PR

@@ -2,6 +2,12 @@
 
 Version is taken from `package.json`
 
+
+## 0.1.5 - 2025-09-23
+
+### :bug: Fix
+- Fixed PRD max token from 8k to 32k token. Also said in prompt to use max 16k tokens (50% of max capacity).
+
 ## 0.1.4 - 2025-09-23
 
 ### :bug: Add
