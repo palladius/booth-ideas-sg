@@ -15,7 +15,7 @@ interface DownloadSectionProps {
 
 export function DownloadSection({ data }: DownloadSectionProps) {
     const repoUrl = process.env.NEXT_PUBLIC_GITHUB_REPO_URL || "https://github.com/palladius/booth-ideas-sg/";
-    
+
     const { githubResult } = data;
     let qrCodeUrl = '';
 
@@ -79,7 +79,7 @@ export function DownloadSection({ data }: DownloadSectionProps) {
                     <div className="flex flex-col md:flex-row items-center gap-6 md:gap-10">
                         {qrCodeUrl ? (
                             <div className="p-4 border bg-card rounded-lg shadow-inner flex-shrink-0">
-                                <Image 
+                                <Image
                                     src={qrCodeUrl}
                                     alt="QR code to access the project source code on GitHub"
                                     width={180}
@@ -87,7 +87,7 @@ export function DownloadSection({ data }: DownloadSectionProps) {
                                 />
                             </div>
                         ) : (
-                             <div className="p-4 border bg-card rounded-lg shadow-inner w-[196px] h-[196px] flex-shrink-0 flex items-center justify-center text-center text-sm text-muted-foreground">
+                            <div className="p-4 border bg-card rounded-lg shadow-inner w-[196px] h-[196px] flex-shrink-0 flex items-center justify-center text-center text-sm text-muted-foreground">
                                 QR code will be available once the GitHub workflow is configured.
                             </div>
                         )}
