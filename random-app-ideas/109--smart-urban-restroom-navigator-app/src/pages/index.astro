@@ -1,0 +1,72 @@
+---
+const restrooms = [
+  { id: 1, name: 'Restroom A', address: '123 Main St', lat: 40.7128, lng: -74.0060 },
+  { id: 2, name: 'Restroom B', address: '456 Oak Ave', lat: 40.7138, lng: -74.0070 },
+  { id: 3, name: 'Restroom C', address: '789 Pine Ln', lat: 40.7148, lng: -74.0080 },
+];
+---
+
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+  <meta name="viewport" content="width=device-width" />
+  <meta name="generator" content={Astro.generator} />
+  <title>Smart Urban Restroom Navigator</title>
+  <style>
+    body {
+      font-family: sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #f4f4f4;
+    }
+    .container {
+      display: flex;
+      height: 100vh;
+    }
+    .map-container {
+      flex: 2;
+      background-color: #e0e0e0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+    .list-container {
+      flex: 1;
+      padding: 20px;
+      background-color: #fff;
+      overflow-y: auto;
+    }
+    h1 {
+      text-align: center;
+    }
+    ul {
+      list-style: none;
+      padding: 0;
+    }
+    li {
+      padding: 10px;
+      border-bottom: 1px solid #ccc;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="map-container">
+      <!-- In a real application, this would be an interactive map -->
+      <img src="https://via.placeholder.com/800x600.png?text=Map+of+Restrooms" alt="Map of Restrooms" />
+    </div>
+    <div class="list-container">
+      <h1>Nearby Restrooms</h1>
+      <ul>
+        {restrooms.map((restroom) => (
+          <li>
+            <strong>{restroom.name}</strong>
+            <p>{restroom.address}</p>
+          </li>
+        ))}
+      </ul>
+    </div>
+  </div>
+</body>
+</html>
