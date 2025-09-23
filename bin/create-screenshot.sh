@@ -21,15 +21,30 @@ echo "Running npm build..."
 npm run build
 
 echo "Starting app in background..."
-npm start &
+npm run preview -- --port 3000 &
 APP_PID=$!
 echo "App started with PID: $APP_PID"
 
-sleep 10 # Give the app some time to start
+echo "Waiting for app to be ready..."
+for i in {1..10}; do
+  if curl -s http://localhost:3000 > /dev/null; then
+    echo "App is ready!"
+    break
+  fi
+  sleep 1
+done
+
+if ! curl -s http://localhost:3000 > /dev/null; then
+  echo "App failed to start!"
+  kill $APP_PID
+  exit 1
+fi
+
+sleep 2 # Give the app some extra time to render
 
 echo "Taking screenshot..."
 # Assuming screenshot.js is in the root of the project
-node /Users/ricc/git/booth-ideas-sg/script/screenshot-from-bash.js "$SCREENSHOT_WIDTH" "$SCREENSHOT_HEIGHT"
+node ../../script/screenshot-from-bash.js "$SCREENSHOT_WIDTH" "$SCREENSHOT_HEIGHT"
 
 
 echo "Killing app process (PID: $APP_PID)..."
