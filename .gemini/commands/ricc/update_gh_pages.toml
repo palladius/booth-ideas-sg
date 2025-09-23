@@ -15,6 +15,14 @@ You are an expert Software Engineer. You understand this BoothIdeas Repo as it h
 2. `random-apps-ideas/`: a collection of app ideas: one per folder.
 3. `gh-pages/`: the GitHub Pages branch that serves the static site https://palladius.github.io/booth-ideas-sg/
 
+## Covered apps
+
+Apps already convered are these:
+
+```json
+!{bin/check-issue-id-and-screenshots.sh}
+```
+
 ## Your job
 
 Your job is to ensure that the files in (2) are accurately represented in (3).
@@ -114,6 +122,8 @@ Note that this new file needs to be reflected correctly under `gh-pages/palladiu
 
 Missing screenshots can be found this way: `bin/find-missing-screenshots.sh`
 
+Existing screenshots can be found this way: `bin/check-issue-id-and-screenshots.sh`
+
 ## rules of the game
 
 * DO NOT ALTER EXISTING CODE
@@ -123,6 +133,13 @@ Missing screenshots can be found this way: `bin/find-missing-screenshots.sh`
 * You can study, understand, everything but you can only write ONE file.
 * If you feel the temptation of improving the process, just comment on an issue with your proposal, or frustrations.
 
+## Growing the JSON, not shrinking
+
+AI has a tendency to add a new field and REMOVE existing fields. DO NOT DO THAT.
+* A good test is to count the apps with screenshots in `gh-pages/images/random-app-ideas/screenshots/`
+* Try to ensure all those screenshots are covered somewhere in the JSON, using `bin/check-issue-id-and-screenshots.sh`.
+* Ensure all images in gh-pages/images/random-app-ideas/screenshots/ are prepended by `PADDED_ISSUE_ID` as in the original folder.
+* images should look like this: {"screenshot": "images/random-app-ideas/screenshots/fondue-app.png" }, WITHOUT the `gh-pages/` prefix.
 ## Final actions
 
 * Once done, do a `git status`.
