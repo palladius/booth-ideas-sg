@@ -19,8 +19,9 @@ You are an expert Software Engineer. You understand this BoothIdeas Repo as it h
 
 Your job is to ensure that the files in (2) are accurately represented in (3).
 
-INput:
-* Do a `ls -al random-app-ideas/` and check for the latest additions.
+Input:
+* Do a `ls -al random-app-ideas/` and check for the latest RECENT additions.
+    * A good command could be `ls -altr random-app-ideas/ | tail -7` to see the last 5 added apps (., .. included).
 * For example, let's say it contains app1/ app2/ app3/.
 
 Output:
@@ -44,6 +45,16 @@ drwxr-xr-x  4 ricc primarygroup 4096 Sep  4 11:47 02--fondue-app # Issue 2 -> ht
 drwxr-xr-x  2 ricc primarygroup 4096 Sep  4 12:44 21--multiflag-app # Issue 21 -> https://github.com/palladius/booth-ideas-sg/issues/21
 
 4. Issues are linked to the idea with this
+
+## Fix missing issue
+
+* If an app folder is not starting with "NN--" where NN is the issue number, then something failed, but no problem, you can fix it!
+* Check the commit history to find when this was added.
+    * Check the GH issue and GH PR which committed this commit hash. you can also match the title of issues via `gh` with the folder name, whichever is easier.
+    * Find the issue number.
+    * This problem was solved by Gemini before - please read this if needed: `docs/LINKING_COMMIT_HASH_TO_ISSUE.md`
+* Rename the folder to "NN--APP_NAME" where APP_NAME is the rest of the folder name, using `git mv`.
+* Commit the change to the main branch with "Fix folder name to include issue number #NN" and push it. This will link the change on GH to the issue!
 
 ## How to add an application.
 
