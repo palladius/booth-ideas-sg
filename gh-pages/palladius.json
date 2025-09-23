@@ -3,6 +3,30 @@
     "eventEmojis": "🇨🇭☁️",
     "ideas": [
         {
+            "createdAt": "2025-09-23T10:30:00Z",
+            "appName": "visual-git-commit-explorer",
+            "number": 82,
+            "title": "Visual Git Commit Explorer",
+            "url": "https://github.com/palladius/booth-ideas-sg/issues/82",
+            "author": "palladius",
+            "emoji": "🌳",
+            "abstract": "This app provides an intuitive, interactive, and visually rich interface to simplify understanding, navigating, and managing Git history.",
+            "screenshot": "gh-pages/images/random-app-ideas/screenshots/visual-git-commit-explorer.png",
+            "category": "Technology"
+        },
+        {
+            "createdAt": "2025-09-23T10:30:00Z",
+            "appName": "simple-digital-canvas-app",
+            "number": 86,
+            "title": "Interactive Digital Painting Application",
+            "url": "https://github.com/palladius/booth-ideas-sg/issues/86",
+            "author": "palladius",
+            "emoji": "🎨",
+            "abstract": "An intuitive, web-based application that provides users with a straightforward platform for basic digital painting.",
+            "screenshot": "gh-pages/images/random-app-ideas/screenshots/simple-digital-canvas-app.png",
+            "category": "Art"
+        },
+        {
             "createdAt": "2025-09-23T08:07:34Z",
             "number": 92,
             "title": "Mallorca Bike Trip Planner",
