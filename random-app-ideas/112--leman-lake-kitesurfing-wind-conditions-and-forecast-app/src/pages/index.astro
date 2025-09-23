@@ -1,0 +1,50 @@
+---
+import Layout from '../layouts/Layout.astro';
+
+const spots = [
+  { name: 'Yvonand', windSpeed: 15, windDirection: 'N' },
+  { name: 'Excenevex', windSpeed: 12, windDirection: 'SW' },
+  { name: 'Saint-Prex', windSpeed: 18, windDirection: 'NE' },
+  { name: 'Tolochenaz', windSpeed: 20, windDirection: 'N' },
+];
+---
+
+<Layout title="Leman Wind">
+  <main>
+    <h1>Leman Wind 🪁</h1>
+    <p>Real-time wind conditions for kitesurfing on Lake Geneva</p>
+    <div class="spot-list">
+      {spots.map(spot => (
+        <div class="spot-card">
+          <h2>{spot.name}</h2>
+          <p>💨 Wind Speed: {spot.windSpeed} knots</p>
+          <p>🌊 Wind Direction: {spot.windDirection}</p>
+        </div>
+      ))}
+    </div>
+  </main>
+</Layout>
+
+<style>
+  main {
+    margin: auto;
+    padding: 1.5rem;
+    max-width: 60ch;
+  }
+  h1 {
+    font-size: 3rem;
+    font-weight: 800;
+    margin: 0;
+  }
+  .spot-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1rem;
+    margin-top: 2rem;
+  }
+  .spot-card {
+    border: 1px solid #ccc;
+    border-radius: 0.5rem;
+    padding: 1rem;
+  }
+</style>
