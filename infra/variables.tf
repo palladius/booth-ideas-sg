@@ -12,6 +12,7 @@ variable "region" {
 variable "service_name" {
   description = "The name of the Cloud Run service."
   type        = string
+  #default     = "ideas-app-original"
   default     = "ideas-app"
 }
 

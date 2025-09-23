@@ -13,8 +13,9 @@ echo "☁️ CLOUD_REGION: $CLOUD_REGION"
 
 gcloud config set project "$PROJECT_ID"
 
-gsutil mb -l "$CLOUD_REGION" "gs://${PROJECT_ID}-tf2"
-gsutil versioning set on "gs://${PROJECT_ID}-tf2"
+gsutil mb -l "$CLOUD_REGION" "gs://${PROJECT_ID}-tf2" ||
+    gsutil versioning set on "gs://${PROJECT_ID}-tf2" ||
+        echo "Probably bucket exists or gsutil is broken"
 
 
 echo "Remember to do: gcloud auth application-default login"

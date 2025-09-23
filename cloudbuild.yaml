@@ -37,5 +37,5 @@ images:
 substitutions:
   _LOCATION: 'europe-west1'
   _REPOSITORY: 'ideas-app-repo'
-  _IMAGE_NAME: 'ideas-app-original'
-  _SERVICE_NAME: 'ideas-app-original'
+  _IMAGE_NAME: 'ideas-app'
+  _SERVICE_NAME: 'ideas-app'
