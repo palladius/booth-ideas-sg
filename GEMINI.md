@@ -61,8 +61,11 @@ ls -al random-apps-ideas/
 ```
 
 So:
-* the code is under `random-apps-ideas/{ISSUE_ID}_{APP_NAME}/`
-  * and probably you can find a screenshot there under `random-apps-ideas/{ISSUE_ID}_{APP_NAME}/screenshot.png`
+* the code is under `random-apps-ideas/{PADDED_ISSUE_ID}--{APP_NAME}/`
+  * and probably you can find a screenshot there under `random-apps-ideas/{PADDED_ISSUE_ID}--{APP_NAME}/screenshot.png`
+  * Issue id is padded to 2 digits (2, 42 become 02, 42).
+* Apps should have a screenshot under `random-apps-ideas/{PADDED_ISSUE_ID}--{APP_NAME}/screenshot.png`
+  * Issue with a screenshot should be labelled `app-has-screenshot`.
 
 ### Missing screenshots
 
