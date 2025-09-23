@@ -325,7 +325,7 @@ jobs:
                - **After successfully pushing your changes**, post a final comment with instructions on how to run the application. The comment should include the following commands:
                  ```bash
                  # Clone the repository
-                 git clone https://github.com/pauldatta/booth-ideas-sg
+                 git clone https://github.com/palladius/booth-ideas-sg
 
                  # Navigate into the repository directory
                  cd booth-ideas-sg
