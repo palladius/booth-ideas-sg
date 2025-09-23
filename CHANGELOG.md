@@ -1,5 +1,23 @@
 # Changelog
 
+## [1.0.19] - 2025-09-22
+
+### Added
+- ✨ Added instructions so `app-has-screenshot` label is added
+
+## [1.0.18] - 2025-09-22
+
+### Added
+- ✨ Changed prompts to include MCP playwright, and instructions to use it by default in an app.
+
+
+## [1.0.17] - 2025-09-16
+
+### Changed
+- ⬆️ Upgraded Next.js to v15.5.3 and React to v19.1.1 to support `useActionState`.
+- ✨ Refactored `ideas-app` to stream logs for a better user experience.
+- 💄 Removed the emoji field from the UI.
+
 ## [1.0.16] - 2025-09-05
 
 ### Fixed

@@ -1,0 +1,25 @@
+---
+import type { GetStaticPaths } from 'astro';
+
+export interface Props {
+  sha: string;
+  message: string;
+  author: string;
+  date: string;
+  avatarUrl: string;
+}
+
+const { sha, message, author, date, avatarUrl } = Astro.props;
+---
+
+<div class="p-4 bg-gray-800 rounded-lg">
+  <h2 class="text-xl font-bold mb-2">Commit Details</h2>
+  <p><span class="font-bold">SHA:</span> {sha}</p>
+  <p><span class="font-bold">Message:</span> {message}</p>
+  <div class="flex items-center">
+    <span class="font-bold mr-2">Author:</span>
+    <img src={avatarUrl} alt="author avatar" class="w-6 h-6 mr-2 rounded-full" />
+    <span>{author}</span>
+  </div>
+  <p><span class="font-bold">Date:</span> {date}</p>
+</div>

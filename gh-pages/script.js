@@ -4,9 +4,11 @@ document.addEventListener('DOMContentLoaded', () => {
     const ideaCountElement = document.getElementById('idea-count');
     const timelineEventsContainer = document.getElementById('timeline-events');
     const filterContainer = document.getElementById('filter-container');
+    const screenshotFilterContainer = document.getElementById('screenshot-filter-container');
     const eventSelectorContainer = document.getElementById('event-selector-container');
 
     let currentCategoryFilter = 'All';
+    let screenshotFilter = 'Only Screenshots'; // or 'All'
     let eventName = '';
     let eventEmojis = '';
     let ideasData = [];
@@ -64,7 +66,9 @@ document.addEventListener('DOMContentLoaded', () => {
         const filteredIdeas = ideasData.filter(idea => {
             const matchesCategory = currentCategoryFilter === 'All' || idea.category === currentCategoryFilter;
             const matchesSearch = idea.title.toLowerCase().includes(filterText);
-            return matchesCategory && matchesSearch;
+            const hasScreenshot = idea.screenshot !== null && idea.screenshot !== '';
+            const matchesScreenshot = screenshotFilter === 'All' || (screenshotFilter === 'Only Screenshots' && hasScreenshot);
+            return matchesCategory && matchesSearch && matchesScreenshot;
         });
 
         ideaCountElement.textContent = `Displaying ${filteredIdeas.length} of ${ideasData.length} ideas.`;
@@ -132,9 +136,9 @@ document.addEventListener('DOMContentLoaded', () => {
             card.appendChild(title);
             card.appendChild(categoryTag);
 
-            if (idea.appName) {
+            if (idea.screenshot) {
                 const img = document.createElement('img');
-                img.src = `images/random-app-ideas/screenshots/${idea.appName}.png`;
+                img.src = idea.screenshot;
                 img.alt = idea.title;
                 img.className = 'card-img';
                 card.appendChild(img);
@@ -151,6 +155,10 @@ document.addEventListener('DOMContentLoaded', () => {
             card.appendChild(links);
             galleryContainer.appendChild(card);
         });
+
+        // Update timelines with filtered ideas
+        renderTimeline(filteredIdeas);
+        renderMultiDayTimeline(filteredIdeas);
     }
 
     function renderFilters() {
@@ -172,11 +180,33 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    function renderTimeline() {
-        if (ideasData.length === 0) return;
+    function renderScreenshotFilter() {
+        screenshotFilterContainer.innerHTML = '';
+        const filters = ['Only Screenshots', 'All'];
+        filters.forEach(filter => {
+            const btn = document.createElement('button');
+            btn.className = 'filter-btn';
+            btn.textContent = filter;
+            if (filter === screenshotFilter) {
+                btn.classList.add('active');
+            }
+            btn.addEventListener('click', () => {
+                screenshotFilter = filter;
+                renderScreenshotFilter();
+                renderCards();
+            });
+            screenshotFilterContainer.appendChild(btn);
+        });
+    }
+
+    function renderTimeline(ideasToRender) {
+        if (ideasToRender.length === 0) {
+            timelineEventsContainer.innerHTML = ''; // Clear timeline if no ideas
+            return;
+        }
 
         // Dynamically set the day based on the first idea
-        const firstIdeaDate = new Date(ideasData[0].createdAt);
+        const firstIdeaDate = new Date(ideasToRender[0].createdAt);
         const timelineTitle = document.querySelector('.timeline-container h3');
         const eventDate = firstIdeaDate.toLocaleDateString('en-US', { month: 'long', day: 'numeric' });
         timelineTitle.textContent = `Timeline of Ideas (${eventDate})`;
@@ -190,7 +220,7 @@ document.addEventListener('DOMContentLoaded', () => {
         const totalDuration = dayEnd.getTime() - dayStart.getTime();
         timelineEventsContainer.innerHTML = ''; // Clear previous timeline events
 
-        ideasData.forEach(idea => {
+        ideasToRender.forEach(idea => {
             const ideaTime = new Date(idea.createdAt).getTime();
             const elapsedTime = ideaTime - dayStart;
             const positionPercent = (elapsedTime / totalDuration) * 100;
@@ -234,8 +264,12 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    function renderMultiDayTimeline() {
-        if (ideasData.length === 0) return;
+    function renderMultiDayTimeline(ideasToRender) {
+        if (ideasToRender.length === 0) {
+            document.getElementById('multi-day-timeline-events').innerHTML = '';
+            document.getElementById('multi-day-timeline-labels').innerHTML = '';
+            return;
+        };
 
         const timelineContainer = document.getElementById('multi-day-timeline-container');
         const eventsContainer = document.getElementById('multi-day-timeline-events');
@@ -243,7 +277,7 @@ document.addEventListener('DOMContentLoaded', () => {
         eventsContainer.innerHTML = '';
         labelsContainer.innerHTML = '';
 
-        const dates = ideasData.map(idea => new Date(idea.createdAt));
+        const dates = ideasToRender.map(idea => new Date(idea.createdAt));
         const minDate = new Date(Math.min.apply(null, dates));
         const maxDate = new Date(Math.max.apply(null, dates));
 
@@ -320,10 +354,11 @@ document.addEventListener('DOMContentLoaded', () => {
         await loadIdeasData();
 
         if (ideasData.length > 0) {
+            renderScreenshotFilter();
             renderFilters();
             renderCards();
-            renderTimeline();
-            renderMultiDayTimeline();
+            renderTimeline(ideasData);
+            renderMultiDayTimeline(ideasData);
         }
     }
 

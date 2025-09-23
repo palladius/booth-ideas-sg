@@ -38,7 +38,8 @@ jobs:
         contains(github.event.issue.body, '@gemini-cli') &&
         !contains(github.event.issue.body, '@gemini-cli /review') &&
         !contains(github.event.issue.body, '@gemini-cli /triage') &&
-        contains(fromJSON('["OWNER", "MEMBER", "COLLABORATOR"]'), github.event.issue.author_association)
+        contains(fromJSON('["OWNER", "MEMBER", "COLLABORATOR"]'), github.event.issue.author_association) ||
+        contains(fromJSON('["danistrebel", "cevenogithub", "pauldatta"]'), github.actor)
       ) ||
       (
         (
@@ -48,14 +49,20 @@ jobs:
         contains(github.event.comment.body, '@gemini-cli') &&
         !contains(github.event.comment.body, '@gemini-cli /review') &&
         !contains(github.event.comment.body, '@gemini-cli /triage') &&
-        contains(fromJSON('["OWNER", "MEMBER", "COLLABORATOR"]'), github.event.comment.author_association)
+        (
+          contains(fromJSON('["OWNER", "MEMBER", "COLLABORATOR"]'), github.event.comment.author_association) ||
+          contains(fromJSON('["danistrebel", "cevenogithub", "pauldatta"]'), github.actor)
+        )
       ) ||
       (
         github.event_name == 'pull_request_review' &&
         contains(github.event.review.body, '@gemini-cli') &&
         !contains(github.event.review.body, '@gemini-cli /review') &&
         !contains(github.event.review.body, '@gemini-cli /triage') &&
-        contains(fromJSON('["OWNER", "MEMBER", "COLLABORATOR"]'), github.event.review.author_association)
+        (
+          contains(fromJSON('["OWNER", "MEMBER", "COLLABORATOR"]'), github.event.review.author_association) ||
+          contains(fromJSON('["danistrebel", "cevenogithub", "pauldatta"]'), github.actor)
+        )
       )
     timeout-minutes: 10
     runs-on: 'ubuntu-latest'
@@ -166,7 +173,7 @@ jobs:
           REQUEST_TYPE: '${{ steps.get_context.outputs.request_type }}'
         run: |-
           set -euo pipefail
-          MESSAGE="@${GITHUB_ACTOR} I've received your request and I'm working on it now! 🤖"
+          MESSAGE="@${GITHUB_ACTOR} I've received your request and I'm working on it now!  💛"
           if [[ -n "${MESSAGE}" ]]; then
             gh issue comment "${ISSUE_NUMBER}" \
               --body "${MESSAGE}" \
@@ -234,6 +241,14 @@ jobs:
               "telemetry": {
                 "enabled": false,
                 "target": "gcp"
+              },
+              "mcpServers": {
+                "playwright-on-gha": {
+                  "command": "npx",
+                  "args": [
+                    "@playwright/mcp@latest"
+                  ]
+                }
               }
             }
           prompt: |-

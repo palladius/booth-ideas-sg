@@ -41,7 +41,10 @@ jobs:
       github.event_name == 'workflow_dispatch' ||
       (
         github.event_name == 'pull_request' &&
-        contains(fromJSON('["OWNER", "MEMBER", "COLLABORATOR"]'), github.event.pull_request.author_association)
+        (
+          contains(fromJSON('["OWNER", "MEMBER", "COLLABORATOR"]'), github.event.pull_request.author_association) ||
+          contains(fromJSON('["danistrebel", "cevenogithub", "pauldatta"]'), github.actor)
+        )
       ) ||
       (
         (
@@ -52,12 +55,18 @@ jobs:
           github.event_name == 'pull_request_review_comment'
         ) &&
         contains(github.event.comment.body, '@gemini-cli /review') &&
-        contains(fromJSON('["OWNER", "MEMBER", "COLLABORATOR"]'), github.event.comment.author_association)
+        (
+          contains(fromJSON('["OWNER", "MEMBER", "COLLABORATOR"]'), github.event.comment.author_association) ||
+          contains(fromJSON('["danistrebel", "cevenogithub", "pauldatta"]'), github.actor)
+        )
       ) ||
       (
         github.event_name == 'pull_request_review' &&
         contains(github.event.review.body, '@gemini-cli /review') &&
-        contains(fromJSON('["OWNER", "MEMBER", "COLLABORATOR"]'), github.event.review.author_association)
+        (
+          contains(fromJSON('["OWNER", "MEMBER", "COLLABORATOR"]'), github.event.review.author_association) ||
+          contains(fromJSON('["danistrebel", "cevenogithub", "pauldatta"]'), github.actor)
+        )
       )
     timeout-minutes: 5
     runs-on: 'ubuntu-latest'
