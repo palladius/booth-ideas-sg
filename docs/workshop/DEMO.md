@@ -16,7 +16,7 @@ places to see in it. Please add a nice image of italy as a half-transparent back
 
 ## Cycling in Mallorca
 An app to plan my bike trips around Mallorca, with ability to track elevation and distance, estimate the total effort.
-It should have a login and allow a strava login. Create a basic
+It should have a login and allow a strava login. Have an orange background look and feel, similar to strava, and bike emojis everywhere.
 ```
 
 ## Interactions with PR
