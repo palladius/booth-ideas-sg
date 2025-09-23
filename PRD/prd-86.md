@@ -72,4 +72,29 @@ Their motivations include a desire for creative expression, a need for simplicit
 
 *   **Description:** Enables users to save their completed artwork.
 *   **Functional Requirements:**
-    *   **One-Click Export:** A clearly labeled 
+    *   **One-Click Export:** A clearly labeled "Export to PNG" button shall be available. When clicked, it will trigger a download of the current canvas content as a PNG file.
+
+## 6. Out of Scope
+
+The following features are explicitly out of scope for the initial version of the Simple Digital Canvas App to maintain simplicity and focus on the core user experience:
+
+*   **Variable Brush Sizes:** Only a single, fixed brush size will be available.
+*   **Advanced Color Options:** No color picker, custom color creation, or gradients will be included.
+*   **Layers:** The application will not support layers. All drawing will be done on a single layer.
+*   **Image Imports:** Users will not be able to import images onto the canvas.
+*   **Text Tool:** There will be no functionality to add text.
+*   **Saving/Loading Projects:** The app will not save project files; only direct export to PNG is supported.
+*   **User Accounts:** No user registration or login functionality will be implemented.
+
+## 7. Success Metrics
+
+The success of the Simple Digital Canvas App will be measured by the following key performance indicators (KPIs):
+
+*   **User Engagement:**
+    *   **Monthly Active Users (MAU):** Target of 10,000 MAU within 6 months of launch.
+    *   **Session Duration:** Average session duration of at least 3 minutes.
+*   **Feature Adoption:**
+    *   **Export Rate:** At least 50% of active sessions result in a PNG export.
+    *   **Undo/Redo Usage:** Track the frequency of undo/redo button clicks to understand user reliance on these features.
+*   **User Satisfaction:**
+    *   **User Feedback:** Collect user feedback through a simple, non-intrusive survey or rating system. Target a 4 out of 5-star average rating.
