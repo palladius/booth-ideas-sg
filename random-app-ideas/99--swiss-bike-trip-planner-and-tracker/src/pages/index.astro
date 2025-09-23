@@ -1,0 +1,70 @@
+---
+---
+
+<html lang="en">
+	<head>
+		<meta charset="utf-8" />
+		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+		<meta name="viewport" content="width=device-width" />
+		<meta name="generator" content={Astro.generator} />
+		<title>BikeTrip Andermatt & Switzerland</title>
+		<style>
+			body {
+				font-family: sans-serif;
+				margin: 0;
+				padding: 0;
+				background-color: #f0f0f0;
+			}
+			header {
+				background-color: #333;
+				color: white;
+				padding: 1rem;
+				display: flex;
+				justify-content: space-between;
+				align-items: center;
+			}
+			main {
+				padding: 1rem;
+			}
+			.map-container {
+				width: 100%;
+				max-width: 800px;
+				margin: 0 auto;
+			}
+			.search-container {
+				margin-bottom: 1rem;
+				display: flex;
+			}
+			.search-container input {
+				width: 100%;
+				padding: 0.5rem;
+				font-size: 1rem;
+			}
+			.auth-container {
+				font-size: 0.9rem;
+			}
+			.auth-container a {
+				color: white;
+				text-decoration: none;
+				margin-left: 1rem;
+			}
+		</style>
+	</head>
+	<body>
+		<header>
+			<h1>BikeTrip Andermatt & Switzerland</h1>
+			<div class="auth-container">
+				<a href="#">Login</a>
+				<a href="#">Sign Up</a>
+			</div>
+		</header>
+		<main>
+			<div class="map-container">
+				<div class="search-container">
+					<input type="text" placeholder="Search for a route..." />
+				</div>
+				<img src="/images/map.png" alt="Map of Switzerland" />
+			</div>
+		</main>
+	</body>
+</html>
