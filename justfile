@@ -54,15 +54,7 @@ gcloud-build:
 
 [group('2-firebaseapp')]
 gcloud-deploy:
-    #!/bin/bash
-    set -euo pipefail
-    gcloud --project=rick-and-nardy-demo run deploy ideas-app-original \
-        --image=gcr.io/rick-and-nardy-demo/ideas-app:latest \
-        --region=europe-west10 \
-        --platform=managed \
-        --allow-unauthenticated \
-        --memory=512Mi \
-        --set-env-vars-file=.env # .yaml
+    echo 'This should just be in the gcloud build code.'
 
 
 # Runs the ideas-app locally on port 9002

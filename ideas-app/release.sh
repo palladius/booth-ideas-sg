@@ -11,7 +11,7 @@ if [ -f ".env" ]; then
 fi
 
 # The repository you want to push the code to.
-DEST_REPO_URL="https://github.com/pauldatta/booth-ideas-sg.git"
+DEST_REPO_URL="https://github.com/palladius/booth-ideas-sg.git"
 # A temporary directory to clone the destination repo into.
 CLONE_DIR="/tmp/vibe-game-demo-clone"
 # The subfolder within the destination repo to place the source code.
@@ -27,7 +27,7 @@ if [ -z "$GITHUB_PAT" ]; then
 fi
 
 # Construct the authenticated URL
-AUTH_DEST_REPO_URL="https://pauldatta:$GITHUB_PAT@github.com/pauldatta/booth-ideas-sg.git"
+AUTH_DEST_REPO_URL="https://palladius:$GITHUB_PAT@github.com/palladius/booth-ideas-sg.git"
 
 # --- Script Logic ---
 
@@ -70,8 +70,8 @@ if [ -n "$(git status --porcelain)" ]; then
 
   # Set local git config to ensure the correct author is used for the commit.
   echo "Setting local git user for the commit..."
-  git config --local user.name "Nigel Cheong"
-  git config --local user.email "nigelcheong@google.com"
+  git config --local user.name "Riccardo Carlesso"
+  git config --local user.email "ricc+thx2nigelcheong@google.com"
 
   git add "$TARGET_SUBFOLDER"
   git commit -m "$COMMIT_MESSAGE"

@@ -17,7 +17,19 @@ places to see in it. Please add a nice image of italy as a half-transparent back
 ## Cycling in Mallorca
 An app to plan my bike trips around Mallorca, with ability to track elevation and distance, estimate the total effort.
 It should have a login and allow a strava login. Have an orange background look and feel, similar to strava, and bike emojis everywhere.
+
+## Emoji finder
+
+An app which allows you to start writing a work like "I" "IT" "ITA.." and converge to all emojis which have that work (eg "Italy").
+It should have all emojis with a button "copy" which adds that emoji with cut and paste, similar to what emojipedia does.
+It should also have a bookmark button and a button on top with "show bookmarks" which only selected bookmarked emojis.
 ```
+
+
+
+
+
+
 
 ## Interactions with PR
 
