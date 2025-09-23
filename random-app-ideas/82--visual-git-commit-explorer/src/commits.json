@@ -1,0 +1,30 @@
+[
+  {
+    "sha": "f7d6d6a",
+    "message": "feat: add initial commit history visualization",
+    "author": "Riccardo",
+    "date": "2025-09-22T10:00:00Z",
+    "parents": ["a1b2c3d"]
+  },
+  {
+    "sha": "a1b2c3d",
+    "message": "feat: add commit detail panel",
+    "author": "Riccardo",
+    "date": "2025-09-22T09:30:00Z",
+    "parents": ["e4f5g6h"]
+  },
+  {
+    "sha": "e4f5g6h",
+    "message": "feat: add mock data for commit history",
+    "author": "Riccardo",
+    "date": "2025-09-22T09:00:00Z",
+    "parents": ["i7j8k9l"]
+  },
+  {
+    "sha": "i7j8k9l",
+    "message": "feat: scaffold Astro application",
+    "author": "Riccardo",
+    "date": "2025-09-22T08:30:00Z",
+    "parents": []
+  }
+]
