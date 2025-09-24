@@ -1,0 +1,216 @@
+---
+// src/components/Game.astro
+---
+<div id="game-board"></div>
+<div id="score-container">
+  Score: <span id="current-score">0</span>
+  <br>
+  High Score: <span id="high-score">0</span>
+</div>
+<button id="restart-button">Restart</button>
+<div id="game-over-message" style="display: none;">Game Over!</div>
+
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    const gameBoard = document.getElementById('game-board');
+    const currentScoreEl = document.getElementById('current-score');
+    const highScoreEl = document.getElementById('high-score');
+    const restartButton = document.getElementById('restart-button');
+    const gameOverMessage = document.getElementById('game-over-message');
+
+    const gridSize = 4;
+    let grid = [];
+    let score = 0;
+    let highScore = localStorage.getItem('highScore') || 0;
+
+    function initializeGame() {
+      grid = Array(gridSize).fill(null).map(() => Array(gridSize).fill(0));
+      score = 0;
+      gameOverMessage.style.display = 'none';
+      updateScore(0);
+      updateHighScore();
+      addRandomTile();
+      addRandomTile();
+      drawBoard();
+    }
+
+    function drawBoard() {
+      gameBoard.innerHTML = '';
+      for (let i = 0; i < gridSize; i++) {
+        for (let j = 0; j < gridSize; j++) {
+          const tile = document.createElement('div');
+          tile.className = 'tile';
+          tile.textContent = grid[i][j] === 0 ? '' : grid[i][j];
+          tile.style.backgroundColor = getTileColor(grid[i][j]);
+          gameBoard.appendChild(tile);
+        }
+      }
+    }
+
+    function addRandomTile() {
+      let emptyTiles = [];
+      for (let i = 0; i < gridSize; i++) {
+        for (let j = 0; j < gridSize; j++) {
+          if (grid[i][j] === 0) {
+            emptyTiles.push({ x: i, y: j });
+          }
+        }
+      }
+      if (emptyTiles.length > 0) {
+        const { x, y } = emptyTiles[Math.floor(Math.random() * emptyTiles.length)];
+        grid[x][y] = Math.random() < 0.9 ? 1 : 2;
+      }
+    }
+
+    function move(direction) {
+      let moved = false;
+      let scoreToAdd = 0;
+
+      function slide(row) {
+        let arr = row.filter(val => val);
+        let missing = gridSize - arr.length;
+        let zeros = Array(missing).fill(0);
+        arr = arr.concat(zeros);
+        return arr;
+      }
+
+      function combine(row) {
+        for (let i = 0; i < gridSize - 1; i++) {
+          if (arr[i] !== 0 && ((arr[i] === 1 && arr[i+1] === 2) || (arr[i] === 2 && arr[i+1] === 1) || (arr[i] > 2 && arr[i] === arr[i+1]))) {
+            if (arr[i] === 1 || arr[i] === 2) {
+              arr[i] = 3;
+              scoreToAdd += 3;
+            } else {
+              arr[i] *= 2;
+              scoreToAdd += arr[i];
+            }
+            arr[i+1] = 0;
+            moved = true;
+          }
+        }
+        return row;
+      }
+
+      if (direction === 'left' || direction === 'right') {
+        for (let i = 0; i < gridSize; i++) {
+          const row = grid[i];
+          const originalRow = [...row];
+          const newRow = slide(combine(slide(row)));
+          grid[i] = newRow;
+          if (JSON.stringify(originalRow) !== JSON.stringify(newRow)) {
+            moved = true;
+          }
+        }
+      } else if (direction === 'up' || direction === 'down') {
+        for (let j = 0; j < gridSize; j++) {
+          let col = [];
+          for (let i = 0; i < gridSize; i++) {
+            col.push(grid[i][j]);
+          }
+          const originalCol = [...col];
+          const newCol = slide(combine(slide(col)));
+          for (let i = 0; i < gridSize; i++) {
+            grid[i][j] = newCol[i];
+          }
+          if (JSON.stringify(originalCol) !== JSON.stringify(newCol)) {
+            moved = true;
+          }
+        }
+      }
+
+      if (moved) {
+        updateScore(score + scoreToAdd);
+        addRandomTile();
+        drawBoard();
+        if (isGameOver()) {
+          gameOverMessage.style.display = 'block';
+        }
+      }
+    }
+
+    function isGameOver() {
+      for (let i = 0; i < gridSize; i++) {
+        for (let j = 0; j < gridSize; j++) {
+          if (grid[i][j] === 0) {
+            return false;
+          }
+          if (j < gridSize - 1 && ((grid[i][j] === 1 && grid[i][j+1] === 2) || (grid[i][j] === 2 && grid[i][j+1] === 1) || (grid[i][j] > 2 && grid[i][j] === grid[i][j+1]))) {
+            return false;
+          }
+          if (i < gridSize - 1 && ((grid[i][j] === 1 && grid[i+1][j] === 2) || (grid[i][j] === 2 && grid[i+1][j] === 1) || (grid[i][j] > 2 && grid[i][j] === grid[i+1][j]))) {
+            return false;
+          }
+        }
+      }
+      return true;
+    }
+
+    function updateScore(newScore) {
+      score = newScore;
+      currentScoreEl.textContent = score;
+      if (score > highScore) {
+        highScore = score;
+        localStorage.setItem('highScore', highScore);
+        updateHighScore();
+      }
+    }
+
+    function updateHighScore() {
+      highScoreEl.textContent = highScore;
+    }
+
+    function getTileColor(value) {
+      switch (value) {
+        case 1: return '#eee4da';
+        case 2: return '#ede0c8';
+        case 3: return '#f2b179';
+        case 6: return '#f59563';
+        case 12: return '#f67c5f';
+        case 24: return '#f65e3b';
+        case 48: return '#edcf72';
+        case 96: return '#edcc61';
+        case 192: return '#edc850';
+        case 384: return '#edc53f';
+        case 768: return '#edc22e';
+        case 1536: return '#3c3a32';
+        default: return '#cdc1b4';
+      }
+    }
+
+    window.addEventListener('keydown', (e) => {
+      switch (e.key) {
+        case 'ArrowUp': move('up'); break;
+        case 'ArrowDown': move('down'); break;
+        case 'ArrowLeft': move('left'); break;
+        case 'ArrowRight': move('right'); break;
+      }
+    });
+
+    restartButton.addEventListener('click', initializeGame);
+
+    initializeGame();
+  });
+</script>
+
+<style>
+  #game-board {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-gap: 10px;
+    width: 400px;
+    height: 400px;
+    border: 2px solid #333;
+    padding: 10px;
+    background-color: #bbada0;
+  }
+
+  .tile {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 2em;
+    font-weight: bold;
+    border-radius: 5px;
+    color: #776e65;
+  }
+</style>
