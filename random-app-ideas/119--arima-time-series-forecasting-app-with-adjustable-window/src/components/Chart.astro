@@ -1,0 +1,29 @@
+<canvas id="chart"></canvas>
+
+<script>
+  import Chart from 'chart.js/auto';
+  import { generateData } from '../data';
+
+  const data = generateData();
+
+  const chart = new Chart(
+    document.getElementById('chart') as HTMLCanvasElement,
+    {
+      type: 'line',
+      data: {
+        labels: data.map(row => row.date),
+        datasets: [
+          {
+            label: 'Actual',
+            data: data.map(row => row.value),
+          },
+          {
+            label: 'Forecast',
+            data: data.map(row => row.forecast),
+            borderColor: 'red',
+          },
+        ],
+      },
+    }
+  );
+</script>
