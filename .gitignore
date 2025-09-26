@@ -20,11 +20,5 @@ log/
 
 .gemini/
 gha-creds-*.json
-<<<<<<< HEAD
 node_modules/
-.env
 .git-privatize
-node_modules/
-issues.json
-ideas-app-original/
-ideas-app-rusko/
