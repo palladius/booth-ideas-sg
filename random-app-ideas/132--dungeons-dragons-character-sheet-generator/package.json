@@ -1,0 +1,18 @@
+{
+  "name": "132--dungeons-dragons-character-sheet-generator",
+  "type": "module",
+  "version": "0.0.1",
+  "scripts": {
+    "dev": "astro dev",
+    "build": "astro build",
+    "preview": "astro preview",
+    "astro": "astro",
+    "test": "playwright test"
+  },
+  "dependencies": {
+    "astro": "^5.14.1"
+  },
+  "devDependencies": {
+    "@playwright/test": "^1.55.1"
+  }
+}
