@@ -1,0 +1,58 @@
+---
+import MainLayout from '../layouts/MainLayout.astro';
+---
+
+<MainLayout>
+  <div class="dashboard">
+    <div class="card">
+      <h2>Properties</h2>
+      <p>Manage your rental properties.</p>
+      <ul>
+        <li>Property A</li>
+        <li>Property B</li>
+        <li>Property C</li>
+      </ul>
+    </div>
+    <div class="card">
+      <h2>Upcoming Bookings</h2>
+      <p>View and manage upcoming guest stays.</p>
+      <ul>
+        <li>John Doe - Property A (Nov 10-15)</li>
+        <li>Jane Smith - Property B (Nov 12-18)</li>
+      </ul>
+    </div>
+    <div class="card">
+      <h2>Smart Locks</h2>
+      <p>Monitor the status of your smart locks.</p>
+      <ul>
+        <li>Property A Lock: Locked, 80% Battery</li>
+        <li>Property B Lock: Unlocked, 65% Battery</li>
+      </ul>
+    </div>
+    <div class="card">
+      <h2>Activity Log</h2>
+      <p>See the latest activity.</p>
+      <ul>
+        <li>John Doe checked in at Property A.</li>
+        <li>Access code generated for Jane Smith.</li>
+      </ul>
+    </div>
+  </div>
+</MainLayout>
+
+<style>
+  .dashboard {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 1rem;
+  }
+  .card {
+    background: white;
+    padding: 1.5rem;
+    border-radius: 0.5rem;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+  }
+  .card h2 {
+    margin-top: 0;
+  }
+</style>

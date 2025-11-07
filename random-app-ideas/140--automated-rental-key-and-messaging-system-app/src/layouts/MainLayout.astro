@@ -1,0 +1,48 @@
+---
+---
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width" />
+    <title>SmartStay Access Manager</title>
+    <style>
+      :root {
+        --accent: 136, 58, 234;
+        --accent-light: 224, 204, 250;
+        --accent-dark: 49, 10, 101;
+        --accent-gradient: linear-gradient(45deg, rgb(var(--accent)), rgb(var(--accent-light)) 30%, white 60%);
+      }
+      html {
+        font-family: system-ui, sans-serif;
+        background: #F6F6F6;
+      }
+      body {
+        margin: 0;
+      }
+      header {
+        background: var(--accent-gradient);
+        padding: 1rem;
+        color: white;
+      }
+      main {
+        padding: 1rem;
+      }
+      footer {
+        text-align: center;
+        padding: 1rem;
+        background: #EEE;
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <h1>SmartStay Access Manager</h1>
+    </header>
+    <main>
+      <slot />
+    </main>
+    <footer>
+      <p>&copy; 2025 SmartStay</p>
+    </footer>
+  </body>
+</html>
