@@ -1,0 +1,52 @@
+---
+---
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>git-slider</title>
+  <style>
+    body {
+      font-family: sans-serif;
+      background-color: #f4f4f4;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+    }
+    .container {
+      text-align: center;
+      background: white;
+      padding: 2rem;
+      border-radius: 5px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
+    input[type="file"] {
+      margin-bottom: 1rem;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>git-slider</h1>
+    <p>Convert your slide decks into interactive GitHub Flavored Markdown presentations.</p>
+    <form id="upload-form">
+      <input type="file" id="presentation-file" name="presentation-file" accept=".ppt, .pptx, .pdf">
+      <button type="submit">Convert</button>
+    </form>
+  </div>
+  <script>
+    const form = document.getElementById('upload-form');
+    form.addEventListener('submit', (event) => {
+      event.preventDefault();
+      const fileInput = document.getElementById('presentation-file');
+      const file = fileInput.files[0];
+      if (file) {
+        console.log('File name:', file.name);
+        // TODO: Implement the conversion logic here
+      }
+    });
+  </script>
+</body>
+</html>

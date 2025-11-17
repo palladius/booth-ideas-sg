@@ -1,0 +1,19 @@
+{
+  "name": "random-app-ideas-slide-deck-to-github-slideshow-publisher-app",
+  "type": "module",
+  "version": "0.0.1",
+"scripts": {
+    "dev": "astro dev",
+    "start": "astro dev",
+    "build": "astro build",
+    "preview": "astro preview",
+    "astro": "astro",
+    "test": "playwright test"
+  },
+  "dependencies": {
+    "astro": "^5.15.8"
+  },
+  "devDependencies": {
+    "@playwright/test": "^1.56.1"
+  }
+}
