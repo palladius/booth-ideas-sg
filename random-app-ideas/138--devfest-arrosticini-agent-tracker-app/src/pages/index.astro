@@ -1,0 +1,91 @@
+---
+import '../styles/global.css';
+---
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="viewport" content="width=device-width" />
+    <meta name="generator" content={Astro.generator} >
+    <title>Agents of Arrosticini</title>
+  </head>
+  <body class="bg-gray-900 text-white font-sans">
+    <div class="container mx-auto p-8">
+      <header class="text-center mb-12">
+        <h1 class="text-5xl font-bold text-purple-400">Agents of Arrosticini</h1>
+        <p class="text-xl text-gray-400 mt-2">DevFest Event Manager</p>
+      </header>
+
+      <main class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <!-- Login Section -->
+        <section id="login" class="bg-gray-800 p-6 rounded-lg shadow-lg">
+          <h2 class="text-3xl font-semibold mb-4 text-teal-300">Agent Login</h2>
+          <form>
+            <div class="mb-4">
+              <label for="email" class="block text-gray-300 mb-2">Email</label>
+              <input type="email" id="email" name="email" class="w-full bg-gray-700 border border-gray-600 rounded-md py-2 px-3 focus:outline-none focus:border-teal-400" placeholder="agent@devfest.org">
+            </div>
+            <div class="mb-4">
+              <label for="password" class="block text-gray-300 mb-2">Password</label>
+              <input type="password" id="password" name="password" class="w-full bg-gray-700 border border-gray-600 rounded-md py-2 px-3 focus:outline-none focus:border-teal-400" placeholder="********">
+            </div>
+            <button type="submit" class="w-full bg-teal-500 hover:bg-teal-600 text-white font-bold py-2 px-4 rounded-md transition duration-300">
+              Authenticate
+            </button>
+          </form>
+        </section>
+
+        <!-- Attendee Dashboard Section -->
+        <section id="attendee-dashboard" class="bg-gray-800 p-6 rounded-lg shadow-lg">
+          <h2 class="text-3xl font-semibold mb-4 text-lime-300">Attendee Dashboard</h2>
+          <div class="text-center">
+            <p class="text-lg"><span class="font-bold text-gray-400">Agent Name:</span> John Doe</p>
+            <p class="text-lg"><span class="font-bold text-gray-400">Email:</span> john.doe@devfest.org</p>
+            <div class="mt-6">
+              <p class="text-2xl font-bold text-lime-400">Arrosticini Budget</p>
+              <p class="text-6xl font-bold text-white">7<span class="text-2xl text-gray-400">/10</span></p>
+            </div>
+          </div>
+        </section>
+
+        <!-- Organizer Dashboard Section -->
+        <section id="organizer-dashboard" class="bg-gray-800 p-6 rounded-lg shadow-lg md:col-span-2 lg:col-span-1">
+          <h2 class="text-3xl font-semibold mb-4 text-pink-400">Organizer Dashboard</h2>
+          <div class="grid grid-cols-2 gap-4 text-center">
+            <div>
+              <p class="text-xl font-bold text-pink-300">Total Attendees</p>
+              <p class="text-4xl font-bold">123</p>
+            </div>
+            <div>
+              <p class="text-xl font-bold text-pink-300">Arrosticini Consumed</p>
+              <p class="text-4xl font-bold">456</p>
+            </div>
+          </div>
+          <div class="mt-6">
+            <h3 class="text-2xl font-semibold mb-2 text-pink-300">Attendee Consumption</h3>
+            <ul class="space-y-2">
+              <li class="flex justify-between items-center bg-gray-700 p-2 rounded-md">
+                <span>Jane Doe</span>
+                <span class="font-bold text-pink-400">10/10</span>
+              </li>
+              <li class="flex justify-between items-center bg-gray-700 p-2 rounded-md">
+                <span>Peter Jones</span>
+                <span class="font-bold text-pink-400">5/10</span>
+              </li>
+              <li class="flex justify-between items-center bg-gray-700 p-2 rounded-md">
+                <span>Mary Smith</span>
+                <span class="font-bold text-pink-400">8/10</span>
+              </li>
+            </ul>
+          </div>
+        </section>
+      </main>
+    </div>
+  </body>
+</html>
+<style>
+  body {
+    font-family: 'Orbitron', sans-serif;
+  }
+  @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&display=swap');
+</style>
