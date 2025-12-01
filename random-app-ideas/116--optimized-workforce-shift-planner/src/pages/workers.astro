@@ -1,0 +1,38 @@
+---
+import Layout from '../layouts/Layout.astro';
+
+const workers = [
+  { id: 1, name: 'John Doe', email: 'john.doe@example.com', role: 'Developer' },
+  { id: 2, name: 'Jane Smith', email: 'jane.smith@example.com', role: 'Designer' },
+  { id: 3, name: 'Peter Jones', email: 'peter.jones@example.com', role: 'Manager' },
+];
+---
+
+<Layout title="Worker Profile Management">
+  <main class="container mx-auto p-4">
+    <h1 class="text-2xl font-bold mb-4">Worker Profiles</h1>
+
+    <div class="mb-8">
+      <h2 class="text-xl font-semibold mb-2">Add New Worker</h2>
+      <form class="flex flex-col gap-4 max-w-md">
+        <input type="text" placeholder="Full Name" class="border p-2 rounded" />
+        <input type="email" placeholder="Email" class="border p-2 rounded" />
+        <input type="text" placeholder="Job Role" class="border p-2 rounded" />
+        <button type="submit" class="bg-blue-500 text-white p-2 rounded">Add Worker</button>
+      </form>
+    </div>
+
+    <div>
+      <h2 class="text-xl font-semibold mb-2">Existing Workers</h2>
+      <ul class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+        {workers.map(worker => (
+          <li class="border p-4 rounded">
+            <h3 class="font-bold">{worker.name}</h3>
+            <p>{worker.email}</p>
+            <p>{worker.role}</p>
+          </li>
+        ))}
+      </ul>
+    </div>
+  </main>
+</Layout>
