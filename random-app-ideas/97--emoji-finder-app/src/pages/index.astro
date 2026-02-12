@@ -1,0 +1,184 @@
+---
+const emojis = [
+  { emoji: '😀', name: 'grinning face' },
+  { emoji: '😂', name: 'face with tears of joy' },
+  { emoji: '😍', name: 'smiling face with heart-eyes' },
+  { emoji: '🤔', name: 'thinking face' },
+  { emoji: '👍', name: 'thumbs up' },
+  { emoji: '👎', name: 'thumbs down' },
+  { emoji: '🙌', name: 'raising hands' },
+  { emoji: '🔥', name: 'fire' },
+  { emoji: '❤️', name: 'red heart' },
+  { emoji: '🚀', name: 'rocket' },
+];
+---
+
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+  <meta name="viewport" content="width=device-width" />
+  <meta name="generator" content={Astro.generator} />
+  <title>Emoji Finder</title>
+  <style>
+    body {
+      font-family: sans-serif;
+      padding: 2em;
+    }
+    h1 {
+      text-align: center;
+    }
+    .search-container {
+      display: flex;
+      justify-content: center;
+      margin-bottom: 2em;
+    }
+    #search {
+      width: 50%;
+      padding: 0.5em;
+      font-size: 1em;
+    }
+    .emoji-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
+      gap: 1em;
+    }
+    .emoji-item {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 1em;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+    }
+    .emoji {
+      font-size: 2em;
+      margin-bottom: 0.5em;
+    }
+    .button-group {
+      display: flex;
+      gap: 0.5em;
+    }
+    button {
+      padding: 0.5em 1em;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+    .bookmarks-container {
+      text-align: center;
+      margin-bottom: 2em;
+    }
+  </style>
+</head>
+<body>
+  <h1>Emoji Finder</h1>
+  <div class="bookmarks-container">
+    <button id="show-bookmarks">Show Bookmarks</button>
+  </div>
+  <div class="search-container">
+    <input type="text" id="search" placeholder="Search for an emoji..." />
+  </div>
+  <div class="emoji-grid">
+    {emojis.map(emoji => (
+      <div class="emoji-item" data-name={emoji.name}>
+        <div class="emoji">{emoji.emoji}</div>
+        <div class="button-group">
+          <button class="copy">Copy</button>
+          <button class="bookmark">Bookmark</button>
+        </div>
+      </div>
+    ))}
+  </div>
+
+  <script>
+    const searchInput = document.getElementById('search');
+    const emojiItems = document.querySelectorAll('.emoji-item');
+    const showBookmarksButton = document.getElementById('show-bookmarks');
+
+    let bookmarks = JSON.parse(localStorage.getItem('bookmarks')) || [];
+    let showingBookmarks = false;
+
+    function filterEmojis() {
+      const searchTerm = searchInput.value.toLowerCase();
+      emojiItems.forEach(item => {
+        const name = item.dataset.name.toLowerCase();
+        if (name.includes(searchTerm)) {
+          item.style.display = 'flex';
+        } else {
+          item.style.display = 'none';
+        }
+      });
+    }
+
+    function copyEmoji(e) {
+      const emoji = e.target.closest('.emoji-item').querySelector('.emoji').textContent;
+      navigator.clipboard.writeText(emoji);
+      e.target.textContent = 'Copied!';
+      setTimeout(() => {
+        e.target.textContent = 'Copy';
+      }, 1000);
+    }
+
+    function toggleBookmark(e) {
+      const emoji = e.target.closest('.emoji-item').querySelector('.emoji').textContent;
+      const emojiName = e.target.closest('.emoji-item').dataset.name;
+      const index = bookmarks.findIndex(b => b.emoji === emoji);
+      if (index > -1) {
+        bookmarks.splice(index, 1);
+        e.target.textContent = 'Bookmark';
+      } else {
+        bookmarks.push({ emoji, name: emojiName });
+        e.target.textContent = 'Bookmarked';
+      }
+      localStorage.setItem('bookmarks', JSON.stringify(bookmarks));
+    }
+
+    function showAllEmojis() {
+      emojiItems.forEach(item => {
+        item.style.display = 'flex';
+      });
+    }
+
+    function showBookmarkedEmojis() {
+      const bookmarkedEmojis = bookmarks.map(b => b.emoji);
+      emojiItems.forEach(item => {
+        const emoji = item.querySelector('.emoji').textContent;
+        if (bookmarkedEmojis.includes(emoji)) {
+          item.style.display = 'flex';
+        } else {
+          item.style.display = 'none';
+        }
+      });
+    }
+
+    function toggleBookmarksView() {
+      showingBookmarks = !showingBookmarks;
+      if (showingBookmarks) {
+        showBookmarkedEmojis();
+        showBookmarksButton.textContent = 'Show All';
+      } else {
+        showAllEmojis();
+        showBookmarksButton.textContent = 'Show Bookmarks';
+      }
+    }
+
+    searchInput.addEventListener('input', filterEmojis);
+    document.querySelectorAll('.copy').forEach(button => {
+      button.addEventListener('click', copyEmoji);
+    });
+    document.querySelectorAll('.bookmark').forEach(button => {
+      button.addEventListener('click', toggleBookmark);
+    });
+    showBookmarksButton.addEventListener('click', toggleBookmarksView);
+
+    // Set initial bookmark button text
+    document.querySelectorAll('.bookmark').forEach(button => {
+      const emoji = button.closest('.emoji-item').querySelector('.emoji').textContent;
+      if (bookmarks.some(b => b.emoji === emoji)) {
+        button.textContent = 'Bookmarked';
+      }
+    });
+  </script>
+</body>
+</html>
