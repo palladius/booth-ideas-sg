@@ -1,0 +1,18 @@
+{
+  "name": "109--smart-urban-restroom-navigator-app",
+  "type": "module",
+  "version": "0.0.1",
+  "scripts": {
+    "dev": "astro dev",
+    "build": "astro build",
+    "preview": "astro preview",
+    "astro": "astro"
+  },
+  "dependencies": {
+    "astro": "^5.13.10"
+  },
+  "devDependencies": {
+    "@playwright/test": "^1.55.1",
+    "playwright": "^1.55.1"
+  }
+}
