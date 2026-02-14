@@ -1,0 +1,108 @@
+---
+import Layout from '../layouts/Layout.astro';
+
+const sentEmails = [
+  {
+    event: "Project Alpha Kick-off",
+    date: "2025-09-23",
+    recipients: "team@example.com",
+    status: "Sent",
+  },
+  {
+    event: "Q3 Financial Review",
+    date: "2025-09-22",
+    recipients: "board@example.com",
+    status: "Sent",
+  },
+  {
+    event: "Marketing Sync",
+    date: "2025-09-22",
+    recipients: "marketing@example.com",
+    status: "Failed",
+  },
+  {
+    event: "Design Sprint Planning",
+    date: "2025-09-21",
+    recipients: "design@example.com",
+    status: "Sent",
+  },
+];
+---
+
+<Layout>
+  <div class="bg-gray-100 min-h-screen">
+    <header class="bg-white shadow">
+      <div class="max-w-7xl mx-auto py-6 px-4 sm:px-6 lg:px-8">
+        <h1 class="text-3xl font-bold text-gray-900">
+          Event DocDigest
+        </h1>
+      </div>
+    </header>
+    <main>
+      <div class="max-w-7xl mx-auto py-6 sm:px-6 lg:px-8">
+        <div class="px-4 py-6 sm:px-0">
+          <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+            <div class="md:col-span-1">
+              <div class="bg-white shadow rounded-lg p-6">
+                <h2 class="text-xl font-bold mb-4">Scheduling Options</h2>
+                <div class="space-y-4">
+                  <div>
+                    <label for="event-url" class="block text-sm font-medium text-gray-700">Event URL</label>
+                    <input type="text" name="event-url" id="event-url" class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm" placeholder="Paste Google Calendar event URL">
+                    <button class="mt-2 w-full bg-indigo-600 text-white py-2 px-4 rounded-md hover:bg-indigo-700">Send One-off Summary</button>
+                  </div>
+                  <div>
+                    <h3 class="text-lg font-medium">Automated Digests</h3>
+                    <div class="mt-2 space-y-2">
+                      <button class="w-full bg-blue-500 text-white py-2 px-4 rounded-md hover:bg-blue-600">Setup Daily Digest</button>
+                      <button class="w-full bg-green-500 text-white py-2 px-4 rounded-md hover:bg-green-600">Setup Weekly Digest</button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="md:col-span-2">
+              <div class="bg-white shadow rounded-lg">
+                <div class="px-4 py-5 sm:px-6">
+                  <h2 class="text-xl font-bold">Sent Email Logs</h2>
+                </div>
+                <div class="border-t border-gray-200">
+                  <table class="min-w-full divide-y divide-gray-200">
+                    <thead class="bg-gray-50">
+                      <tr>
+                        <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Event</th>
+                        <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Date</th>
+                        <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Recipients</th>
+                        <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Status</th>
+                        <th scope="col" class="relative px-6 py-3">
+                          <span class="sr-only">Resend</span>
+                        </th>
+                      </tr>
+                    </thead>
+                    <tbody class="bg-white divide-y divide-gray-200">
+                      {sentEmails.map(email => (
+                        <tr>
+                          <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">{email.event}</td>
+                          <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">{email.date}</td>
+                          <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">{email.recipients}</td>
+                          <td class="px-6 py-4 whitespace-nowrap text-sm">
+                            <span class={`px-2 inline-flex text-xs leading-5 font-semibold rounded-full ${email.status === 'Sent' ? 'bg-green-100 text-green-800' : 'bg-red-100 text-red-800'}`}>
+                              {email.status}
+                            </span>
+                          </td>
+                          <td class="px-6 py-4 whitespace-nowrap text-right text-sm font-medium">
+                            <a href="#" class="text-indigo-600 hover:text-indigo-900">Resend</a>
+                          </td>
+                        </tr>
+                      ))}
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
+  </div>
+</Layout>
